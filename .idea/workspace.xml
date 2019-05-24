@@ -1,7 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="RecognitionFX" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="19d0cf96-d17e-4993-8065-4ff7bd01c61e" name="Default Changelist" comment="" />
+    <list default="true" id="19d0cf96-d17e-4993-8065-4ff7bd01c61e" name="Default Changelist" comment="added Log + Recently Opened">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/RecognitionFX.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/logging/Level.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/logging/Log.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/logging/LogRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/logging/LogView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/logging/Logger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/util/PropertiesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/util/RubberBandSelection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log-view.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tessdata/configs/api_config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tessdata/configs/digits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tessdata/configs/hocr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tessdata/eng.traineddata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tessdata/osd.traineddata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tessdata/pdf.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tessdata/pdf.ttx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RecognitionFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/RecognitionFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/RectangleSelection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/window.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller$RubberBandSelection$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller$RubberBandSelection$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller$RubberBandSelection$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller$RubberBandSelection$DragContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller$RubberBandSelection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RecognitionFX.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/ZoomableScrollPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/ZoomableScrollPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/window.fxml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -11,50 +55,109 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/main/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="520">
+              <caret line="198" column="62" selection-start-line="198" selection-start-column="62" selection-end-line="198" selection-end-column="62" />
+              <folding>
+                <element signature="e#1661#1668#0" />
+                <element signature="e#2053#2146#0" />
+                <element signature="e#2284#2333#0" />
+                <element signature="e#2612#2619#0" />
+                <element signature="e#3333#3606#0" />
+                <element signature="e#3391#3496#1" />
+                <element signature="e#3545#3596#1" />
+                <element signature="method#initLog#0;class#Controller#0" />
+                <element signature="n#!!block;n#setScrollPanePannable#0;n#Controller#0" />
+                <element signature="docComment;method#analyze#0;class#Controller#0" />
+                <element signature="docComment;method#onFileOpen#0;class#Controller#0" />
+                <element signature="method#onFileOpen#0;class#Controller#0" />
+                <element signature="e#5223#5726#0" />
+                <element signature="e#5842#5849#0" />
+                <element signature="method#loadRecentlyOpenedFiles#0;class#Controller#0" />
+                <element signature="e#6555#6890#0" />
+                <element signature="e#6654#6819#0" />
+                <element signature="e#6701#6801#1" />
+                <element signature="e#5840#5875#1" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/RecognitionFX.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/util/RubberBandSelection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
+            <state relative-caret-position="85">
+              <caret line="73" selection-start-line="73" selection-end-line="73" />
               <folding>
-                <element signature="e#600#601#0" expanded="true" />
-                <element signature="e#628#629#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#4171#4172#0" expanded="true" />
+                <element signature="e#4204#4205#0" expanded="true" />
+                <element signature="e#4256#4257#0" expanded="true" />
+                <element signature="e#4298#4299#0" expanded="true" />
+                <element signature="e#4336#4337#0" expanded="true" />
+                <element signature="e#4370#4371#0" expanded="true" />
+                <element signature="e#4424#4425#0" expanded="true" />
+                <element signature="e#4468#4469#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/log-view.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Controller.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/window.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="89" column="11" lean-forward="true" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="11" />
+            <state relative-caret-position="226">
+              <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/logging/LogRecord.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#392#393#0" expanded="true" />
+                <element signature="e#424#425#0" expanded="true" />
+                <element signature="e#455#456#0" expanded="true" />
+                <element signature="e#483#484#0" expanded="true" />
+                <element signature="e#517#518#0" expanded="true" />
+                <element signature="e#552#553#0" expanded="true" />
+                <element signature="e#586#587#0" expanded="true" />
+                <element signature="e#616#617#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/util/RectangleSelection.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/logging/Log.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="109" column="1" selection-end-line="295" />
+            <state relative-caret-position="119">
+              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+              <folding>
+                <element signature="e#378#379#0" expanded="true" />
+                <element signature="e#417#418#0" expanded="true" />
+                <element signature="e#460#461#0" expanded="true" />
+                <element signature="e#493#494#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,6 +167,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="Class" />
       </list>
     </option>
@@ -72,31 +176,67 @@
     <findStrings>
       <find>hanlde</find>
       <find>Left</find>
+      <find>&quot;config.properties&quot;</find>
     </findStrings>
+    <replaceStrings>
+      <replace>PROPERTIES_FILE</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Phil-PC\Phil &lt;philk97@web.de&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/RecognitionFX.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/ZoomableScrollPane.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/window.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/util/RectangleSelection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/RecognitionFX.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/util/ZoomableScrollPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/RubberbandSelection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/PropertiesService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logging/Lorem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logging/Level.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logging/Logger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logging/Log.java" />
+        <option value="$PROJECT_DIR$/src/main/java/main/RecognitionFX.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/window.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/log-view.css" />
+        <option value="$PROJECT_DIR$/src/main/java/logging/LogView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/main/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logging/LogRecord.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logging/LogViewer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/RubberBandSelection.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="403" />
-    <option name="width" value="1524" />
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="recognitionfx" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="722" />
+    <option name="width" value="1205" />
     <option name="height" value="1047" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -129,6 +269,22 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="logging" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RecognitionFX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RecognitionFX" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RecognitionFX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RecognitionFX" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -144,30 +300,25 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="RecognitionFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecognitionFX" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RecognitionFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecognitionFX" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="F:/Programme/Java/android" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/icon.ico" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
@@ -193,15 +344,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.RecognitionFX">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LogViewer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="logging.LogViewer" />
+      <module name="RecognitionFX" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="logging.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RecognitionFX" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="RecognitionFX" />
+      <option name="MAIN_CLASS_NAME" value="main.RecognitionFX" />
       <module name="RecognitionFX" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -241,6 +406,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.RecognitionFX" />
+        <item itemvalue="Application.LogViewer" />
       </list>
     </recent_temporary>
   </component>
@@ -255,14 +421,15 @@
       <option name="presentableId" value="Default" />
       <updated>1558624425357</updated>
       <workItem from="1558624431009" duration="7919000" />
+      <workItem from="1558691146708" duration="15745000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7919000" />
+    <option name="totallyTimeSpent" value="23664000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="403" y="0" width="1524" height="1047" extended-state="0" />
+    <frame x="722" y="0" width="1205" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
@@ -270,19 +437,19 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Designer" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" weight="0.18282314" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.18864629" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Statistic" order="2" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Version Control" order="4" />
-      <window_info anchor="bottom" id="Messages" order="5" weight="0.32884398" />
+      <window_info active="true" anchor="bottom" id="Messages" order="5" visible="true" weight="0.32772166" />
       <window_info anchor="bottom" id="Terminal" order="6" />
       <window_info anchor="bottom" id="Message" order="7" />
-      <window_info anchor="bottom" id="Find" order="8" />
-      <window_info anchor="bottom" id="Run" order="9" weight="0.19753087" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.3030303" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.30639732" />
+      <window_info anchor="bottom" id="Run" order="9" weight="0.18294051" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.32435465" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="13" />
@@ -291,7 +458,7 @@
       <window_info anchor="right" id="Database" order="2" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Maven" order="5" weight="0.32932165" />
       <window_info anchor="right" id="Commander" order="6" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
@@ -302,19 +469,19 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Designer" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.18282314" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.18877551" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Statistic" order="2" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Version Control" order="4" />
-      <window_info anchor="bottom" id="Messages" order="5" weight="0.3288889" />
+      <window_info anchor="bottom" id="Messages" order="5" weight="0.32772166" />
       <window_info anchor="bottom" id="Terminal" order="6" />
       <window_info anchor="bottom" id="Message" order="7" />
-      <window_info anchor="bottom" id="Find" order="8" />
-      <window_info anchor="bottom" id="Run" order="9" visible="true" weight="0.32772166" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.3030303" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.30639732" />
+      <window_info active="true" anchor="bottom" id="Run" order="9" visible="true" weight="0.18294051" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.32435465" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="13" />
@@ -323,7 +490,7 @@
       <window_info anchor="right" id="Database" order="2" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Maven" order="5" weight="0.32932165" />
       <window_info anchor="right" id="Commander" order="6" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
@@ -332,70 +499,314 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added Log + Recently Opened" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Log + Recently Opened" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/window.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/ZoomableScrollPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/RecognitionFX.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
-          <folding>
-            <element signature="e#600#601#0" expanded="true" />
-            <element signature="e#628#629#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/util/RectangleSelection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="109" column="1" selection-end-line="295" />
+        <state relative-caret-position="107">
+          <caret line="86" column="31" lean-forward="true" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/ZoomableScrollPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="89" column="11" lean-forward="true" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="11" />
+        <state relative-caret-position="-117">
+          <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/src.zip!/java/util/Properties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-120">
+          <caret line="121" column="6" selection-start-line="121" selection-start-column="6" selection-end-line="121" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/com/sun/glass/ui/win/WinApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="190" selection-start-line="190" selection-end-line="190" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/control/MenuItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="462" selection-start-line="462" selection-end-line="462" />
+          <folding>
+            <element signature="e#15741#15742#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/event/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="198" selection-start-line="198" selection-end-line="198" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="3765" selection-start-line="3765" selection-end-line="3765" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/PropertiesService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="79" column="47" lean-forward="true" selection-start-line="79" selection-start-column="47" selection-end-line="79" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logging/Lorem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/main/RecognitionFX.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logging/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logging/LogView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-404">
+          <caret line="107" column="37" selection-start-line="107" selection-start-column="37" selection-end-line="107" selection-end-column="37" />
+          <folding>
+            <element signature="e#1574#1575#0" expanded="true" />
+            <element signature="e#1610#1611#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logging/Logger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <folding>
+            <element signature="e#248#249#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#379#380#0" expanded="true" />
+            <element signature="e#415#416#0" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
+            <element signature="e#608#609#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/main/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="198" column="62" selection-start-line="198" selection-start-column="62" selection-end-line="198" selection-end-column="62" />
+          <folding>
+            <element signature="e#1661#1668#0" />
+            <element signature="e#2053#2146#0" />
+            <element signature="e#2284#2333#0" />
+            <element signature="e#2612#2619#0" />
+            <element signature="e#3333#3606#0" />
+            <element signature="e#3391#3496#1" />
+            <element signature="e#3545#3596#1" />
+            <element signature="method#initLog#0;class#Controller#0" />
+            <element signature="n#!!block;n#setScrollPanePannable#0;n#Controller#0" />
+            <element signature="docComment;method#analyze#0;class#Controller#0" />
+            <element signature="docComment;method#onFileOpen#0;class#Controller#0" />
+            <element signature="method#onFileOpen#0;class#Controller#0" />
+            <element signature="e#5223#5726#0" />
+            <element signature="e#5842#5849#0" />
+            <element signature="method#loadRecentlyOpenedFiles#0;class#Controller#0" />
+            <element signature="e#6555#6890#0" />
+            <element signature="e#6654#6819#0" />
+            <element signature="e#6701#6801#1" />
+            <element signature="e#5840#5875#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logging/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <folding>
+            <element signature="e#378#379#0" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+            <element signature="e#460#461#0" expanded="true" />
+            <element signature="e#493#494#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logging/LogRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding>
+            <element signature="e#392#393#0" expanded="true" />
+            <element signature="e#424#425#0" expanded="true" />
+            <element signature="e#455#456#0" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#517#518#0" expanded="true" />
+            <element signature="e#552#553#0" expanded="true" />
+            <element signature="e#586#587#0" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logging/LogViewer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="29" selection-end-line="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/RubberBandSelection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4171#4172#0" expanded="true" />
+            <element signature="e#4204#4205#0" expanded="true" />
+            <element signature="e#4256#4257#0" expanded="true" />
+            <element signature="e#4298#4299#0" expanded="true" />
+            <element signature="e#4336#4337#0" expanded="true" />
+            <element signature="e#4370#4371#0" expanded="true" />
+            <element signature="e#4424#4425#0" expanded="true" />
+            <element signature="e#4468#4469#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log-view.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/window.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>RecognitionFX</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>

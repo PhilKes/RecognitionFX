@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.StackPane?>
-
-<BorderPane fx:id="rootPane" maxHeight="Infinity" maxWidth="Infinity" minHeight="500.0" minWidth="500.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<?import javafx.scene.layout.*?>
+<BorderPane fx:id="rootPane" maxHeight="Infinity" maxWidth="Infinity" minHeight="500.0" minWidth="500.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
    
    <top>
       <MenuBar BorderPane.alignment="CENTER">
@@ -16,6 +11,7 @@
           <Menu mnemonicParsing="false" text="File">
             <items>
               <MenuItem fx:id="menu_Open" mnemonicParsing="false" onAction="#onFileOpen" text="Open Image" />
+                  <Menu fx:id="recentlyMenu" mnemonicParsing="false" text="Recently Opened" />
                   <MenuItem mnemonicParsing="false" text="Save" />
                   <MenuItem mnemonicParsing="false" text="Close" />
             </items>
@@ -42,6 +38,9 @@
          </ScrollPane>
       </StackPane>
    </center>
+   <bottom>
+      <VBox fx:id="vboxBottom" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </bottom>
 
 
 </BorderPane>
