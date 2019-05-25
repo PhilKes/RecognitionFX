@@ -1,5 +1,7 @@
 package util;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
@@ -9,7 +11,9 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
 public class ZoomableScrollPane extends ScrollPane {
-    private double scaleValue = 0.7;
+
+    //TODO BIND CIRCLE RADIUS TO SCALE VALUE OF SCROLLPANE
+    private DoubleProperty scaleValue = new SimpleDoubleProperty(.7);
     private double zoomIntensity = 0.02;
     private Node target;
     private Node zoomNode;
@@ -21,14 +25,28 @@ public class ZoomableScrollPane extends ScrollPane {
         setContent(outerNode(zoomNode));
 
         setPannable(true);
-        setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        setHbarPolicy(ScrollBarPolicy.AS_NEEDED);
+        setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
         setFitToHeight(true); //center
         setFitToWidth(true); //center
 
         updateScale();
     }
+    public double getScaleValue() {
+        return scaleValue.get();
+    }
 
+    public DoubleProperty scaleValueProperty() {
+        return scaleValue;
+    }
+
+    public void setScaleValue(double scaleValue) {
+        this.scaleValue.set(scaleValue);
+    }
+    public void resetScale(){
+        scaleValue.set(1);
+        updateScale();
+    }
     private Node outerNode(Node node) {
         Node outerNode = centeredNode(node);
         outerNode.setOnScroll(e -> {
@@ -45,8 +63,8 @@ public class ZoomableScrollPane extends ScrollPane {
     }
 
     private void updateScale() {
-        target.setScaleX(scaleValue);
-        target.setScaleY(scaleValue);
+        target.setScaleX(scaleValue.get());
+        target.setScaleY(scaleValue.get());
     }
 
     private void onScroll(double wheelDelta, Point2D mousePoint) {
@@ -59,7 +77,7 @@ public class ZoomableScrollPane extends ScrollPane {
         double valX = this.getHvalue() * (innerBounds.getWidth() - viewportBounds.getWidth());
         double valY = this.getVvalue() * (innerBounds.getHeight() - viewportBounds.getHeight());
 
-        scaleValue = scaleValue * zoomFactor;
+        scaleValue.set(scaleValue.get() * zoomFactor);
         updateScale();
         this.layout(); // refresh ScrollPane scroll positions & target bounds
 

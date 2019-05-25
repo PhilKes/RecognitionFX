@@ -1,0 +1,41 @@
+.root{
+    -greyLight: rgb(227, 227, 225);
+    -greyDark: rgb(164, 164, 162);
+    -fx-focus-color: transparent;
+}
+
+.menu{
+    -fx-font-size: 11pt;
+}
+.menu-item{
+    -fx-font-size: 10pt;
+}
+.menu-bar{
+    #-fx-background-color: linear-gradient(-greyLight,-greyDark);
+    -fx-border-color: dimgrey;
+    -fx-border-width: 0 0 1 0;
+
+}
+#logPane{
+    -fx-padding: 0;
+}
+.rubber-band{
+    -fx-fill: derive(lightblue,60%);
+    -fx-opacity: .6;
+    -fx-stroke: blue;
+    -fx-stroke-width: .5;
+    -fx-stroke-line-cap: round;
+}
+.rubber-band:hover{
+    -fx-opacity: .9;
+}
+.rubber-corner{
+    -fx-fill: derive(lightblue,90%);
+    -fx-opacity: .9;
+    -fx-stroke: blue;
+    -fx-stroke-width: .5;
+    -fx-stroke-line-cap: round;
+}
+.rubber-corner:hover{
+    -fx-fill: red;
+}

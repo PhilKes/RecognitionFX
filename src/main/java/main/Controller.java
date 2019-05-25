@@ -7,7 +7,6 @@ import javafx.scene.Group;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -25,6 +24,7 @@ import logging.Logger;
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
+import org.kordamp.ikonli.javafx.FontIcon;
 import util.PropertiesService;
 import util.RubberBandSelection;
 import util.ZoomableScrollPane;
@@ -32,6 +32,8 @@ import util.ZoomableScrollPane;
 import java.io.File;
 import java.net.URISyntaxException;
 import java.util.List;
+
+import static org.kordamp.ikonli.fontawesome.FontAwesome.FILE_IMAGE_O;
 
 public class Controller {
 
@@ -43,8 +45,7 @@ public class Controller {
     @FXML
     private StackPane imgStack;
 
-    @FXML
-    private ScrollPane imgScroll;
+    private ZoomableScrollPane imgScroll;
     private RubberBandSelection rubberBandSelection;
     private File file;
 
@@ -65,9 +66,6 @@ public class Controller {
         selectionLayer.getChildren().add(imgView);
 
         imgScroll=new ZoomableScrollPane(selectionLayer);
-        imgScroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-        imgScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-
         imgStack.getChildren().add(imgScroll);
         imgStack.setOnMousePressed(event -> {
             if(event.getButton() == MouseButton.MIDDLE)
@@ -80,7 +78,8 @@ public class Controller {
         );
         rootPane.setCenter(imgStack);
 
-        rubberBandSelection = new RubberBandSelection(this,selectionLayer);
+        rubberBandSelection = new RubberBandSelection(this,selectionLayer,imgScroll.scaleValueProperty());
+
         /** Show Context menu when left clicked inside StackPane **/
         final ContextMenu contextMenu = new ContextMenu();
         MenuItem cropMenuItem = new MenuItem("Analyze");
@@ -90,12 +89,10 @@ public class Controller {
             analyze( selectionBounds);
         });
         contextMenu.getItems().add( cropMenuItem);
-        selectionLayer.setOnMousePressed(event -> {
+        imgStack.setOnMousePressed(event -> {
+            contextMenu.hide();
             if (event.isSecondaryButtonDown()) {
                 contextMenu.show(selectionLayer, event.getScreenX(), event.getScreenY());
-            }
-            else if(event.isPrimaryButtonDown()){
-                contextMenu.hide();
             }
         });
         loadRecentlyOpenedFiles();
@@ -184,7 +181,6 @@ public class Controller {
         File oldFile=file;
         file=new File(filePath);
         if (file.exists()) {
-            rubberBandSelection.reset();
             System.out.println(file.getAbsolutePath()+" opened");
             logger.info(file.getAbsolutePath()+" opened");
             PropertiesService.saveLastOpenedDirectory(file);
@@ -197,6 +193,8 @@ public class Controller {
             loadRecentlyOpenedFiles();
             rubberBandSelection.setImageHeight(img.getHeight());
             rubberBandSelection.setImageWidth(img.getWidth());
+            rubberBandSelection.reset();
+            imgScroll.resetScale();
             return true;
         }
         else {
@@ -219,15 +217,20 @@ public class Controller {
                         loadRecentlyOpenedFiles();
                     }
                 });
+                FontIcon icon=new FontIcon(FILE_IMAGE_O);
+                icon.setIconSize(16);
+                fileItem.setGraphic(icon);
                 recentlyMenu.getItems().add(fileItem);
             }
         );
     }
-
 
     public void setStage(Stage primaryStage) {
         stage=primaryStage;
     }
 
 
+    public void onMenuFileClose(ActionEvent actionEvent) {
+        System.exit(0);
+    }
 }

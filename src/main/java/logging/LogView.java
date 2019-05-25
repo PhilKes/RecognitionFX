@@ -14,9 +14,11 @@ import javafx.util.Duration;
 
 import java.text.SimpleDateFormat;
 
+/** Extended ListView to implement Log **/
 public class LogView extends ListView<LogRecord> {
     private static final int MAX_ENTRIES = 10_000;
 
+    /** PseudoClasses for CSS stylesheet (log-view.css) **/
     private final static PseudoClass debug = PseudoClass.getPseudoClass("debug");
     private final static PseudoClass info  = PseudoClass.getPseudoClass("info");
     private final static PseudoClass warn  = PseudoClass.getPseudoClass("warn");
@@ -54,22 +56,21 @@ public class LogView extends ListView<LogRecord> {
 
     public LogView(Logger logger) {
         getStyleClass().add("log-view");
-
         Timeline logTransfer = new Timeline(
-                new KeyFrame(
-                        Duration.seconds(1),
-                        event -> {
-                            logger.getLog().drainTo(logItems);
+            new KeyFrame(
+                Duration.seconds(1),
+                event -> {
+                    logger.getLog().drainTo(logItems);
 
-                            if (logItems.size() > MAX_ENTRIES) {
-                                logItems.remove(0, logItems.size() - MAX_ENTRIES);
-                            }
+                    if (logItems.size() > MAX_ENTRIES) {
+                        logItems.remove(0, logItems.size() - MAX_ENTRIES);
+                    }
 
-                            if (tail.get()) {
-                                scrollTo(logItems.size());
-                            }
-                        }
-                )
+                    if (tail.get()) {
+                        scrollTo(logItems.size());
+                    }
+                }
+            )
         );
         logTransfer.setCycleCount(Timeline.INDEFINITE);
         logTransfer.rateProperty().bind(refreshRateProperty());
