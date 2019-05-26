@@ -10,9 +10,12 @@ import java.util.List;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
-/** Util Class to save/load properties from external .PROPERTIES **/
+/**
+ * Util Class to save/load properties from external .PROPERTIES
+ */
 public class PropertiesService {
     public static String PROPERTIES_FILE="config.properties";
+
     public static void saveLastOpenedDirectory(File openedFile) {
             Properties prop = new Properties();
             prop.setProperty("filechooser.lastdirectory", openedFile.getParent());

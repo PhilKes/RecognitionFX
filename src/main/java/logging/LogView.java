@@ -135,8 +135,8 @@ public class LogView extends ListView<LogRecord> {
                     String timestamp =
                             (item.getTimestamp() == null)
                                     ? ""
-                                    : timestampFormatter.format(item.getTimestamp()) + " ";
-                    setText(timestamp + context + item.getMessage());
+                                    : timestampFormatter.format(item.getTimestamp());
+                    setText(timestamp+": " + context + item.getMessage());
                 } else {
                     setText(context + item.getMessage());
                 }

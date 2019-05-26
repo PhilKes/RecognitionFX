@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane fx:id="rootPane" maxHeight="Infinity" maxWidth="Infinity" minHeight="500.0" minWidth="500.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
+<BorderPane fx:id="rootPane" maxHeight="Infinity" maxWidth="Infinity" minHeight="500.0" minWidth="500.0" prefHeight="720.0" prefWidth="1280.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
    
    <top>
       <MenuBar BorderPane.alignment="TOP_LEFT">
@@ -42,6 +42,18 @@
                   <FontIcon iconLiteral="fa-bars" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" />
                </graphic>
           </Menu>
+            <Menu mnemonicParsing="false" text="Analyze">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#onAnalyzeAll" text="Analyze All">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+              </items>
+               <graphic>
+                  <FontIcon iconLiteral="fa-magic" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" />
+               </graphic>
+            </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
                   <MenuItem mnemonicParsing="false" text="Revert">
@@ -52,7 +64,7 @@
                         <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator>
                   </MenuItem>
-              <MenuItem mnemonicParsing="false" text="Delete">
+              <MenuItem mnemonicParsing="false" onAction="#onDeleteSelection" text="Delete Selection">
                      <graphic>
                         <FontIcon iconLiteral="fa-trash-o" iconSize="15" strokeType="OUTSIDE" strokeWidth="0.0" />
                      </graphic>
@@ -76,7 +88,7 @@
       </MenuBar>
    </top>
    <center>
-      <StackPane fx:id="imgStack" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <StackPane fx:id="imgStack" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
        <TitledPane animated="false" text="Log">
@@ -89,6 +101,9 @@
          </font>
        </TitledPane>
    </bottom>
+   <right>
+      <TitledPane fx:id="propertiesMenu" animated="false" collapsible="false" prefHeight="100.0" prefWidth="100.0" text="Properties" />
+   </right>
 
 
 </BorderPane>

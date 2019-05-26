@@ -10,6 +10,9 @@ import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
+/**
+ * Extended ScrollPane to support Zooming via Mouse Scrolling
+ */
 public class ZoomableScrollPane extends ScrollPane {
 
     //TODO BIND CIRCLE RADIUS TO SCALE VALUE OF SCROLLPANE
@@ -25,24 +28,18 @@ public class ZoomableScrollPane extends ScrollPane {
         setContent(outerNode(zoomNode));
 
         setPannable(true);
-        setHbarPolicy(ScrollBarPolicy.AS_NEEDED);
-        setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
+        setHbarPolicy(ScrollBarPolicy.NEVER);
+        setVbarPolicy(ScrollBarPolicy.NEVER);
         setFitToHeight(true); //center
         setFitToWidth(true); //center
 
         updateScale();
-    }
-    public double getScaleValue() {
-        return scaleValue.get();
     }
 
     public DoubleProperty scaleValueProperty() {
         return scaleValue;
     }
 
-    public void setScaleValue(double scaleValue) {
-        this.scaleValue.set(scaleValue);
-    }
     public void resetScale(){
         scaleValue.set(1);
         updateScale();
