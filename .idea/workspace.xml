@@ -7,20 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19d0cf96-d17e-4993-8065-4ff7bd01c61e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/builder/RubberBandSelectionBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/logging/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logging/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/logging/LogView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logging/LogView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/logging/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logging/Logger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/PropertiesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/PropertiesService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/RubberBandSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/RubberBandSelection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/ZoomableScrollPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/ZoomableScrollPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon_128x128.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icon_128x128.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/window.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/ZoomableScrollPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/ZoomableScrollPane.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/window.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,70 +27,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/window.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="66" column="65" selection-start-line="66" selection-start-column="65" selection-end-line="66" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/util/ZoomableScrollPane.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-              <folding>
-                <element signature="method#resetScale#0;class#ZoomableScrollPane#0" />
-                <element signature="method#outerNode#0;class#ZoomableScrollPane#0" />
-                <element signature="method#centeredNode#0;class#ZoomableScrollPane#0" />
-                <element signature="method#updateScale#0;class#ZoomableScrollPane#0" />
-                <element signature="method#onScroll#0;class#ZoomableScrollPane#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/main/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="119" column="35" selection-start-line="119" selection-start-column="35" selection-end-line="119" selection-end-column="35" />
+            <state relative-caret-position="221">
+              <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1828#1918#0" />
-                <element signature="e#2237#2346#0" />
-                <element signature="e#2674#2734#0" />
-                <element signature="e#3168#3373#0" />
-                <element signature="e#3258#3363#1" />
-                <element signature="e#3468#4267#0" />
-                <element signature="e#4134#4415#1" />
-                <element signature="e#4156#4252#0" />
-                <element signature="e#3839#4257#1" />
-                <element signature="e#3901#3998#0" />
-                <element signature="e#4066#4186#0" />
+                <element signature="docComment;field#rootPane#0;class#Controller#0" />
+                <element signature="docComment;field#imgScroll#0;class#Controller#0" />
+                <element signature="docComment;field#selections#0;class#Controller#0" />
+                <element signature="docComment;field#activeSelection#0;class#Controller#0" />
+                <element signature="docComment;field#file#0;class#Controller#0" />
+                <element signature="e#2759#7028#0" />
+                <element signature="e#2828#2918#0" />
+                <element signature="e#3345#3454#0" />
+                <element signature="e#3461#3648#0" />
+                <element signature="e#3695#3755#0" />
+                <element signature="e#4103#4316#0" />
+                <element signature="e#4405#4610#0" />
+                <element signature="e#4495#4600#1" />
+                <element signature="e#4621#4664#0" />
+                <element signature="e#4699#5515#0" />
+                <element signature="e#4742#5505#1" />
+                <element signature="e#5610#6153#0" />
+                <element signature="e#5678#5959#1" />
+                <element signature="e#5700#5796#0" />
+                <element signature="e#5981#6143#1" />
+                <element signature="e#6229#6312#0" />
+                <element signature="e#6359#6579#0" />
+                <element signature="e#6661#6899#0" />
+                <element signature="e#6728#6799#1" />
+                <element signature="e#6812#6842#0" />
                 <element signature="method#initLog#0;class#Controller#0" />
-                <element signature="n#!!block;n#setScrollPanePannable#0;n#Controller#0" />
-                <element signature="docComment;method#analyze#0;class#Controller#0" />
-                <element signature="method#analyze#0;class#Controller#0" />
-                <element signature="e#5843#6147#0" />
-                <element signature="e#6184#6270#0" />
-                <element signature="e#6281#6329#0" />
-                <element signature="e#6448#6692#0" />
-                <element signature="e#6729#6815#0" />
+                <element signature="docComment;method#initPropertiesWindow#0;class#Controller#0" />
+                <element signature="e#7034#7624#0" />
+                <element signature="method#updatePropertiesWindow#0;class#Controller#0" />
+                <element signature="docComment;method#initSelectionListView#0;class#Controller#0" />
+                <element signature="method#initSelectionListView#0;class#Controller#0" />
+                <element signature="e#8838#8892#1" />
+                <element signature="e#8898#8962#1" />
                 <element signature="docComment;method#onFileOpen#0;class#Controller#0" />
                 <element signature="method#onFileOpen#0;class#Controller#0" />
                 <element signature="method#openImage#0;class#Controller#0" />
-                <element signature="e#7615#8307#1" />
-                <element signature="e#7815#7838#0" />
-                <element signature="e#8321#8560#1" />
+                <element signature="e#9782#10479#1" />
+                <element signature="e#9982#10005#0" />
+                <element signature="e#10493#10732#1" />
                 <element signature="docComment;method#loadRecentlyOpenedFiles#0;class#Controller#0" />
                 <element signature="method#loadRecentlyOpenedFiles#0;class#Controller#0" />
-                <element signature="e#8825#9350#0" />
-                <element signature="e#8924#9140#0" />
-                <element signature="e#8971#9122#1" />
+                <element signature="e#11004#11529#0" />
+                <element signature="e#11103#11319#0" />
+                <element signature="e#11150#11301#1" />
+                <element signature="docComment;method#analyze#0;class#Controller#0" />
+                <element signature="method#analyze#0;class#Controller#0" />
+                <element signature="e#10043#10347#0" />
+                <element signature="e#10384#10470#0" />
+                <element signature="e#10481#10529#0" />
+                <element signature="e#10648#10892#0" />
+                <element signature="e#10929#11015#0" />
+                <element signature="docComment;method#onAnalyzeAll#0;class#Controller#0" />
+                <element signature="method#onAnalyzeAll#0;class#Controller#0" />
+                <element signature="docComment;method#onDeleteSelection#0;class#Controller#0" />
+                <element signature="method#onDeleteSelection#0;class#Controller#0" />
+                <element signature="e#14270#14359#1" />
+                <element signature="e#14449#14526#0" />
+                <element signature="method#removeSelection#0;class#Controller#0" />
+                <element signature="docComment;method#onPropertyFieldChanged#0;class#Controller#0" />
+                <element signature="method#onPropertyNameEntered#0;class#Controller#0" />
+                <element signature="e#15022#16100#1" />
+                <element signature="e#15269#16049#0" />
+                <element signature="e#16111#16263#0" />
+                <element signature="n#!!block;n#setScrollPanePannable#0;n#Controller#0" />
+                <element signature="method#textDoubleFormat#0;class#Controller#0" />
               </folding>
             </state>
           </provider>
@@ -108,65 +106,85 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/util/RubberBandSelection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="109" column="28" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
+            <state relative-caret-position="1051">
+              <caret line="403" column="36" selection-start-line="403" selection-start-column="36" selection-end-line="403" selection-end-column="36" />
               <folding>
                 <element signature="docComment;class#RubberBandSelection#0" />
-                <element signature="docComment;field#newDrag#0;class#RubberBandSelection#0" />
+                <element signature="docComment;field#rootGroup#0;class#RubberBandSelection#0" />
                 <element signature="docComment;field#draggedItem#0;class#RubberBandSelection#0" />
                 <element signature="docComment;field#rect#0;class#RubberBandSelection#0" />
                 <element signature="docComment;field#corners#0;class#RubberBandSelection#0" />
-                <element signature="docComment;method#getBounds#0;class#RubberBandSelection#0" />
-                <element signature="e#1671#1731#0" />
-                <element signature="e#1859#1910#0" />
-                <element signature="e#2287#2421#0" />
+                <element signature="docComment;field#active#0;class#RubberBandSelection#0" />
+                <element signature="method#RubberBandSelection#0;class#RubberBandSelection#0" />
+                <element signature="e#2341#2401#0" />
+                <element signature="e#2477#3072#1" />
+                <element signature="e#2542#2593#0" />
+                <element signature="e#2832#2889#0" />
+                <element signature="e#3366#3580#0" />
+                <element signature="e#3387#3427#0" />
+                <element signature="e#3458#3530#1" />
+                <element signature="e#3680#3895#0" />
+                <element signature="e#3701#3741#0" />
+                <element signature="e#3772#3844#1" />
                 <element signature="docComment;method#bindCorners#0;class#RubberBandSelection#0" />
                 <element signature="method#bindCorners#0;class#RubberBandSelection#0" />
                 <element signature="docComment;method#dragRectangleSelection#0;class#RubberBandSelection#0" />
                 <element signature="method#dragRectangleSelection#0;class#RubberBandSelection#0" />
-                <element signature="e#4216#5653#0" />
-                <element signature="e#4230#4246#0" />
-                <element signature="e#4315#4439#1" />
-                <element signature="e#4489#4615#1" />
-                <element signature="e#4651#4668#0" />
-                <element signature="e#4792#4918#1" />
-                <element signature="e#4934#5085#0" />
-                <element signature="e#5121#5141#0" />
-                <element signature="e#5307#5326#0" />
-                <element signature="e#5451#5575#1" />
-                <element signature="e#5661#5869#0" />
-                <element signature="docComment;method#checkBounds#0;class#RubberBandSelection#0" />
-                <element signature="e#5998#6312#0" />
-                <element signature="e#6321#6452#0" />
-                <element signature="e#6711#6843#1" />
-                <element signature="e#7043#7214#1" />
-                <element signature="e#7247#7289#1" />
+                <element signature="e#5353#6790#0" />
+                <element signature="e#5367#5383#0" />
+                <element signature="e#5452#5576#1" />
+                <element signature="e#5626#5752#1" />
+                <element signature="e#5788#5805#0" />
+                <element signature="e#5929#6055#1" />
+                <element signature="e#6071#6222#0" />
+                <element signature="e#6258#6278#0" />
+                <element signature="e#6444#6463#0" />
+                <element signature="e#6588#6712#1" />
+                <element signature="e#6798#7006#0" />
                 <element signature="docComment;method#onMousePressed#0;class#RubberBandSelection#0" />
                 <element signature="method#onMousePressed#0;class#RubberBandSelection#0" />
+                <element signature="e#7187#7229#0" />
+                <element signature="e#7295#7573#1" />
+                <element signature="e#7309#7515#0" />
                 <element signature="docComment;method#onMouseDragged#0;class#RubberBandSelection#0" />
                 <element signature="method#onMouseDragged#0;class#RubberBandSelection#0" />
-                <element signature="e#8500#8590#0" />
-                <element signature="e#8691#8734#0" />
-                <element signature="e#8892#8982#0" />
-                <element signature="e#9090#9187#0" />
-                <element signature="e#9383#9442#0" />
-                <element signature="e#9730#9776#0" />
-                <element signature="e#10735#10770#0" />
-                <element signature="e#10802#10848#0" />
+                <element signature="e#7685#7775#0" />
+                <element signature="e#7876#7919#0" />
+                <element signature="e#8051#8575#1" />
+                <element signature="e#8065#8155#0" />
+                <element signature="e#8237#8565#1" />
+                <element signature="e#8259#8356#0" />
+                <element signature="e#8584#8643#0" />
+                <element signature="e#8694#8942#1" />
+                <element signature="e#8951#8997#0" />
+                <element signature="e#9010#9956#0" />
+                <element signature="e#9956#9991#0" />
+                <element signature="e#9991#10023#0" />
+                <element signature="e#10023#10069#0" />
+                <element signature="e#10069#10835#0" />
                 <element signature="docComment;method#onMouseReleased#0;class#RubberBandSelection#0" />
                 <element signature="method#onMouseReleased#0;class#RubberBandSelection#0" />
-                <element signature="e#11897#11916#0" />
-                <element signature="e#12034#12211#0" />
-                <element signature="e#7979#7988#0" />
-                <element signature="e#7989#8041#0" />
-                <element signature="e#8041#8472#0" />
-                <element signature="e#8473#8570#0" />
-                <element signature="e#8570#9533#0" />
+                <element signature="e#11142#11161#0" />
+                <element signature="e#11279#11456#0" />
+                <element signature="docComment;method#checkBounds#0;class#RubberBandSelection#0" />
+                <element signature="method#checkBounds#0;class#RubberBandSelection#0" />
+                <element signature="e#11598#11912#0" />
+                <element signature="e#11921#12052#0" />
+                <element signature="e#12079#12207#1" />
+                <element signature="e#12311#12443#1" />
+                <element signature="e#12643#12814#1" />
+                <element signature="e#12847#12889#1" />
+                <element signature="e#12950#13125#1" />
                 <element signature="docComment;method#reset#0;class#RubberBandSelection#0" />
-                <element signature="e#16149#16192#1" />
-                <element signature="e#15564#15565#0" expanded="true" />
-                <element signature="e#16244#16289#1" />
-                <element signature="e#15661#15662#0" expanded="true" />
+                <element signature="method#reset#0;class#RubberBandSelection#0" />
+                <element signature="method#setX#0;class#RubberBandSelection#0" />
+                <element signature="method#setY#0;class#RubberBandSelection#0" />
+                <element signature="method#setWidth#0;class#RubberBandSelection#0" />
+                <element signature="method#setHeight#0;class#RubberBandSelection#0" />
+                <element signature="docComment;method#setIdx#0;class#RubberBandSelection#0" />
+                <element signature="method#setIdx#0;class#RubberBandSelection#0" />
+                <element signature="e#14524#14560#0" />
+                <element signature="method#toString#0;class#RubberBandSelection#0" />
                 <element signature="docComment;class#DragContext#0;class#RubberBandSelection#0" />
                 <element signature="class#DragContext#0;class#RubberBandSelection#0" />
               </folding>
@@ -179,8 +197,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -198,6 +216,10 @@
       <find>setDisable</find>
       <find>showCorn</find>
       <find>analyze</find>
+      <find>scroll</find>
+      <find>-1</find>
+      <find>onKeyPressed=&quot;#onPropertyNameEntered&quot;</find>
+      <find>Old:</find>
     </findStrings>
     <replaceStrings>
       <replace>PROPERTIES_FILE</replace>
@@ -232,9 +254,12 @@
         <option value="$PROJECT_DIR$/src/main/java/util/PropertiesService.java" />
         <option value="$PROJECT_DIR$/src/main/java/logging/Logger.java" />
         <option value="$PROJECT_DIR$/src/main/java/logging/Level.java" />
-        <option value="$PROJECT_DIR$/src/main/java/logging/LogView.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/ZoomableScrollPane.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logging/LogView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/builder/RubberBandSelectionBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/SelectionArrayAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/resources/window.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/util/DoubleTextField.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/RubberBandSelection.java" />
         <option value="$PROJECT_DIR$/src/main/java/main/Controller.java" />
       </list>
@@ -257,8 +282,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="279" />
-    <option name="width" value="1648" />
+    <option name="x" value="651" />
+    <option name="width" value="1276" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -267,7 +292,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -299,14 +323,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RecognitionFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecognitionFX" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -318,6 +334,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -326,6 +343,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="F:/Programme/Java/android" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/icon.ico" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -336,17 +354,17 @@
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\IntellijProjects\RecognitionFX\src\main\resources" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\IntellijProjects\RecognitionFX\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\IntellijProjects\RecognitionFX\src\main\resources" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\IntellijProjects\RecognitionFX\src\main\java" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -441,7 +459,9 @@
       <workItem from="1558691146708" duration="26730000" />
       <workItem from="1558775644606" duration="16517000" />
       <workItem from="1558822443413" duration="3056000" />
-      <workItem from="1558860489504" duration="11754000" />
+      <workItem from="1558860489504" duration="11919000" />
+      <workItem from="1558878034508" duration="4494000" />
+      <workItem from="1558882627442" duration="4313000" />
     </task>
     <task id="LOCAL-00001" summary="added Log + Recently Opened">
       <created>1558720018590</created>
@@ -457,14 +477,21 @@
       <option name="project" value="LOCAL" />
       <updated>1558797912495</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Spawn multiple Selections + Delete Actions">
+      <created>1558872416929</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1558872416929</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65976000" />
+    <option name="totallyTimeSpent" value="74948000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="671" y="0" width="1256" height="1047" extended-state="0" />
+    <frame x="651" y="0" width="1276" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
@@ -472,19 +499,19 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Designer" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" weight="0.3321033" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.203125" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Statistic" order="2" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32996634" />
-      <window_info anchor="bottom" id="Messages" order="5" weight="0.32884398" />
+      <window_info anchor="bottom" id="Messages" order="5" weight="0.32772166" />
       <window_info anchor="bottom" id="Terminal" order="6" weight="0.32996634" />
       <window_info anchor="bottom" id="Message" order="7" />
-      <window_info anchor="bottom" id="Find" order="8" weight="0.26222223" />
-      <window_info active="true" anchor="bottom" id="Run" order="9" visible="true" weight="0.2536476" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.20222223" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.26150393" />
+      <window_info anchor="bottom" id="Run" order="9" weight="0.21436588" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.27833894" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="13" />
@@ -504,19 +531,19 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Designer" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.3321033" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.3683369" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Statistic" order="2" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32996634" />
-      <window_info anchor="bottom" id="Messages" order="5" weight="0.32996634" />
+      <window_info anchor="bottom" id="Messages" order="5" weight="0.32777777" />
       <window_info anchor="bottom" id="Terminal" order="6" weight="0.32996634" />
       <window_info anchor="bottom" id="Message" order="7" />
-      <window_info anchor="bottom" id="Find" order="8" weight="0.1627385" />
-      <window_info anchor="bottom" id="Run" order="9" visible="true" weight="0.18406285" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.32435465" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.26150393" />
+      <window_info active="true" anchor="bottom" id="Run" order="9" visible="true" weight="0.25111112" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.27888888" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="13" />
@@ -537,8 +564,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added Log + Recently Opened" />
     <MESSAGE value="CSS styling + Dynamic Selection Corners" />
-    <option name="LAST_COMMIT_MESSAGE" value="CSS styling + Dynamic Selection Corners" />
+    <MESSAGE value="Spawn multiple Selections + Delete Actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Spawn multiple Selections + Delete Actions" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="customField">
+      <expression>
+        <expression-string>activeSel</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java" />
@@ -693,13 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logging/LogView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="112" column="13" lean-forward="true" selection-start-line="112" selection-start-column="13" selection-end-line="112" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/logging/LogRecord.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -738,11 +768,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/window.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="66" column="65" selection-start-line="66" selection-start-column="65" selection-end-line="66" selection-end-column="65" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/logging/LogView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-539">
+          <caret line="24" column="44" lean-forward="true" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -760,67 +789,193 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/control/cell/CellUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="242" column="22" selection-start-line="242" selection-start-column="22" selection-end-line="242" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/beans/property/ReadOnlyIntegerPropertyBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+          <folding>
+            <element signature="e#1665#1666#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/beans/property/ReadOnlyIntegerWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/beans/property/IntegerPropertyBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="148" selection-start-line="148" selection-end-line="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/control/SelectionModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="67" column="54" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/control/MultipleSelectionModelBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="687" selection-start-line="687" selection-end-line="687" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/control/ListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="1248" selection-start-line="1248" selection-end-line="1248" />
+          <folding>
+            <element signature="e#35578#35579#0" expanded="true" />
+            <element signature="e#35633#35634#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/collections/WeakListChangeListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/collections/ObservableListBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="233" selection-start-line="233" selection-end-line="233" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/collections/ListChangeBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="534" lean-forward="true" selection-start-line="534" selection-end-line="534" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/window.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="134" column="96" selection-start-line="134" selection-start-column="96" selection-end-line="134" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/DoubleTextField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/SelectionArrayAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/builder/RubberBandSelectionBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/util/RubberBandSelection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="109" column="28" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
+        <state relative-caret-position="1051">
+          <caret line="403" column="36" selection-start-line="403" selection-start-column="36" selection-end-line="403" selection-end-column="36" />
           <folding>
             <element signature="docComment;class#RubberBandSelection#0" />
-            <element signature="docComment;field#newDrag#0;class#RubberBandSelection#0" />
+            <element signature="docComment;field#rootGroup#0;class#RubberBandSelection#0" />
             <element signature="docComment;field#draggedItem#0;class#RubberBandSelection#0" />
             <element signature="docComment;field#rect#0;class#RubberBandSelection#0" />
             <element signature="docComment;field#corners#0;class#RubberBandSelection#0" />
-            <element signature="docComment;method#getBounds#0;class#RubberBandSelection#0" />
-            <element signature="e#1671#1731#0" />
-            <element signature="e#1859#1910#0" />
-            <element signature="e#2287#2421#0" />
+            <element signature="docComment;field#active#0;class#RubberBandSelection#0" />
+            <element signature="method#RubberBandSelection#0;class#RubberBandSelection#0" />
+            <element signature="e#2341#2401#0" />
+            <element signature="e#2477#3072#1" />
+            <element signature="e#2542#2593#0" />
+            <element signature="e#2832#2889#0" />
+            <element signature="e#3366#3580#0" />
+            <element signature="e#3387#3427#0" />
+            <element signature="e#3458#3530#1" />
+            <element signature="e#3680#3895#0" />
+            <element signature="e#3701#3741#0" />
+            <element signature="e#3772#3844#1" />
             <element signature="docComment;method#bindCorners#0;class#RubberBandSelection#0" />
             <element signature="method#bindCorners#0;class#RubberBandSelection#0" />
             <element signature="docComment;method#dragRectangleSelection#0;class#RubberBandSelection#0" />
             <element signature="method#dragRectangleSelection#0;class#RubberBandSelection#0" />
-            <element signature="e#4216#5653#0" />
-            <element signature="e#4230#4246#0" />
-            <element signature="e#4315#4439#1" />
-            <element signature="e#4489#4615#1" />
-            <element signature="e#4651#4668#0" />
-            <element signature="e#4792#4918#1" />
-            <element signature="e#4934#5085#0" />
-            <element signature="e#5121#5141#0" />
-            <element signature="e#5307#5326#0" />
-            <element signature="e#5451#5575#1" />
-            <element signature="e#5661#5869#0" />
-            <element signature="docComment;method#checkBounds#0;class#RubberBandSelection#0" />
-            <element signature="e#5998#6312#0" />
-            <element signature="e#6321#6452#0" />
-            <element signature="e#6711#6843#1" />
-            <element signature="e#7043#7214#1" />
-            <element signature="e#7247#7289#1" />
+            <element signature="e#5353#6790#0" />
+            <element signature="e#5367#5383#0" />
+            <element signature="e#5452#5576#1" />
+            <element signature="e#5626#5752#1" />
+            <element signature="e#5788#5805#0" />
+            <element signature="e#5929#6055#1" />
+            <element signature="e#6071#6222#0" />
+            <element signature="e#6258#6278#0" />
+            <element signature="e#6444#6463#0" />
+            <element signature="e#6588#6712#1" />
+            <element signature="e#6798#7006#0" />
             <element signature="docComment;method#onMousePressed#0;class#RubberBandSelection#0" />
             <element signature="method#onMousePressed#0;class#RubberBandSelection#0" />
+            <element signature="e#7187#7229#0" />
+            <element signature="e#7295#7573#1" />
+            <element signature="e#7309#7515#0" />
             <element signature="docComment;method#onMouseDragged#0;class#RubberBandSelection#0" />
             <element signature="method#onMouseDragged#0;class#RubberBandSelection#0" />
-            <element signature="e#8500#8590#0" />
-            <element signature="e#8691#8734#0" />
-            <element signature="e#8892#8982#0" />
-            <element signature="e#9090#9187#0" />
-            <element signature="e#9383#9442#0" />
-            <element signature="e#9730#9776#0" />
-            <element signature="e#10735#10770#0" />
-            <element signature="e#10802#10848#0" />
+            <element signature="e#7685#7775#0" />
+            <element signature="e#7876#7919#0" />
+            <element signature="e#8051#8575#1" />
+            <element signature="e#8065#8155#0" />
+            <element signature="e#8237#8565#1" />
+            <element signature="e#8259#8356#0" />
+            <element signature="e#8584#8643#0" />
+            <element signature="e#8694#8942#1" />
+            <element signature="e#8951#8997#0" />
+            <element signature="e#9010#9956#0" />
+            <element signature="e#9956#9991#0" />
+            <element signature="e#9991#10023#0" />
+            <element signature="e#10023#10069#0" />
+            <element signature="e#10069#10835#0" />
             <element signature="docComment;method#onMouseReleased#0;class#RubberBandSelection#0" />
             <element signature="method#onMouseReleased#0;class#RubberBandSelection#0" />
-            <element signature="e#11897#11916#0" />
-            <element signature="e#12034#12211#0" />
-            <element signature="e#7979#7988#0" />
-            <element signature="e#7989#8041#0" />
-            <element signature="e#8041#8472#0" />
-            <element signature="e#8473#8570#0" />
-            <element signature="e#8570#9533#0" />
+            <element signature="e#11142#11161#0" />
+            <element signature="e#11279#11456#0" />
+            <element signature="docComment;method#checkBounds#0;class#RubberBandSelection#0" />
+            <element signature="method#checkBounds#0;class#RubberBandSelection#0" />
+            <element signature="e#11598#11912#0" />
+            <element signature="e#11921#12052#0" />
+            <element signature="e#12079#12207#1" />
+            <element signature="e#12311#12443#1" />
+            <element signature="e#12643#12814#1" />
+            <element signature="e#12847#12889#1" />
+            <element signature="e#12950#13125#1" />
             <element signature="docComment;method#reset#0;class#RubberBandSelection#0" />
-            <element signature="e#16149#16192#1" />
-            <element signature="e#15564#15565#0" expanded="true" />
-            <element signature="e#16244#16289#1" />
-            <element signature="e#15661#15662#0" expanded="true" />
+            <element signature="method#reset#0;class#RubberBandSelection#0" />
+            <element signature="method#setX#0;class#RubberBandSelection#0" />
+            <element signature="method#setY#0;class#RubberBandSelection#0" />
+            <element signature="method#setWidth#0;class#RubberBandSelection#0" />
+            <element signature="method#setHeight#0;class#RubberBandSelection#0" />
+            <element signature="docComment;method#setIdx#0;class#RubberBandSelection#0" />
+            <element signature="method#setIdx#0;class#RubberBandSelection#0" />
+            <element signature="e#14524#14560#0" />
+            <element signature="method#toString#0;class#RubberBandSelection#0" />
             <element signature="docComment;class#DragContext#0;class#RubberBandSelection#0" />
             <element signature="class#DragContext#0;class#RubberBandSelection#0" />
           </folding>
@@ -829,41 +984,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/main/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="119" column="35" selection-start-line="119" selection-start-column="35" selection-end-line="119" selection-end-column="35" />
+        <state relative-caret-position="221">
+          <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1828#1918#0" />
-            <element signature="e#2237#2346#0" />
-            <element signature="e#2674#2734#0" />
-            <element signature="e#3168#3373#0" />
-            <element signature="e#3258#3363#1" />
-            <element signature="e#3468#4267#0" />
-            <element signature="e#4134#4415#1" />
-            <element signature="e#4156#4252#0" />
-            <element signature="e#3839#4257#1" />
-            <element signature="e#3901#3998#0" />
-            <element signature="e#4066#4186#0" />
+            <element signature="docComment;field#rootPane#0;class#Controller#0" />
+            <element signature="docComment;field#imgScroll#0;class#Controller#0" />
+            <element signature="docComment;field#selections#0;class#Controller#0" />
+            <element signature="docComment;field#activeSelection#0;class#Controller#0" />
+            <element signature="docComment;field#file#0;class#Controller#0" />
+            <element signature="e#2759#7028#0" />
+            <element signature="e#2828#2918#0" />
+            <element signature="e#3345#3454#0" />
+            <element signature="e#3461#3648#0" />
+            <element signature="e#3695#3755#0" />
+            <element signature="e#4103#4316#0" />
+            <element signature="e#4405#4610#0" />
+            <element signature="e#4495#4600#1" />
+            <element signature="e#4621#4664#0" />
+            <element signature="e#4699#5515#0" />
+            <element signature="e#4742#5505#1" />
+            <element signature="e#5610#6153#0" />
+            <element signature="e#5678#5959#1" />
+            <element signature="e#5700#5796#0" />
+            <element signature="e#5981#6143#1" />
+            <element signature="e#6229#6312#0" />
+            <element signature="e#6359#6579#0" />
+            <element signature="e#6661#6899#0" />
+            <element signature="e#6728#6799#1" />
+            <element signature="e#6812#6842#0" />
             <element signature="method#initLog#0;class#Controller#0" />
-            <element signature="n#!!block;n#setScrollPanePannable#0;n#Controller#0" />
-            <element signature="docComment;method#analyze#0;class#Controller#0" />
-            <element signature="method#analyze#0;class#Controller#0" />
-            <element signature="e#5843#6147#0" />
-            <element signature="e#6184#6270#0" />
-            <element signature="e#6281#6329#0" />
-            <element signature="e#6448#6692#0" />
-            <element signature="e#6729#6815#0" />
+            <element signature="docComment;method#initPropertiesWindow#0;class#Controller#0" />
+            <element signature="e#7034#7624#0" />
+            <element signature="method#updatePropertiesWindow#0;class#Controller#0" />
+            <element signature="docComment;method#initSelectionListView#0;class#Controller#0" />
+            <element signature="method#initSelectionListView#0;class#Controller#0" />
+            <element signature="e#8838#8892#1" />
+            <element signature="e#8898#8962#1" />
             <element signature="docComment;method#onFileOpen#0;class#Controller#0" />
             <element signature="method#onFileOpen#0;class#Controller#0" />
             <element signature="method#openImage#0;class#Controller#0" />
-            <element signature="e#7615#8307#1" />
-            <element signature="e#7815#7838#0" />
-            <element signature="e#8321#8560#1" />
+            <element signature="e#9782#10479#1" />
+            <element signature="e#9982#10005#0" />
+            <element signature="e#10493#10732#1" />
             <element signature="docComment;method#loadRecentlyOpenedFiles#0;class#Controller#0" />
             <element signature="method#loadRecentlyOpenedFiles#0;class#Controller#0" />
-            <element signature="e#8825#9350#0" />
-            <element signature="e#8924#9140#0" />
-            <element signature="e#8971#9122#1" />
+            <element signature="e#11004#11529#0" />
+            <element signature="e#11103#11319#0" />
+            <element signature="e#11150#11301#1" />
+            <element signature="docComment;method#analyze#0;class#Controller#0" />
+            <element signature="method#analyze#0;class#Controller#0" />
+            <element signature="e#10043#10347#0" />
+            <element signature="e#10384#10470#0" />
+            <element signature="e#10481#10529#0" />
+            <element signature="e#10648#10892#0" />
+            <element signature="e#10929#11015#0" />
+            <element signature="docComment;method#onAnalyzeAll#0;class#Controller#0" />
+            <element signature="method#onAnalyzeAll#0;class#Controller#0" />
+            <element signature="docComment;method#onDeleteSelection#0;class#Controller#0" />
+            <element signature="method#onDeleteSelection#0;class#Controller#0" />
+            <element signature="e#14270#14359#1" />
+            <element signature="e#14449#14526#0" />
+            <element signature="method#removeSelection#0;class#Controller#0" />
+            <element signature="docComment;method#onPropertyFieldChanged#0;class#Controller#0" />
+            <element signature="method#onPropertyNameEntered#0;class#Controller#0" />
+            <element signature="e#15022#16100#1" />
+            <element signature="e#15269#16049#0" />
+            <element signature="e#16111#16263#0" />
+            <element signature="n#!!block;n#setScrollPanePannable#0;n#Controller#0" />
+            <element signature="method#textDoubleFormat#0;class#Controller#0" />
           </folding>
         </state>
       </provider>

@@ -20,10 +20,12 @@ import main.Controller;
 public class RubberBandSelection {
     private static final PseudoClass CSS_CLASS=
             PseudoClass.getPseudoClass("rubber-band");
+    private static final int DEFAULT_RADIUS=5,
+                            DEFAULT_WIDTH=20,
+                            DEFAULT_HEIGHT=20;
+    /** Group used for ZoomableScrollPane*/
     private final Group rootGroup;
     private final EventHandler<MouseEvent> releaseEvent,dragEvent;
-    /** Internal value to determine if new drag is due in Mouse Handler */
-    private boolean newDrag=true;
 
     /** Stores which Item is being dragged (-1: none, 0-3: corners, 5: rectangle */
     private int draggedItem=-1;
@@ -38,25 +40,21 @@ public class RubberBandSelection {
     Group group;
     private double imageWidth=0;
     private double imageHeight=0;
+    private String name="";
     private int idx=-1;
+    /** Stores if current Selection is active/selected*/
     private SimpleBooleanProperty active=new SimpleBooleanProperty(false);
-    /**
-     * @return Bounds of Rectangle Selection
-     */
-    public Bounds getBounds() {
-        return rect.getBoundsInParent();
-    }
 
-    //TODO BUILDER PATTERN
-    public RubberBandSelection(Controller controller, Group rootGroup, double x, double y, double imgWidth, double imgHeight, int idx, DoubleProperty scaleProperty) {
+    public RubberBandSelection(Controller controller, Group rootGroup, double x, double y, double imgWidth, double imgHeight, int idx, DoubleProperty scaleProperty, String name) {
         this.rootGroup=rootGroup;
         this.group = new Group();
         this.rootGroup.getChildren().add(group);
         this.controller=controller;
         this.idx=idx;
+        this.name=name;
         imageWidth=imgWidth;
         imageHeight=imgHeight;
-        rect = new Rectangle( x,y,20,20);
+        rect = new Rectangle( x,y,DEFAULT_WIDTH,DEFAULT_HEIGHT);
         rect.getStyleClass().add("rubber-band");
         rect.strokeWidthProperty().bind(Bindings.divide(1,scaleProperty));
         setIdx(idx);
@@ -64,7 +62,7 @@ public class RubberBandSelection {
         /** Init draggable Corners with bindings to rect corners **/
         corners=new Circle[4];
         for(int i=0; i<corners.length; i++) {
-            corners[i]=new Circle(5);
+            corners[i]=new Circle(DEFAULT_RADIUS);
             /** CSS styling + scale sizes according to Zoom **/
             corners[i].getStyleClass().add("rubber-corner");
             corners[i].radiusProperty().bind(Bindings.divide(7,scaleProperty));
@@ -72,16 +70,11 @@ public class RubberBandSelection {
             /** Show corners if controller has selected its index **/
             corners[i].disableProperty().bind(Bindings.not(active));
             corners[i].visibleProperty().bind(active);
-           /* corners[i].disableProperty().bind(rect.focusedProperty());
-            corners[i].visibleProperty().bind(rect.focusedProperty());*/
             group.getChildren().add(corners[i]);
         }
-        //showCorners(true);
         bindCorners();
-
         dragContext.mouseAnchorX=x;
         dragContext.mouseAnchorY=y;
-
         this.rootGroup.addEventHandler(MouseEvent.MOUSE_PRESSED, this::onMousePressed);
         //group.addEventHandler(MouseEvent.MOUSE_DRAGGED, onMouseEntryDraggedEventHandler);
         dragEvent=event->{
@@ -104,14 +97,7 @@ public class RubberBandSelection {
         this.rootGroup.addEventHandler(MouseEvent.MOUSE_RELEASED, releaseEvent);
     }
 
-    @Override
-    public String toString() {
-        return "Selection: X:\t"+rect.getX()+"\tY:"+rect.getY()+"\tW:"+rect.getWidth()+"\tH:"+rect.getHeight();
-    }
-
-    /**
-     * Binds Corners to Rectangle's properties
-     */
+    /**Binds Corners to Rectangle's properties (initial)*/
     private void bindCorners() {
         if(corners.length<4)
             return;
@@ -183,53 +169,7 @@ public class RubberBandSelection {
     }
 
     /**
-     * Checks if Selection is inside Image
-     */
-    private void checkBounds() {
-       /* return !(rect.getX()<0 || rect.getX()>imageWidth
-                || rect.getY()<0 ||rect.getY()> imageHeight
-                || (rect.getX()+rect.getWidth())>imageWidth
-                || (rect.getY()+rect.getHeight())>imageHeight
-                || rect.getWidth()<=0
-                || rect.getHeight()<=0);*/
-        /** Correct Position and Size of Rectangle if necessary,
-         *  draggedItem=5 -> Entire Rectangle is being dragged
-         */
-        if(rect.getX()<0) {
-            if(draggedItem!=5)
-                rect.setWidth(rect.getWidth()+rect.getX());
-            rect.setX(0);
-        }
-        else if(rect.getX()>imageWidth)
-            rect.setX(imageWidth-1);
-        if(rect.getY()<0) {
-            if(draggedItem!=5)
-                rect.setHeight(rect.getHeight() + rect.getY());
-            rect.setY(0);
-        }
-        else if(rect.getY()>imageHeight)
-            rect.setY(imageHeight-1);
-        if(rect.getWidth()<=0)
-            rect.setWidth(1);
-
-        else if((rect.getX()+rect.getWidth())>imageWidth) {
-            if(draggedItem!=5)
-                rect.setWidth(imageWidth - rect.getX());
-            else
-                rect.setX(imageWidth-rect.getWidth());
-        }
-        if(rect.getHeight()<=0) {
-            rect.setHeight(1);
-        }
-        else if((rect.getY()+rect.getHeight())>imageHeight) {
-            if(draggedItem!=5)
-                rect.setHeight(imageHeight - rect.getY());
-            else
-                rect.setY(imageHeight-rect.getHeight());
-        }
-    }
-
-    /** Show Corners if Rectangle clicked **/
+     * Show Corners if Rectangle clicked*/
     public void onMousePressed(MouseEvent event) {
         controller.setScrollPanePannable(false);
        /* if(!active.get())
@@ -244,7 +184,8 @@ public class RubberBandSelection {
         }
     }
 
-    /** Expand new Selection while Dragging **/
+    /**
+     * Expand new Selection while Dragging*/
     public void onMouseDragged(MouseEvent event) {
        /* System.out.println("X:"+event.getX());
         System.out.println("Y:"+event.getY());*/
@@ -260,6 +201,7 @@ public class RubberBandSelection {
                     corners[i].setCenterY(event.getY());*/
                 draggedItem=i;
                 dragRectangleSelection(i, new Point2D(event.getX(), event.getY()));
+                controller.refreshSelectedIteminList();
                 return;
             }
         }
@@ -269,6 +211,7 @@ public class RubberBandSelection {
             rect.setX(mouse.getX()-rect.getWidth()/2);
             rect.setY(mouse.getY()-rect.getHeight()/2);
             checkBounds();
+            controller.refreshSelectedIteminList();
             return;
         }
         /** Otherwise new selection is being drawn **/
@@ -328,14 +271,14 @@ public class RubberBandSelection {
         }*/
     }
 
-    /** Resets newDrag,draggedItem flags after dragging*/
+    /**
+     * Resets newDrag,draggedItem flags after dragging*/
     public void onMouseReleased(MouseEvent event) {
         if(!active.get())
             return;
         controller.setScrollPanePannable(true);
         if( event.isSecondaryButtonDown())
             return;
-        newDrag=true;
         draggedItem=-1;
         // remove rectangle
         // note: we want to keep the ruuberband selection for the cropping => code is just commented out
@@ -346,58 +289,59 @@ public class RubberBandSelection {
             rect.setHeight(0);
             group.getChildren().remove( rect);
             */
-
+        controller.refreshSelectedIteminList();
     }
 
-/*
-    */
-/** Init new Rectangle Selection if started drag **//*
-
-    EventHandler<MouseEvent> onMouseEntryDraggedEventHandler = new EventHandler<MouseEvent>() {
-        @Override
-        public void handle(MouseEvent event) {
-            if( !newDrag || event.isSecondaryButtonDown() || event.isMiddleButtonDown())
-                return;
-            for(int i=0; i<corners.length; i++) {
-                if(corners[i].contains(new Point2D(event.getX(),event.getY()))){
-                    */
-/*corners[i].setCenterX(event.getX());
-                    corners[i].setCenterY(event.getY());*//*
-
-                    dragRectangleSelection(i,new Point2D(event.getX(),event.getY()));
-                    return;
-                }
-            }
-            // remove old rect
+    /**
+     * Checks if Selection is inside Image*/
+    private void checkBounds() {
+       /* return !(rect.getX()<0 || rect.getX()>imageWidth
+                || rect.getY()<0 ||rect.getY()> imageHeight
+                || (rect.getX()+rect.getWidth())>imageWidth
+                || (rect.getY()+rect.getHeight())>imageHeight
+                || rect.getWidth()<=0
+                || rect.getHeight()<=0);*/
+        /** Correct Position and Size of Rectangle if necessary,
+         *  draggedItem=5 -> Entire Rectangle is being dragged
+         */
+        if(rect.getX()<0) {
+            if(draggedItem!=5)
+                rect.setWidth(rect.getWidth()+rect.getX());
             rect.setX(0);
-            rect.setY(0);
-            rect.setWidth(0);
-            rect.setHeight(0);
-            group.getChildren().remove(rect);
-
-            // prepare new drag operation
-            dragContext.mouseAnchorX=event.getX();
-            dragContext.mouseAnchorY=event.getY();
-
-            rect.setX(dragContext.mouseAnchorX);
-            rect.setY(dragContext.mouseAnchorY);
-            rect.setWidth(0);
-            rect.setHeight(0);
-
-            group.getChildren().add(rect);
-            for(int i=0; i<corners.length; i++) {
-                corners[i].toFront();
-                //TODO USE BINDING TO RECT PROPERTY INSTEAD
-                corners[i].setDisable(true);
-                corners[i].setVisible(false);
-            }
-
         }
-    };
+        else if(rect.getX()>imageWidth)
+            rect.setX(imageWidth-1);
+        if(rect.getY()<0) {
+            if(draggedItem!=5)
+                rect.setHeight(rect.getHeight() + rect.getY());
+            rect.setY(0);
+        }
+        else if(rect.getY()>imageHeight)
+            rect.setY(imageHeight-1);
+        if(rect.getWidth()<=0)
+            rect.setWidth(1);
 
-*/
-
-    /** Resets selection to empty rectangle*/
+        else if((rect.getX()+rect.getWidth())>imageWidth) {
+            if(draggedItem!=5)
+                rect.setWidth(imageWidth - rect.getX());
+            else
+                rect.setX(imageWidth-rect.getWidth());
+        }
+        if(rect.getHeight()<=0) {
+            rect.setHeight(1);
+        }
+        else if((rect.getY()+rect.getHeight())>imageHeight) {
+            if(draggedItem!=5)
+                rect.setHeight(imageHeight - rect.getY());
+            else
+                rect.setY(imageHeight-rect.getHeight());
+        }
+    }
+    public Bounds getBounds() {
+        return rect.getBoundsInParent();
+    }
+    /**
+     * Resets selection to empty rectangle*/
     public void reset(){
         // remove old rect
         rect.setX(0);
@@ -412,22 +356,47 @@ public class RubberBandSelection {
         this.rootGroup.removeEventHandler(MouseEvent.MOUSE_RELEASED, releaseEvent);
         this.rootGroup.getChildren().remove(group);
     }
-
+    public void setX(double x){
+        rect.setX(x);
+        checkBounds();
+    }
+    public void setY(double y){
+        rect.setY(y);
+        checkBounds();
+    }
+    public void setWidth(double w){
+        rect.setWidth(w);
+        checkBounds();
+    }
+    public void setHeight(double h){
+        rect.setHeight(h);
+        checkBounds();
+    }
     public void setImageWidth(double imageWidth) {
         this.imageWidth=imageWidth;
     }
     public void setImageHeight(double imageHeight) {
         this.imageHeight=imageHeight;
     }
-
-    /** Update Index inside of selections-ArrayList */
+    /**
+     * Update Index inside of selections-ArrayList */
     public void setIdx(int i) {
         idx=i;
         active.unbind();
         /** Bind to controller selection **/
         active.bind(Bindings.equal(controller.activeSelectionProperty(),idx));
     }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name=name;
+    }
 
+    @Override
+    public String toString() {
+        return "Selection: \""+name+"\" X:\t"+rect.getX()+"\tY:"+rect.getY()+"\tW:"+rect.getWidth()+"\tH:"+rect.getHeight();
+    }
 
     /**
      * Helper Class for Mouse Dragging
@@ -435,6 +404,5 @@ public class RubberBandSelection {
     private final class DragContext {
         public double mouseAnchorX;
         public double mouseAnchorY;
-
     }
 }
