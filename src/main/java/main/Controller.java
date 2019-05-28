@@ -23,6 +23,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Pair;
 import logging.Log;
 import logging.LogView;
 import logging.Logger;
@@ -32,9 +33,7 @@ import net.sourceforge.tess4j.TesseractException;
 import options.OptionsDialog;
 import options.TesseractConstants;
 import org.kordamp.ikonli.javafx.FontIcon;
-import util.PropertiesService;
-import util.RubberBandSelection;
-import util.ZoomableScrollPane;
+import util.*;
 
 import java.io.File;
 import java.util.HashMap;
@@ -50,7 +49,7 @@ public class Controller {
     public static Controller CONTROLLER;
     private static int SELECTION_COUNT=1;
     //TODO IN FXML: "RUN" button + Profile selection (SubList in .properties)-> Select Profil in OptionsDialog to change individual, reset to defaults
-
+    //TODO Package all properties/.ini loadings + Tesseract OCR runs onto another Thread(TASK)
     /**
      * See window.fxml for definitions*/
     @FXML
@@ -67,6 +66,8 @@ public class Controller {
     private ListView<RubberBandSelection> listSelections;
     @FXML
     private TextField fieldName,fieldX,fieldY,fieldWidth,fieldHeight;
+    @FXML
+    private ChoiceBox<String> choiceProfile;
 
     private Stage stage;
     private static Log log=new Log();
@@ -90,7 +91,9 @@ public class Controller {
     private Image currImage;
     /**
      * Options for Tesseract OCR Object*/
-    private static HashMap<String,String> tesseractOptions;
+    private static Profile currProfile;
+    /*private static HashMap<String,String> tesseractOptions;
+    private String currProfile="default";*/
 
 
     @FXML
@@ -101,7 +104,7 @@ public class Controller {
         Group selectionLayer=new Group();
         selectionLayer.setAutoSizeChildren(false);
         selectionLayer.getChildren().add(imgView);
-        selections=FXCollections.<RubberBandSelection>observableArrayList();
+        selections=FXCollections.observableArrayList();
         activeSelection.set(0);
         imgScroll=new ZoomableScrollPane(selectionLayer);
         imgStack.getChildren().add(imgScroll);
@@ -128,7 +131,8 @@ public class Controller {
             analyze( selectionBounds);
         });
         contextMenu.getItems().add( cropMenuItem);
-        /** Spawn new Selection if mouse clicked**/
+        /**
+         * Spawn new Selection if mouse clicked**/
         imgView.setOnMouseClicked(event -> {
             if(event.getButton().equals(MouseButton.PRIMARY)) {
                 if(currImage!=null && !contextMenu.isShowing()) {
@@ -150,6 +154,9 @@ public class Controller {
             else if (event.getButton().equals(MouseButton.SECONDARY)) {
                 contextMenu.show(selectionLayer, event.getScreenX(), event.getScreenY());
             }
+            else{
+                //event.consume();
+            }
         });
         propertiesMenu.expandedProperty().addListener((observable, oldValue, newValue) -> {
                 if(!newValue) {
@@ -170,11 +177,25 @@ public class Controller {
         loadRecentlyOpenedFiles();
         initLog();
         //PropertiesService.saveTesseractProperties(TesseractConstants.DEFAULTS.getAll());
-        tesseractOptions=PropertiesService.getAllTesseractProperties();
-        if(tesseractOptions.isEmpty()){
-            PropertiesService.saveTesseractProperties(TesseractConstants.DEFAULTS.getAll());
-            tesseractOptions=PropertiesService.getAllTesseractProperties();
-        }
+        /**
+         * Load Properties from file */
+        currProfile=new Profile("default",IniProperties.getDefaultSettings());
+        choiceProfile.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
+          if(oldValue!=newValue && newValue!=null)
+              changeProfile(newValue);
+        }));
+        loadProfiles();
+        //choiceProfile.getSelectionModel().select("default");
+    }
+
+    private void loadProfiles() {
+        choiceProfile.setItems(FXCollections.observableArrayList(IniProperties.getProfiles()));
+        choiceProfile.getSelectionModel().select(currProfile.getName());
+    }
+
+    private void changeProfile(String profile) {
+        currProfile=new Profile(profile,IniProperties.getProfile(profile));
+        logger.info(profile+" profile loaded");
     }
 
     private void initLog() {
@@ -315,8 +336,6 @@ public class Controller {
         }
     }
 
-
-
     /**
      * Uses Tesseract to recognize text in selected Rectangle
      * @param rec Rectangle inside the ImageView
@@ -347,7 +366,7 @@ public class Controller {
 
     private ITesseract getTesseract() {
         final ITesseract instance = new Tesseract();
-        HashMap<String,String> options=new HashMap<>(tesseractOptions);
+        HashMap<String,String> options=new HashMap<>(currProfile.getOptions());
         try {
             //File tessdata =new File(getClass().getClassLoader().getResource("tessdata").toURI());
             instance.setDatapath(options.get(TesseractConstants.TESSDATA));
@@ -373,13 +392,22 @@ public class Controller {
     /**
      * Show Options Dialog and update global settings if closed */
     public void onAnalyzeOptions(ActionEvent event) {
-        OptionsDialog dialog=new OptionsDialog(tesseractOptions);
+        OptionsDialog dialog=new OptionsDialog(currProfile);
         /** Show OptionsDialog and save changed settings afterr close */
-        Optional<HashMap<String, String>> newOptions=dialog.showAndWait();
+        Optional<Pair<Boolean, Profile>> newOptions=dialog.showAndWait();
         if(newOptions.isPresent()) {
-            for(Map.Entry<String, String> option : newOptions.get().entrySet())
-                tesseractOptions.put(option.getKey(),option.getValue());
-            PropertiesService.saveTesseractProperties(tesseractOptions);
+            Profile updatedProfile=newOptions.get().getValue();
+            /**
+             * Has old Profile been renamed? (not new but other name) */
+            if(!newOptions.get().getKey() && !currProfile.getName().equals(updatedProfile.getName())){
+                IniProperties.renameProfile(currProfile.getName(),updatedProfile.getName(),updatedProfile.getOptions());
+            }
+            /**
+             * Save Profile/add new*/
+            else
+                IniProperties.saveProfile(updatedProfile.getName(),updatedProfile.getOptions());
+            currProfile=updatedProfile;
+            loadProfiles();
         }
     }
 

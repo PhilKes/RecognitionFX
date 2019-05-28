@@ -176,6 +176,8 @@ public class RubberBandSelection {
     /**
      * Show Corners if Rectangle clicked*/
     public void onMousePressed(MouseEvent event) {
+        if(event.isSecondaryButtonDown() || event.isMiddleButtonDown())
+            return;
         controller.setScrollPanePannable(false);
         if(rect.contains(new Point2D(event.getX(),event.getY()))){
             dragContext.mouseAnchorX=event.getX()-rect.getX();

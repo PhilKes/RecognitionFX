@@ -161,5 +161,6 @@ public class LogView extends ListView<LogRecord> {
                 scrollTo(logItems.size());
             }
         });
+        scrollTo(logItems.size());
     }
 }

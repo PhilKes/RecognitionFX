@@ -39,3 +39,12 @@
 .rubber-corner:hover{
     -fx-fill: darkblue;
 }
+#run-button{
+    -fx-font-size: 12pt;
+}
+/*transparent for Menu with ChoiceBox*/
+#transparent:hover,
+#transparent:focused,
+#transparent:showing{
+    -fx-background: transparent;
+}

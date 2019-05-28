@@ -6,22 +6,22 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.stage.StageStyle;
+import javafx.util.Pair;
+import util.Profile;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 /**
  * Custom Dialog for Analyze Options Menu */
-public class OptionsDialog extends Dialog<HashMap<String,String>> {
+public class OptionsDialog extends Dialog<Pair<Boolean,Profile>>{
 
-    public OptionsDialog(HashMap<String, String> tesseractOptions) {
-
+    public OptionsDialog(Profile profile) {
         OptionsController controller;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/options.fxml"));
             Node root = loader.load();
             controller=loader.getController();
-            controller.setOptions(tesseractOptions);
+            controller.setProfile(new Profile(profile.getName(),profile.getOptions()));
          /*   LoginDialogController controller = loader.<LoginDialogController>getController();
             controller.setModel(new LoginModel(data));*/
             setTitle("Analyze Options");
@@ -33,9 +33,9 @@ public class OptionsDialog extends Dialog<HashMap<String,String>> {
              * Returns commited Options as HashMap */
             setResultConverter(btn->{
                 if(btn.getButtonData().equals(ButtonBar.ButtonData.OK_DONE)){
-                    return controller.getOptions();
+                    return new Pair<>(controller.isNewProfile(),controller.getProfile());
                 }else{
-                    return new HashMap<>();
+                    return null;
                 }
             });
         } catch (IOException e) {

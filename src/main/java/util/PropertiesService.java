@@ -48,6 +48,7 @@ public class PropertiesService {
             return null;
         }
     }
+    @SuppressWarnings("all")
     public static List<String> getRecentlyOpenedFiles(){
         try{
             FileBasedConfigurationBuilder<FileBasedConfiguration> builder=getBuilder(CONFIG_FILE);
@@ -170,7 +171,6 @@ public class PropertiesService {
     }
 
     //endregion
-
     private static FileBasedConfigurationBuilder<FileBasedConfiguration> getBuilder(String config){
         Parameters params = new Parameters();
         return new FileBasedConfigurationBuilder<FileBasedConfiguration>(PropertiesConfiguration.class)
