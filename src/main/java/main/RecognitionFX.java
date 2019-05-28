@@ -14,12 +14,8 @@ public class RecognitionFX extends Application {
         Controller controller = (Controller) loader.getController();
         controller.setStage(primaryStage);
         primaryStage.setTitle("Recognition FX");
-        //Image icon=new Image(getClass().getResourceAsStream("/icon_128x128.png"));
         primaryStage.getIcons().addAll(
-                new Image(getClass().getResourceAsStream("/icon_128x128.png")),
-                new Image(getClass().getResourceAsStream("/icon_64x64.png")),
-                new Image(getClass().getResourceAsStream("/icon_32x32.png")),
-                new Image(getClass().getResourceAsStream("/icon_16x16.png"))
+                new Image(getClass().getResourceAsStream("/icon.png"))
         );
         Scene scene=new Scene(root);
 

@@ -15,8 +15,7 @@ import javafx.scene.layout.VBox;
  */
 public class ZoomableScrollPane extends ScrollPane {
 
-    //TODO BIND CIRCLE RADIUS TO SCALE VALUE OF SCROLLPANE
-    private DoubleProperty scaleValue = new SimpleDoubleProperty(.7);
+    private DoubleProperty scaleValue = new SimpleDoubleProperty(1);
     private double zoomIntensity = 0.02;
     private Node target;
     private Node zoomNode;

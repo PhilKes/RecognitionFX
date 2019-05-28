@@ -33,7 +33,7 @@
                         <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator></MenuItem>
                   <Menu fx:id="recentlyMenu" mnemonicParsing="false" text="Recently Opened" />
-                  <MenuItem mnemonicParsing="false" text="Save">
+                  <MenuItem disable="true" mnemonicParsing="false" text="Save">
                      <graphic>
                         <FontIcon iconLiteral="fa-save" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" />
                      </graphic>
@@ -49,18 +49,6 @@
                   <FontIcon iconLiteral="fa-bars" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" />
                </graphic>
           </Menu>
-            <Menu mnemonicParsing="false" text="Analyze">
-              <items>
-                <MenuItem mnemonicParsing="false" onAction="#onAnalyzeAll" text="Analyze All">
-                     <accelerator>
-                        <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                     </accelerator>
-                  </MenuItem>
-              </items>
-               <graphic>
-                  <FontIcon iconLiteral="fa-magic" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" />
-               </graphic>
-            </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
                   <MenuItem mnemonicParsing="false" text="Revert">
@@ -78,17 +66,40 @@
                      <accelerator>
                         <KeyCodeCombination alt="ANY" code="DELETE" control="UP" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator></MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#onDeleteAll" text="Delete All">
+                     <graphic>
+                        <FontIcon iconLiteral="fa-times" iconSize="15" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="DELETE" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
             </items>
                <graphic>
                   <FontIcon iconLiteral="fa-edit" iconSize="17" strokeType="OUTSIDE" strokeWidth="0.0" />
                </graphic>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+            <Menu mnemonicParsing="false" text="Analyze">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#onAnalyzeAll" text="Analyze All">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+              </items>
+               <graphic>
+                  <FontIcon iconLiteral="fa-magic" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" />
+               </graphic>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Options">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#onAnalyzeOptions" text="Analyze Options">
+                     <graphic>
+                        <FontIcon iconLiteral="fa-gear" iconSize="15" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </graphic></MenuItem>
             </items>
                <graphic>
-                  <FontIcon iconLiteral="fa-question-circle-o" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" />
+                  <FontIcon iconLiteral="fa-gears" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" />
                </graphic>
           </Menu>
         </menus>
@@ -126,25 +137,25 @@
               </rowConstraints>
                <children>
                   <Label maxWidth="1.7976931348623157E308" text="Name:" GridPane.columnSpan="2" />
-                  <TextField fx:id="fieldName"  GridPane.columnIndex="1" GridPane.columnSpan="3" />
+                  <TextField fx:id="fieldName" GridPane.columnIndex="1" GridPane.columnSpan="3" />
                   <Label prefWidth="2000.0" text="X:" textAlignment="RIGHT" GridPane.rowIndex="1" />
-                  <TextField fx:id="fieldX" layoutX="210.0" layoutY="13.0"  prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="fieldX" layoutX="210.0" layoutY="13.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </GridPane.margin></TextField>
                   <Label layoutX="10.0" layoutY="47.0" prefWidth="2000.0" text="Y:" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <TextField fx:id="fieldY" layoutX="110.0" layoutY="43.0"  GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <TextField fx:id="fieldY" layoutX="110.0" layoutY="43.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </GridPane.margin></TextField>
 
                    <Label contentDisplay="CENTER" prefWidth="2000.0" text="Width:" GridPane.rowIndex="2" />
-                   <TextField fx:id="fieldWidth" layoutX="210.0" layoutY="13.0"  prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                   <TextField fx:id="fieldWidth" layoutX="210.0" layoutY="13.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </GridPane.margin></TextField>
                    <Label layoutX="10.0" layoutY="47.0" prefWidth="2000.0" text="Height:" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                   <TextField fx:id="fieldHeight" layoutX="110.0" layoutY="43.0"  GridPane.columnIndex="3" GridPane.rowIndex="2">
+                   <TextField fx:id="fieldHeight" layoutX="110.0" layoutY="43.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </GridPane.margin></TextField>

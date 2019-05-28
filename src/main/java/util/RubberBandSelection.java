@@ -14,8 +14,7 @@ import javafx.scene.shape.Rectangle;
 import main.Controller;
 
 /**
- * Create Rectangle Selection with Mouse Dragging
- * Rectangle has draggable Corners to expand Selection
+ * Rectangle Selection with Mouse Dragging
  */
 public class RubberBandSelection {
     private static final PseudoClass CSS_CLASS=
@@ -23,26 +22,31 @@ public class RubberBandSelection {
     private static final int DEFAULT_RADIUS=5,
                             DEFAULT_WIDTH=20,
                             DEFAULT_HEIGHT=20;
-    /** Group used for ZoomableScrollPane*/
+    /**
+     * Group used for ZoomableScrollPane*/
     private final Group rootGroup;
     private final EventHandler<MouseEvent> releaseEvent,dragEvent;
 
-    /** Stores which Item is being dragged (-1: none, 0-3: corners, 5: rectangle */
+    /**
+     * Stores which Item is being dragged (-1: none, 0-3: corners, 5: rectangle */
     private int draggedItem=-1;
     final RubberBandSelection.DragContext dragContext = new RubberBandSelection.DragContext();
     private final main.Controller controller;
 
-    /** Rectangle Selection Object */
-    Rectangle rect = new Rectangle();
+    /**
+     * Rectangle Selection Object */
+    private Rectangle rect = new Rectangle();
 
-    /** Array of Rectangle Corners*/
-    Circle[] corners;
-    Group group;
+    /**
+     * Array of Rectangle Corners*/
+    private Circle[] corners;
+    private Group group;
     private double imageWidth=0;
     private double imageHeight=0;
     private String name="";
     private int idx=-1;
-    /** Stores if current Selection is active/selected*/
+    /**
+     * Stores if current Selection is active/selected*/
     private SimpleBooleanProperty active=new SimpleBooleanProperty(false);
 
     public RubberBandSelection(Controller controller, Group rootGroup, double x, double y, double imgWidth, double imgHeight, int idx, DoubleProperty scaleProperty, String name) {
@@ -97,7 +101,8 @@ public class RubberBandSelection {
         this.rootGroup.addEventHandler(MouseEvent.MOUSE_RELEASED, releaseEvent);
     }
 
-    /**Binds Corners to Rectangle's properties (initial)*/
+    /**
+     * Binds Corners to Rectangle's properties (initial)*/
     private void bindCorners() {
         if(corners.length<4)
             return;
@@ -172,14 +177,9 @@ public class RubberBandSelection {
      * Show Corners if Rectangle clicked*/
     public void onMousePressed(MouseEvent event) {
         controller.setScrollPanePannable(false);
-       /* if(!active.get())
-            return;*/
         if(rect.contains(new Point2D(event.getX(),event.getY()))){
-            /*for(int i=0; i<corners.length; i++) {
-                //TODO USE BINDING TO RECT PROPERTY INSTEAD
-                corners[i].setDisable(false);
-                corners[i].setVisible(true);
-            }*/
+            dragContext.mouseAnchorX=event.getX()-rect.getX();
+            dragContext.mouseAnchorY=event.getY()-rect.getY();
             controller.setActiveSelection(idx);
         }
     }
@@ -187,88 +187,31 @@ public class RubberBandSelection {
     /**
      * Expand new Selection while Dragging*/
     public void onMouseDragged(MouseEvent event) {
-       /* System.out.println("X:"+event.getX());
-        System.out.println("Y:"+event.getY());*/
         if(event.isSecondaryButtonDown() || event.isMiddleButtonDown())
             return;
-        /** Check Corner Drag or start new Drag **/
-        //if(newDrag) {
+        /**
+         * Check Corner Drag or start new Drag **/
         Point2D mouse=new Point2D(event.getX(), event.getY());
         for(int i=0; i<corners.length; i++) {
-            /** Check if new corner should be dragged or if current Corner drag shall be continued **/
+            /**
+             * Check if new corner should be dragged or if current Corner drag shall be continued **/
             if((corners[i].contains(mouse)&& draggedItem==-1) || draggedItem==i) {
-                    /*corners[i].setCenterX(event.getX());
-                    corners[i].setCenterY(event.getY());*/
                 draggedItem=i;
                 dragRectangleSelection(i, new Point2D(event.getX(), event.getY()));
                 controller.refreshSelectedIteminList();
                 return;
             }
         }
-        /** Check if entire rectangle selection is being dragged**/
+        /**
+         * Check if entire rectangle selection is being dragged**/
         if(rect.contains(mouse) || draggedItem==5){
             draggedItem=5;
-            rect.setX(mouse.getX()-rect.getWidth()/2);
-            rect.setY(mouse.getY()-rect.getHeight()/2);
+            rect.setX(event.getX()-dragContext.mouseAnchorX);
+            rect.setY(event.getY()-dragContext.mouseAnchorY);
             checkBounds();
             controller.refreshSelectedIteminList();
             return;
         }
-        /** Otherwise new selection is being drawn **/
-            /*else {
-                // remove old rect
-                rect.setX(0);
-                rect.setY(0);
-                rect.setWidth(0);
-                rect.setHeight(0);
-                group.getChildren().remove(rect);
-
-                // prepare new drag operation
-                dragContext.mouseAnchorX=event.getX();
-                dragContext.mouseAnchorY=event.getY();
-
-                rect.setX(dragContext.mouseAnchorX);
-                rect.setY(dragContext.mouseAnchorY);
-                rect.setWidth(0);
-                rect.setHeight(0);
-
-                group.getChildren().add(rect);
-                for(int i=0; i<corners.length; i++) {
-                    corners[i].toFront();
-                    //TODO USE BINDING TO RECT PROPERTY INSTEAD
-                    corners[i].setDisable(true);
-                    corners[i].setVisible(false);
-                }
-                newDrag=false;
-            }
-        }
-        *//** Expand Selection with Dragg **//*
-        else {
-            *//** Check Image Borders are not overlapped **//*
-            double x=event.getX();
-            //x=x<0 ? 0 : (x>imageWidth ? imageWidth : x);
-            double y=event.getY();
-            //y=y<0 ? 0 : (y>imageHeight ? imageHeight : y);
-
-            double offsetX=x - dragContext.mouseAnchorX;
-            double offsetY=y - dragContext.mouseAnchorY;
-
-            if(offsetX>0)
-                rect.setWidth(offsetX);
-            else {
-                rect.setX(x);
-                rect.setWidth(dragContext.mouseAnchorX - rect.getX());
-            }
-
-            if(offsetY>0) {
-                rect.setHeight(offsetY);
-            }
-            else {
-                rect.setY(y);
-                rect.setHeight(dragContext.mouseAnchorY - rect.getY());
-            }
-            checkBounds();
-        }*/
     }
 
     /**
@@ -340,8 +283,11 @@ public class RubberBandSelection {
     public Bounds getBounds() {
         return rect.getBoundsInParent();
     }
+    public Rectangle getRect(){
+        return rect;
+    }
     /**
-     * Resets selection to empty rectangle*/
+     * Resets selection and removes it from rootGroup*/
     public void reset(){
         // remove old rect
         rect.setX(0);
@@ -395,7 +341,7 @@ public class RubberBandSelection {
 
     @Override
     public String toString() {
-        return "Selection: \""+name+"\" X:\t"+rect.getX()+"\tY:"+rect.getY()+"\tW:"+rect.getWidth()+"\tH:"+rect.getHeight();
+        return "Selection: \""+name+"\" X:"+rect.getX()+" Y:"+rect.getY()+" W:"+rect.getWidth()+" H:"+rect.getHeight();
     }
 
     /**

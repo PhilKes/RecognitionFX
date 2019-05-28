@@ -2,7 +2,6 @@ package main;
 
 import builder.RubberBandSelectionBuilder;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,29 +19,38 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import logging.Log;
 import logging.LogView;
 import logging.Logger;
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
+import options.OptionsDialog;
+import options.TesseractConstants;
 import org.kordamp.ikonli.javafx.FontIcon;
 import util.PropertiesService;
 import util.RubberBandSelection;
 import util.ZoomableScrollPane;
 
 import java.io.File;
-import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
-import static org.kordamp.ikonli.fontawesome.FontAwesome.FILE_IMAGE_O;
+import static org.kordamp.ikonli.fontawesome.FontAwesome.MAGIC;
+import static org.kordamp.ikonli.fontawesome.FontAwesome.PHOTO;
 
 public class Controller {
 
     public static Controller CONTROLLER;
-    public static int SELECTION_COUNT=1;
+    private static int SELECTION_COUNT=1;
+    //TODO IN FXML: "RUN" button + Profile selection (SubList in .properties)-> Select Profil in OptionsDialog to change individual, reset to defaults
+
     /**
      * See window.fxml for definitions*/
     @FXML
@@ -61,7 +69,11 @@ public class Controller {
     private TextField fieldName,fieldX,fieldY,fieldWidth,fieldHeight;
 
     private Stage stage;
-    private Logger logger;
+    private static Log log=new Log();
+    private static Logger logger;
+    static{
+        logger=new Logger(log, "main");
+    }
     private ImageView imgView;
     /**
      * Extended ScrollPane for Image/Selection View */
@@ -70,12 +82,16 @@ public class Controller {
      * List of all created RubberbandSelections*/
     private ObservableList<RubberBandSelection> selections;
     /**
-     * Property for storing currently active selection index -> bound to RubberBandSelection's corners visibility(show only if correct selection is active*/
+     * Property for storing currently active selection index - bound to RubberBandSelection's corners visibility(show only if correct selection is active*/
     private SimpleIntegerProperty activeSelection=new SimpleIntegerProperty();
     /**
      * Currently opened Imagefile*/
     private File file;
     private Image currImage;
+    /**
+     * Options for Tesseract OCR Object*/
+    private static HashMap<String,String> tesseractOptions;
+
 
     @FXML
     public void initialize(){
@@ -93,7 +109,7 @@ public class Controller {
             if(event.getButton() == MouseButton.MIDDLE)
                 event.consume();
         });
-    /*    imgStack.setOnKeyPressed(event -> {
+        /*    imgStack.setOnKeyPressed(event -> {
                 if(event.getCode()==KeyCode.ESCAPE)
                     selections.get(activeSelection.get()).reset();
             }
@@ -102,9 +118,8 @@ public class Controller {
         /** Show Context menu when left clicked inside StackPane **/
         final ContextMenu contextMenu = new ContextMenu();
         MenuItem cropMenuItem = new MenuItem("Analyze");
-        FontIcon cropIcon=new FontIcon("fa-magic");
-        cropIcon.setText("");
-        cropIcon.setIconSize(16);
+        FontIcon cropIcon=new FontIcon(MAGIC);
+        cropIcon.setIconSize(18);
         cropMenuItem.setDisable(true);
         cropMenuItem.setGraphic(cropIcon);
         cropMenuItem.setOnAction(e -> {
@@ -113,34 +128,33 @@ public class Controller {
             analyze( selectionBounds);
         });
         contextMenu.getItems().add( cropMenuItem);
-        imgStack.setOnMousePressed(event -> {
-            contextMenu.hide();
-            if (event.isSecondaryButtonDown()) {
+        /** Spawn new Selection if mouse clicked**/
+        imgView.setOnMouseClicked(event -> {
+            if(event.getButton().equals(MouseButton.PRIMARY)) {
+                if(currImage!=null && !contextMenu.isShowing()) {
+                    RubberBandSelection selection=new RubberBandSelectionBuilder()
+                            .setRootGroup(selectionLayer)
+                            .setX(event.getX()).setY(event.getY())
+                            .setImgWidth(currImage.getWidth()).setImgHeight(currImage.getHeight())
+                            .setIdx(selections.size())
+                            .setScaleProperty(imgScroll.scaleValueProperty())
+                            .setName("Selection " + SELECTION_COUNT++)
+                            .createRubberBandSelection();
+                    selections.add(selection);
+                    activeSelection.set(selections.size() - 1);
+                    cropMenuItem.setDisable(false);
+                    logger.info("Added " + selection.toString());
+                }
+                contextMenu.hide();
+            }
+            else if (event.getButton().equals(MouseButton.SECONDARY)) {
                 contextMenu.show(selectionLayer, event.getScreenX(), event.getScreenY());
             }
         });
-        /** Spawn new Selection if mouse clicked**/
-        imgView.setOnMouseClicked(event -> {
-            if(currImage!=null) {
-                RubberBandSelection selection=new RubberBandSelectionBuilder()
-                        .setRootGroup(selectionLayer)
-                        .setX(event.getX()).setY(event.getY())
-                        .setImgWidth(currImage.getWidth()).setImgHeight(currImage.getHeight())
-                        .setIdx(selections.size())
-                        .setScaleProperty(imgScroll.scaleValueProperty())
-                        .setName("Selection " + SELECTION_COUNT++)
-                        .createRubberBandSelection();
-                selections.add(selection);
-                activeSelection.set(selections.size() - 1);
-                cropMenuItem.setDisable(false);
-                logger.info("Added "+selection.toString());
-            }
-        });
-        propertiesMenu.expandedProperty().addListener((ChangeListener<Boolean>)
-            (observable, oldValue, newValue) -> {
+        propertiesMenu.expandedProperty().addListener((observable, oldValue, newValue) -> {
                 if(!newValue) {
-                    /*propertiesMenu.setMinHeight(100.0);
-                    propertiesMenu.setPrefHeight(100.0);*/
+                /*propertiesMenu.setMinHeight(100.0);
+                propertiesMenu.setPrefHeight(100.0);*/
                     //TODO RESIZING PANE
                     propertiesMenu.setManaged(false);
                     propertiesMenu.setRotate(90);
@@ -153,27 +167,17 @@ public class Controller {
         });
         initSelectionListView();
         initPropertiesWindow();
-        /** Bind List selection to activeSelection Property (bidirectional with Listeners*/
-        activeSelection.addListener((obs,old,newVal)->{
-            if(newVal.intValue()!=listSelections.getSelectionModel().getSelectedIndex() && newVal.intValue()>=0)
-                listSelections.getSelectionModel().select(newVal.intValue());
-        });
-        listSelections.getSelectionModel().selectedIndexProperty().addListener((obs,old,newVal)->{
-            if(newVal.intValue()!=activeSelection.get()) {
-                activeSelection.set(newVal.intValue());
-            }
-            /** Update Properties Window*/
-            if(newVal.intValue()!=-1)
-                updatePropertiesWindow(selections.get(newVal.intValue()));
-
-        });
         loadRecentlyOpenedFiles();
         initLog();
+        //PropertiesService.saveTesseractProperties(TesseractConstants.DEFAULTS.getAll());
+        tesseractOptions=PropertiesService.getAllTesseractProperties();
+        if(tesseractOptions.isEmpty()){
+            PropertiesService.saveTesseractProperties(TesseractConstants.DEFAULTS.getAll());
+            tesseractOptions=PropertiesService.getAllTesseractProperties();
+        }
     }
 
     private void initLog() {
-        Log log    = new Log();
-        logger = new Logger(log, "main");
 
         LogView logView = new LogView(logger);
         logView.setPrefWidth(400);
@@ -197,15 +201,15 @@ public class Controller {
 
     public void updatePropertiesWindow(RubberBandSelection newSelection) {
         fieldName.setText(newSelection.getName());
-        Bounds rectBounds=newSelection.getBounds();
-        fieldX.setText(""+rectBounds.getMinX());
-        fieldY.setText(""+rectBounds.getMinY());
-        fieldWidth.setText(""+rectBounds.getWidth());
-        fieldHeight.setText(""+rectBounds.getHeight());
+        Rectangle rect=newSelection.getRect();
+        fieldX.setText(""+rect.getX());
+        fieldY.setText(""+rect.getY());
+        fieldWidth.setText(""+rect.getWidth());
+        fieldHeight.setText(""+rect.getHeight());
     }
 
     /**
-     * Init ListView for selections in Properties Pane */
+     * Init ListView and listeners for selections in Properties Pane */
     private void initSelectionListView() {
         listSelections.setItems(selections);
         listSelections.setEditable(false);
@@ -220,19 +224,60 @@ public class Controller {
                 }
             }
         });
+        /** Bind List selection to activeSelection Property (bidirectional with Listeners*/
+        activeSelection.addListener((obs,old,newVal)->{
+            if(newVal.intValue()!=listSelections.getSelectionModel().getSelectedIndex() && newVal.intValue()>=0)
+                listSelections.getSelectionModel().select(newVal.intValue());
+        });
+        listSelections.getSelectionModel().selectedIndexProperty().addListener((obs,old,newVal)->{
+            if(newVal.intValue()!=activeSelection.get()) {
+                activeSelection.set(newVal.intValue());
+            }
+            /** Update Properties Window*/
+            if(newVal.intValue()!=-1)
+                updatePropertiesWindow(selections.get(newVal.intValue()));
+
+        });
     }
 
     /**
-     * Invoked when File Open Image clicked
+     * Adds recently opened Files into File Menu
+     */
+    private void loadRecentlyOpenedFiles() {
+        recentlyMenu.getItems().clear();
+        List<String> files=PropertiesService.getRecentlyOpenedFiles();
+        files.forEach(
+                file->{
+                    MenuItem fileItem=new MenuItem(file);
+                    fileItem.setOnAction(ev->{
+                        if(!openImage(file)) {
+                            PropertiesService.removeInvalidRecentlyOpened(file);
+                            loadRecentlyOpenedFiles();
+                        }
+                    });
+                    FontIcon icon=new FontIcon(PHOTO);
+                    icon.setIconSize(16);
+                    fileItem.setGraphic(icon);
+                    recentlyMenu.getItems().add(fileItem);
+                }
+        );
+    }
+
+    /**
+     * Invoked when File - Open Image clicked
      */
     public void onFileOpen(ActionEvent event) {
-
         FileChooser fileChooser=new FileChooser();
         fileChooser.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("Image files (.jpg,.png,.jpeg)", "*.jpg", "*.png", "*.jpeg"));
         fileChooser .setTitle("Open Image File");
         String lastDirectory=PropertiesService.getLastOpenedDirectory();
-        if(lastDirectory!=null)
-            fileChooser.setInitialDirectory(new File(lastDirectory));
+        if(lastDirectory!=null ) {
+            File folder=new File(lastDirectory);
+            if(folder.exists())
+                fileChooser.setInitialDirectory(folder);
+            else
+                logger.error("onFileOpen: LastDirectory set but not found!");
+        }
         File file=fileChooser.showOpenDialog(stage);
         if(file!=null)
             openImage(file.getAbsolutePath());
@@ -254,6 +299,9 @@ public class Controller {
 
             PropertiesService.saveRecentlyOpened(file.getAbsolutePath());
             loadRecentlyOpenedFiles();
+            for(int i=0; i<selections.size(); i++) {
+                selections.get(i).reset();
+            }
             selections.clear();
             activeSelection.set(-1);
             imgScroll.resetScale();
@@ -267,28 +315,7 @@ public class Controller {
         }
     }
 
-    /**
-     * Adds recently opened Files into File Menu
-     */
-    private void loadRecentlyOpenedFiles() {
-        recentlyMenu.getItems().clear();
-        List<String> files=PropertiesService.getRecentlyOpenedFiles();
-        files.forEach(
-                file->{
-                    MenuItem fileItem=new MenuItem(file);
-                    fileItem.setOnAction(ev->{
-                        if(!openImage(file)) {
-                            PropertiesService.removeInvalidRecentlyOpened(file);
-                            loadRecentlyOpenedFiles();
-                        }
-                    });
-                    FontIcon icon=new FontIcon(FILE_IMAGE_O);
-                    icon.setIconSize(16);
-                    fileItem.setGraphic(icon);
-                    recentlyMenu.getItems().add(fileItem);
-                }
-        );
-    }
+
 
     /**
      * Uses Tesseract to recognize text in selected Rectangle
@@ -298,20 +325,11 @@ public class Controller {
         //final File imageFile = new File(getClass().getResource("testmessung.jpeg").toURI());
         File imageFile=file;
         logger.info("ANALYZING "+imageFile.getAbsolutePath()+" ...");
-        final ITesseract instance = new Tesseract();
-        //System.out.println("E:\\TEMP\\tessdata");
-        try {
-
-            File tessdata =new File(getClass().getClassLoader().getResource("tessdata").toURI());
-            instance.setDatapath(tessdata.getAbsolutePath());
-            instance.setTessVariable("tessedit_char_whitelist", "ABCDEFGHIKLMNOPQRSTUVWXYZabcdefghiklmnopqrstuvwxyz.:-0123456789");
+        ITesseract instance= getTesseract();
+        if(instance==null){
+            logger.error("Analyze: Could not analyze selection!");
+            return;
         }
-        catch(URISyntaxException e) {
-            e.printStackTrace();
-            logger.error(e.getMessage());
-        }
-
-
         //Rectangle rect = new Rectangle(25, 3, 83, 27);
        // java.awt.Rectangle rect = new java.awt.Rectangle(506, 93, 93, 23);
         final String result;
@@ -327,16 +345,46 @@ public class Controller {
 
     }
 
+    private ITesseract getTesseract() {
+        final ITesseract instance = new Tesseract();
+        HashMap<String,String> options=new HashMap<>(tesseractOptions);
+        try {
+            //File tessdata =new File(getClass().getClassLoader().getResource("tessdata").toURI());
+            instance.setDatapath(options.get(TesseractConstants.TESSDATA));
+            options.remove(TesseractConstants.TESSDATA);
+            instance.setLanguage(options.get(TesseractConstants.LANGUAGE));
+            for(Map.Entry<String,String> option: options.entrySet())
+                instance.setTessVariable(option.getKey(), option.getValue());
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+            return null;
+        }
+        return instance;
+    }
+
     /**
      * Commit text recognition of all selections*/
     public void onAnalyzeAll(ActionEvent event) {
         for(RubberBandSelection selection : selections)
             analyze(selection.getBounds());
     }
-
-    //TODO DELETE ALL SELECTIONS MENUITEM
     /**
-     * Delete active selection if Edit->Delete selection or DEL pressed*/
+     * Show Options Dialog and update global settings if closed */
+    public void onAnalyzeOptions(ActionEvent event) {
+        OptionsDialog dialog=new OptionsDialog(tesseractOptions);
+        /** Show OptionsDialog and save changed settings afterr close */
+        Optional<HashMap<String, String>> newOptions=dialog.showAndWait();
+        if(newOptions.isPresent()) {
+            for(Map.Entry<String, String> option : newOptions.get().entrySet())
+                tesseractOptions.put(option.getKey(),option.getValue());
+            PropertiesService.saveTesseractProperties(tesseractOptions);
+        }
+    }
+
+    /**
+     * Delete active selection if Edit - Delete selection or DEL pressed*/
     public void onDeleteSelection(ActionEvent event) {
         if(activeSelection.get()==-1){
             logger.warn("Delete: No selection selected");
@@ -348,40 +396,64 @@ public class Controller {
         for(int i=0; i<selections.size(); i++)
             selections.get(i).setIdx(i);
     }
+    public void onDeleteAll(ActionEvent event) {
+        if(selections.isEmpty()){
+            logger.warn("No selections to be deleted");
+            return;
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation ");
+        alert.initStyle(StageStyle.UTILITY);
+        alert.setHeaderText("Delete All");
+        alert.setContentText("Are you sure you want to delete all selections?");
+        alert.getButtonTypes().setAll(ButtonType.YES,ButtonType.NO);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.YES){
+            while(!selections.isEmpty())
+                removeSelection(0);
+        } else {
+           alert.close();
+        }
+
+    }
     private void removeSelection(int idx){
         RubberBandSelection sel=selections.get(idx);
         sel.reset();
         selections.remove(sel);
-        logger.info("Deleted selection "+idx);
+        logger.info("Deleted selection "+sel.getName());
     }
 
     /**
      * Update selection when Properties are changed */
-    //TODO CHECK IF DOUBLE VALUES ARE VALID (IMAGE CONSTRAINTS) HERE OR IN TEXTFORMATTER
-    public void onPropertyFieldChanged(KeyEvent keyEvent) {
+    private void onPropertyFieldChanged(KeyEvent keyEvent) {
         if(keyEvent.getCode().equals(KeyCode.ENTER) && activeSelection.get()!=-1) {
             TextField field=(TextField)keyEvent.getSource();
             String propertyID=field.getId().substring(5);
             RubberBandSelection selection=listSelections.getSelectionModel().getSelectedItem();
-            switch(propertyID){
-                case "Name":
-                    selection.setName(field.getText());
-                    break;
-                case "X":
-                    selection.setX(Double.parseDouble(field.getText()));
-                    break;
-                case "Y":
-                    selection.setY(Double.parseDouble(field.getText()));
-                    break;
-                case "Width":
-                    selection.setWidth(Double.parseDouble(field.getText()));
-                    break;
-                case "Height":
-                    selection.setHeight(Double.parseDouble(field.getText()));
-                    break;
-                default:
-                    logger.warn("onChangeProperty: Property field not found");
-                    return;
+            try {
+                switch(propertyID) {
+                    case "Name":
+                        selection.setName(field.getText());
+                        break;
+                    case "X":
+                        selection.setX(Double.parseDouble(field.getText()));
+                        break;
+                    case "Y":
+                        selection.setY(Double.parseDouble(field.getText()));
+                        break;
+                    case "Width":
+                        selection.setWidth(Double.parseDouble(field.getText()));
+                        break;
+                    case "Height":
+                        selection.setHeight(Double.parseDouble(field.getText()));
+                        break;
+                    default:
+                        logger.warn("onChangeProperty: Property field not found");
+                        return;
+                }
+            }
+            catch(NumberFormatException ex){
+                logger.error("onChangeProperty: Invalid value for "+propertyID);
             }
             logger.info("Property "+propertyID+" changed to: "+field.getText());
             refreshSelectedIteminList();
@@ -406,7 +478,7 @@ public class Controller {
         imgScroll.setPannable(value);
     }
 
-    public TextFormatter.Change textDoubleFormat(TextFormatter.Change change) {
+    private TextFormatter.Change textDoubleFormat(TextFormatter.Change change) {
         if(!change.getControlNewText().matches("[\\d\\.*]+"))
             change.setText("");
         return change;
@@ -415,5 +487,7 @@ public class Controller {
     public void setStage(Stage primaryStage) {
         stage=primaryStage;
     }
-
+    public static Logger getLogger(){
+        return logger;
+    }
 }

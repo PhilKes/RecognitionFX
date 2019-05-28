@@ -65,7 +65,6 @@ public class LogView extends ListView<LogRecord> {
                     if (logItems.size() > MAX_ENTRIES) {
                         logItems.remove(0, logItems.size() - MAX_ENTRIES);
                     }
-
                     if (tail.get()) {
                         scrollTo(logItems.size());
                     }
@@ -158,6 +157,8 @@ public class LogView extends ListView<LogRecord> {
                         pseudoClassStateChanged(error, true);
                         break;
                 }
+                //TODO FIX
+                scrollTo(logItems.size());
             }
         });
     }

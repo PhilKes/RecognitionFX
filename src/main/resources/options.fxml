@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.*?>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="options.OptionsController">
+  <columnConstraints>
+      <ColumnConstraints percentWidth="25" />
+      <ColumnConstraints percentWidth="25" />
+    <ColumnConstraints percentWidth="25" />
+    <ColumnConstraints percentWidth="25" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="60.0" percentHeight="50"/>
+    <RowConstraints minHeight="60.0" percentHeight="50" />
+  </rowConstraints>
+   <children>
+      <Label alignment="CENTER" prefWidth="2000.0" text="Language:" GridPane.columnSpan="2" />
+      <ChoiceBox fx:id="choiceLanguage" prefWidth="150.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="LEFT" />
+      <Label alignment="CENTER" layoutX="10.0" layoutY="69.0" prefWidth="2000.0" text="Character Whitelist:" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+      <TextField fx:id="fieldWhitelist" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin></TextField>
+   </children>
+</GridPane>
