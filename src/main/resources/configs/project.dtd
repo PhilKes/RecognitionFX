@@ -1,0 +1,13 @@
+<!ELEMENT project (selections)>
+<!ELEMENT selections (rectangle)*>
+<!ELEMENT rectangle EMPTY>
+<!ATTLIST rectangle
+        name CDATA #REQUIRED
+        x CDATA #REQUIRED
+        y CDATA #REQUIRED
+        width CDATA #REQUIRED
+        height CDATA #REQUIRED>
+<!ATTLIST project
+        name CDATA #REQUIRED
+        profile CDATA "default"
+        img CDATA #REQUIRED>

@@ -7,20 +7,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19d0cf96-d17e-4993-8065-4ff7bd01c61e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/IniProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/Profile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/util/JUnitTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/util/Project.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/util/RectangleXML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/util/XMLService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/configs/project.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/configs/project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/style/log-view_dark.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/style/stylesheet_dark.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/RecognitionFX.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/RecognitionFX.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/RecognitionFX_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/cssdialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logging/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logging/Log.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/logging/LogView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logging/LogView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/RecognitionFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/RecognitionFX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/options/OptionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/options/OptionsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/options/OptionsDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/options/OptionsDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/PropertiesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/PropertiesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/options/TesseractConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/options/TesseractConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/IniProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/IniProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/PropertiesService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/RubberBandSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/RubberBandSelection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/options.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/options.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/window.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/window.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log-view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style/log-view_default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/options.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/options.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style/stylesheet_default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tesseract.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/window.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/window.fxml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,67 +49,195 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/util/ZoomableScrollPane.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/window.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="30" column="45" lean-forward="true" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+            <state relative-caret-position="481">
+              <caret line="208" column="150" selection-start-line="208" selection-start-column="150" selection-end-line="208" selection-end-column="150" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/util/XMLService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="26" column="57" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
               <folding>
-                <element signature="method#outerNode#0;class#ZoomableScrollPane#0" />
-                <element signature="method#centeredNode#0;class#ZoomableScrollPane#0" />
-                <element signature="method#updateScale#0;class#ZoomableScrollPane#0" />
-                <element signature="method#onScroll#0;class#ZoomableScrollPane#0" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/util/RubberBandSelection.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/main/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="178" column="71" lean-forward="true" selection-start-line="178" selection-start-column="71" selection-end-line="178" selection-end-column="71" />
+            <state relative-caret-position="370">
+              <caret line="109" column="64" selection-start-line="109" selection-start-column="64" selection-end-line="109" selection-end-column="64" />
               <folding>
-                <element signature="docComment;class#RubberBandSelection#0" />
-                <element signature="docComment;field#rootGroup#0;class#RubberBandSelection#0" />
-                <element signature="docComment;field#draggedItem#0;class#RubberBandSelection#0" />
-                <element signature="docComment;field#rect#0;class#RubberBandSelection#0" />
-                <element signature="docComment;field#corners#0;class#RubberBandSelection#0" />
-                <element signature="docComment;field#active#0;class#RubberBandSelection#0" />
-                <element signature="docComment;method#bindCorners#0;class#RubberBandSelection#0" />
-                <element signature="method#bindCorners#0;class#RubberBandSelection#0" />
-                <element signature="docComment;method#dragRectangleSelection#0;class#RubberBandSelection#0" />
-                <element signature="method#dragRectangleSelection#0;class#RubberBandSelection#0" />
-                <element signature="docComment;method#onMousePressed#0;class#RubberBandSelection#0" />
-                <element signature="docComment;method#onMouseDragged#0;class#RubberBandSelection#0" />
-                <element signature="docComment;method#onMouseReleased#0;class#RubberBandSelection#0" />
-                <element signature="method#onMouseReleased#0;class#RubberBandSelection#0" />
-                <element signature="docComment;method#checkBounds#0;class#RubberBandSelection#0" />
-                <element signature="method#checkBounds#0;class#RubberBandSelection#0" />
-                <element signature="e#11109#11110#0" expanded="true" />
-                <element signature="e#11141#11142#0" expanded="true" />
-                <element signature="n#!!block;n#getRect#0;n#RubberBandSelection#0" />
-                <element signature="e#11168#11169#0" expanded="true" />
-                <element signature="docComment;method#reset#0;class#RubberBandSelection#0" />
-                <element signature="method#reset#0;class#RubberBandSelection#0" />
-                <element signature="method#setX#0;class#RubberBandSelection#0" />
-                <element signature="method#setY#0;class#RubberBandSelection#0" />
-                <element signature="method#setWidth#0;class#RubberBandSelection#0" />
-                <element signature="method#setHeight#0;class#RubberBandSelection#0" />
-                <element signature="e#12206#12207#0" expanded="true" />
-                <element signature="e#12303#12304#0" expanded="true" />
-                <element signature="docComment;method#setIdx#0;class#RubberBandSelection#0" />
-                <element signature="method#setIdx#0;class#RubberBandSelection#0" />
-                <element signature="e#12624#12625#0" expanded="true" />
-                <element signature="e#12693#12694#0" expanded="true" />
-                <element signature="method#toString#0;class#RubberBandSelection#0" />
-                <element signature="docComment;class#DragContext#0;class#RubberBandSelection#0" />
-                <element signature="class#DragContext#0;class#RubberBandSelection#0" />
+                <element signature="e#1564#1608#0" />
+                <element signature="initializer##0;class#Controller#0" />
+                <element signature="e#2428#2486#0" />
+                <element signature="e#2533#2586#0" />
+                <element signature="e#2651#2810#0" />
+                <element signature="e#2894#2933#0" />
+                <element signature="e#2990#3035#0" />
+                <element signature="e#3143#3230#0" />
+                <element signature="e#3338#3439#0" />
+                <element signature="e#3445#7918#0" />
+                <element signature="e#3586#3676#0" />
+                <element signature="e#4076#4185#0" />
+                <element signature="e#4196#4383#0" />
+                <element signature="e#4430#4490#0" />
+                <element signature="e#4764#4971#0" />
+                <element signature="e#5033#5109#0" />
+                <element signature="e#5304#5358#0" />
+                <element signature="e#5393#6682#0" />
+                <element signature="e#5494#6429#1" />
+                <element signature="e#5560#6379#1" />
+                <element signature="e#6500#6605#1" />
+                <element signature="e#6739#7274#0" />
+                <element signature="e#6807#7080#1" />
+                <element signature="e#6825#6917#0" />
+                <element signature="e#7102#7264#1" />
+                <element signature="e#7473#7516#0" />
+                <element signature="e#7684#7821#0" />
+                <element signature="e#7924#7970#0" />
+                <element signature="e#7924#8658#0" />
+                <element signature="e#8138#8389#1" />
+                <element signature="e#8402#8651#1" />
+                <element signature="e#8664#8878#0" />
+                <element signature="e#8884#9068#0" />
+                <element signature="e#9074#9316#0" />
+                <element signature="e#9321#9422#0" />
+                <element signature="e#9321#10113#0" />
+                <element signature="e#10119#10471#0" />
+                <element signature="e#10477#10552#0" />
+                <element signature="e#10477#11872#0" />
+                <element signature="e#10968#11022#1" />
+                <element signature="e#11028#11092#1" />
+                <element signature="e#11127#11210#0" />
+                <element signature="e#11247#11467#0" />
+                <element signature="e#11549#11864#0" />
+                <element signature="e#11626#11697#1" />
+                <element signature="e#11710#11740#0" />
+                <element signature="e#11878#11938#0" />
+                <element signature="e#11878#13780#0" />
+                <element signature="e#12229#12858#0" />
+                <element signature="e#12336#12576#0" />
+                <element signature="e#12387#12554#1" />
+                <element signature="e#13114#13763#0" />
+                <element signature="e#13221#13472#0" />
+                <element signature="e#13284#13450#1" />
+                <element signature="e#13786#13843#0" />
+                <element signature="e#13786#14956#0" />
+                <element signature="e#14245#14490#1" />
+                <element signature="e#14567#14950#1" />
+                <element signature="e#14618#14940#1" />
+                <element signature="e#14961#16100#0" />
+                <element signature="e#15340#15540#1" />
+                <element signature="e#15834#16094#1" />
+                <element signature="e#15869#16084#1" />
+                <element signature="e#16105#18109#0" />
+                <element signature="e#16251#17952#1" />
+                <element signature="e#16390#16446#0" />
+                <element signature="e#16536#16587#1" />
+                <element signature="e#16600#16642#0" />
+                <element signature="e#16659#16790#1" />
+                <element signature="e#16803#16869#0" />
+                <element signature="e#16919#17758#1" />
+                <element signature="e#16985#17744#1" />
+                <element signature="e#17771#17801#0" />
+                <element signature="e#17818#17942#1" />
+                <element signature="e#17966#18081#1" />
+                <element signature="e#18114#19285#0" />
+                <element signature="e#18244#19026#1" />
+                <element signature="e#18383#18439#0" />
+                <element signature="e#18452#18475#0" />
+                <element signature="e#18709#18775#0" />
+                <element signature="e#18828#18886#1" />
+                <element signature="e#19040#19279#1" />
+                <element signature="e#19291#19431#0" />
+                <element signature="e#19291#21668#0" />
+                <element signature="e#19782#21036#1" />
+                <element signature="e#20127#20272#1" />
+                <element signature="e#20338#20712#0" />
+                <element signature="e#20752#20959#0" />
+                <element signature="e#21102#21153#0" />
+                <element signature="e#21185#21508#0" />
+                <element signature="e#21207#21369#0" />
+                <element signature="e#21674#22492#0" />
+                <element signature="e#21855#22322#0" />
+                <element signature="e#22350#22461#0" />
+                <element signature="e#22549#22603#0" />
+                <element signature="e#22549#22995#0" />
+                <element signature="e#22676#22765#1" />
+                <element signature="e#22798#22891#1" />
+                <element signature="e#23000#23070#0" />
+                <element signature="e#23000#24032#0" />
+                <element signature="e#23194#23258#0" />
+                <element signature="e#23368#24026#1" />
+                <element signature="e#23446#23522#0" />
+                <element signature="e#23624#23770#1" />
+                <element signature="e#23783#23824#0" />
+                <element signature="e#24038#24116#0" />
+                <element signature="e#24038#24559#0" />
+                <element signature="e#24209#24298#1" />
+                <element signature="e#24388#24465#0" />
+                <element signature="e#24564#25311#0" />
+                <element signature="e#24641#24728#1" />
+                <element signature="e#25173#25261#1" />
+                <element signature="e#25267#25304#1" />
+                <element signature="e#25316#25523#0" />
+                <element signature="e#25529#25587#0" />
+                <element signature="e#25529#27151#0" />
+                <element signature="e#25731#27145#1" />
+                <element signature="e#25964#26872#0" />
+                <element signature="e#26001#26858#0" />
+                <element signature="e#26916#27012#0" />
+                <element signature="e#27245#27397#0" />
+                <element signature="e#27403#27451#0" />
+                <element signature="e#27403#27587#0" />
+                <element signature="e#27855#27900#0" />
+                <element signature="e#27906#28113#0" />
+                <element signature="e#28232#28262#0" />
+                <element signature="e#28441#29202#0" />
+                <element signature="e#28542#28573#1" />
+                <element signature="e#28722#28904#1" />
+                <element signature="e#28943#29003#1" />
+                <element signature="e#29008#29196#1" />
+                <element signature="e#29095#29186#1" />
+                <element signature="e#29207#30584#0" />
+                <element signature="e#29310#29341#1" />
+                <element signature="e#29490#29672#1" />
+                <element signature="e#30004#30203#1" />
+                <element signature="e#30496#30578#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/util/Project.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-85">
+              <caret line="19" column="19" lean-forward="true" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2045#2046#0" expanded="true" />
+                <element signature="e#2072#2073#0" expanded="true" />
+                <element signature="e#2112#2113#0" expanded="true" />
+                <element signature="e#2142#2143#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,31 +248,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="FxmlFile" />
+        <option value="CSS File" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hanlde</find>
-      <find>Left</find>
-      <find>&quot;config.properties&quot;</find>
-      <find>.bind.*</find>
-      <find>reset()</find>
-      <find>group.getChildren().add</find>
-      <find>rubberBand</find>
-      <find>group</find>
-      <find>bind</find>
-      <find>setDisable</find>
-      <find>showCorn</find>
-      <find>analyze</find>
-      <find>scroll</find>
-      <find>-1</find>
       <find>onKeyPressed=&quot;#onPropertyNameEntered&quot;</find>
       <find>Old:</find>
-      <find>TODO</find>
       <find>tesser</find>
       <find>UTILITY</find>
       <find>hgrow=&quot;SOMETIMES&quot; minWidth=&quot;10.0&quot; prefWidth=&quot;100.0&quot;</find>
@@ -133,6 +265,27 @@
       <find>&quot;filechooser.lastdirectory&quot;</find>
       <find>e.printStackTrace();</find>
       <find>scrollTo</find>
+      <find>stylesheet</find>
+      <find>FontIco</find>
+      <find>log-view.css</find>
+      <find>getStylesheet</find>
+      <find>X</find>
+      <find>.round(new MathContext(2))</find>
+      <find>scroll</find>
+      <find>vboxBot</find>
+      <find>onRun</find>
+      <find>cropMenu</find>
+      <find>new Rubber</find>
+      <find>TODO</find>
+      <find>IniProperties.</find>
+      <find>getAllPrope</find>
+      <find>PropertiesService</find>
+      <find>recently</find>
+      <find>config.ini</find>
+      <find>RubberBandSe</find>
+      <find>loadRecentlyOpenedFiles</find>
+      <find>FontIcon</find>
+      <find>FontIc</find>
     </findStrings>
     <replaceStrings>
       <replace>PROPERTIES_FILE</replace>
@@ -141,6 +294,10 @@
       <replace>RECENTLYOPENED</replace>
       <replace>LASTDIRECTORY</replace>
       <replace>e.printStackTrace();</replace>
+      <replace>Y</replace>
+      <replace>.setScale(2,BigDecimal.ROUND_HALF_EVEN)</replace>
+      <replace>IniProperties.Tesseract.</replace>
+      <replace>IniProperties</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -159,8 +316,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/RubberbandSelection.java" />
         <option value="$PROJECT_DIR$/src/main/java/logging/Lorem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/logging/Log.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/log-view.css" />
         <option value="$PROJECT_DIR$/src/main/java/logging/LogRecord.java" />
         <option value="$PROJECT_DIR$/src/main/java/logging/LogViewer.java" />
         <option value="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" />
@@ -169,24 +324,39 @@
         <option value="$PROJECT_DIR$/src/main/java/builder/RubberBandSelectionBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/SelectionArrayAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/DoubleTextField.java" />
-        <option value="$PROJECT_DIR$/src/main/java/main/RecognitionFX.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/ZoomableScrollPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/OptionsDialog.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/OptionsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/TesseractConstants.java" />
-        <option value="$PROJECT_DIR$/src/main/java/options/TesseractConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/log-view.css" />
         <option value="$PROJECT_DIR$/src/main/resources/stylesheet.css" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/logging/LogView.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/PropertiesService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/main/RecognitionFX.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logging/Log.java" />
+        <option value="$PROJECT_DIR$/src/main/java/main/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/main/Box.java" />
         <option value="$PROJECT_DIR$/src/main/resources/options.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/options/OptionsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/options/OptionsDialog.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/IniProperties.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/Profile.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/stylesheet_dark.css" />
         <option value="$PROJECT_DIR$/src/main/resources/window.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/main/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/stylesheet_default.css" />
+        <option value="$PROJECT_DIR$/src/main/java/logging/LogView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/PropertiesService.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/options/TesseractConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/Tests.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/configs/project.dtd" />
+        <option value="$PROJECT_DIR$/src/main/resources/configs/project.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/util/JUnitTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/RubberBandSelection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/RectangleXML.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/IniProperties.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/style/stylesheet_default.css" />
+        <option value="$PROJECT_DIR$/src/main/java/util/Project.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/XMLService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/window.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/main/Controller.java" />
       </list>
     </option>
   </component>
@@ -207,8 +377,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="722" />
-    <option name="width" value="1205" />
+    <option name="x" value="447" />
+    <option name="width" value="1480" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -217,7 +387,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -257,14 +427,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="options" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RecognitionFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecognitionFX" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -274,11 +436,19 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="RecognitionFX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RecognitionFX" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -288,18 +458,21 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../controlsfx-master/controlsfx-8.40.15.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.14198287" />
+    <property name="project.structure.side.proportion" value="0.17992656" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\IntellijProjects\JavaFX\RecognitionFX\src\main\resources\fxml" />
+      <recent name="F:\IntellijProjects\JavaFX\RecognitionFX\src\main\resources\style" />
+      <recent name="F:\IntellijProjects\JavaFX\RecognitionFX\src\main\resources\configs" />
       <recent name="F:\IntellijProjects\RecognitionFX\src\main\resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -309,6 +482,7 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\IntellijProjects\JavaFX\RecognitionFX\src\main\resources" />
       <recent name="F:\IntellijProjects\RecognitionFX\src\main\java" />
     </key>
   </component>
@@ -331,20 +505,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LogViewer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="logging.LogViewer" />
-      <module name="RecognitionFX" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="logging.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="RecognitionFX" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main.RecognitionFX" />
       <module name="recognitionfx" />
@@ -354,6 +514,40 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JUnitTests.xmlSerialize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="recognitionfx" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="util" />
+      <option name="MAIN_CLASS_NAME" value="util.JUnitTests" />
+      <option name="METHOD_NAME" value="xmlSerialize" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JUnitTests.xmlTesting" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="recognitionfx" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="util" />
+      <option name="MAIN_CLASS_NAME" value="util.JUnitTests" />
+      <option name="METHOD_NAME" value="xmlTesting" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -386,7 +580,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.RecognitionFX" />
-        <item itemvalue="Application.LogViewer" />
+        <item itemvalue="JUnit.JUnitTests.xmlSerialize" />
+        <item itemvalue="JUnit.JUnitTests.xmlTesting" />
       </list>
     </recent_temporary>
   </component>
@@ -411,7 +606,23 @@
       <workItem from="1558958802294" duration="11904000" />
       <workItem from="1558983254584" duration="913000" />
       <workItem from="1558993335020" duration="714000" />
-      <workItem from="1559036787434" duration="21041000" />
+      <workItem from="1559036787434" duration="21155000" />
+      <workItem from="1559075773903" duration="3350000" />
+      <workItem from="1559137360782" duration="578000" />
+      <workItem from="1559137972449" duration="4836000" />
+      <workItem from="1559228174541" duration="3180000" />
+      <workItem from="1559243850646" duration="3360000" />
+      <workItem from="1559299148016" duration="7866000" />
+      <workItem from="1559310657675" duration="111000" />
+      <workItem from="1559315046550" duration="636000" />
+      <workItem from="1559320618801" duration="7000" />
+      <workItem from="1559381259471" duration="346000" />
+      <workItem from="1559391910092" duration="1407000" />
+      <workItem from="1559393526063" duration="2819000" />
+      <workItem from="1559396386985" duration="3548000" />
+      <workItem from="1559412437195" duration="1860000" />
+      <workItem from="1559483269355" duration="1280000" />
+      <workItem from="1559485181786" duration="1318000" />
     </task>
     <task id="LOCAL-00001" summary="added Log + Recently Opened">
       <created>1558720018590</created>
@@ -448,14 +659,50 @@
       <option name="project" value="LOCAL" />
       <updated>1559056529368</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Profiles added + Run MenuBar">
+      <created>1559071138870</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1559071138870</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Tests_xmlTesting - 2019.06.01 at 15h 50m 03s.xml">
+      <configuration name="Tests.xmlTesting" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Tests_xmlTesting - 2019.06.01 at 15h 51m 38s.xml">
+      <configuration name="Tests.xmlTesting" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Tests_xmlTesting - 2019.06.01 at 15h 53m 12s.xml">
+      <configuration name="Tests.xmlTesting" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Tests_xmlTesting - 2019.06.01 at 15h 54m 39s.xml">
+      <configuration name="Tests.xmlTesting" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Tests_xmlTesting - 2019.06.01 at 15h 54m 45s.xml">
+      <configuration name="Tests.xmlTesting" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnitTests_xmlTesting - 2019.06.01 at 15h 58m 06s.xml">
+      <configuration name="JUnitTests.xmlTesting" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnitTests_xmlSerialize - 2019.06.01 at 15h 58m 18s.xml">
+      <configuration name="JUnitTests.xmlSerialize" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnitTests_xmlSerialize - 2019.06.01 at 16h 01m 39s.xml">
+      <configuration name="JUnitTests.xmlSerialize" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnitTests_xmlSerialize - 2019.06.01 at 17h 27m 42s.xml">
+      <configuration name="JUnitTests.xmlSerialize" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110156000" />
+    <option name="totallyTimeSpent" value="146772000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="722" y="0" width="1205" height="1047" extended-state="0" />
+    <frame x="447" y="0" width="1480" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
@@ -463,31 +710,34 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Designer" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.20960699" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.18510929" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Statistic" order="2" weight="0.5173962" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50053304" side_tool="true" weight="0.28666666" />
+      <window_info anchor="bottom" id="Statistic" order="2" sideWeight="0.49946696" weight="0.33444443" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32996634" />
-      <window_info anchor="bottom" id="Messages" order="5" weight="0.32772166" />
+      <window_info anchor="bottom" id="Messages" order="5" sideWeight="0.4995417" weight="0.135816" />
       <window_info anchor="bottom" id="Terminal" order="6" weight="0.32996634" />
       <window_info anchor="bottom" id="Message" order="7" />
-      <window_info anchor="bottom" id="Find" order="8" weight="0.26150393" />
-      <window_info active="true" anchor="bottom" id="Run" order="9" visible="true" weight="0.24691358" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.1694725" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.25301206" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.8034398" visible="true" weight="0.17305586" />
+      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.4979525" weight="0.22782037" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info anchor="right" id="Palette" order="0" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Database" order="2" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" weight="0.32863435" />
-      <window_info anchor="right" id="Commander" order="6" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3296" />
+      <window_info anchor="right" id="CodeMR Metrics" order="1" />
+      <window_info anchor="right" id="CodeMR" order="2" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Maven" order="8" weight="0.32863435" />
+      <window_info anchor="right" id="Commander" order="9" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="10" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="11" weight="0.25" />
     </layout>
     <layout-to-restore>
       <window_info id="Image Layers" order="0" />
@@ -495,31 +745,34 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Designer" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.12793177" />
+      <window_info content_ui="combo" id="Project" order="5" weight="0.26910016" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Statistic" order="2" weight="0.5173962" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50053304" side_tool="true" weight="0.28666666" />
+      <window_info anchor="bottom" id="Statistic" order="2" sideWeight="0.49946696" weight="0.33444443" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32996634" />
-      <window_info anchor="bottom" id="Messages" order="5" weight="0.32772166" />
+      <window_info anchor="bottom" id="Messages" order="5" sideWeight="0.4995417" weight="0.135816" />
       <window_info anchor="bottom" id="Terminal" order="6" weight="0.32996634" />
       <window_info anchor="bottom" id="Message" order="7" />
-      <window_info anchor="bottom" id="Find" order="8" weight="0.26150393" />
-      <window_info anchor="bottom" id="Run" order="9" visible="true" weight="0.24444444" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.2962963" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.19079685" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.8034398" visible="true" weight="0.24534501" />
+      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.4979525" weight="0.22782037" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info anchor="right" id="Palette" order="0" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Database" order="2" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" weight="0.32863435" />
-      <window_info anchor="right" id="Commander" order="6" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3296" />
+      <window_info anchor="right" id="CodeMR Metrics" order="1" />
+      <window_info anchor="right" id="CodeMR" order="2" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Maven" order="8" weight="0.32863435" />
+      <window_info anchor="right" id="Commander" order="9" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="10" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="11" weight="0.25" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,20 +784,12 @@
     <MESSAGE value="Spawn multiple Selections + Delete Actions" />
     <MESSAGE value="Properties Window added" />
     <MESSAGE value="Options Menu edited + Tesseract .properties File" />
-    <option name="LAST_COMMIT_MESSAGE" value="Options Menu edited + Tesseract .properties File" />
+    <MESSAGE value="Profiles added + Run MenuBar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Profiles added + Run MenuBar" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/main/Controller.java</url>
-          <line>410</line>
-          <properties />
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/RecognitionFX$RecognitionFX.ic" NAME="RecognitionFX Coverage Results" MODIFIED="1559402871283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="customField">
@@ -556,168 +801,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/logging/LogViewer.java" />
-    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/com/sun/javafx/application/LauncherImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="181" column="16" selection-start-line="181" selection-start-column="16" selection-end-line="181" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/kordamp/ikonli/ikonli-javafx/2.4.0/ikonli-javafx-2.4.0.jar!/org/kordamp/ikonli/javafx/FontIcon.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="56" column="11" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/icon.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/icon.ico" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/logging/Level.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/src.zip!/java/util/concurrent/BlockingDeque.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="468" column="12" selection-start-line="468" selection-start-column="12" selection-end-line="468" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/src.zip!/java/util/concurrent/BlockingQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="349" column="8" selection-start-line="349" selection-start-column="8" selection-end-line="349" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logging/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-          <folding>
-            <element signature="e#378#379#0" expanded="true" />
-            <element signature="e#417#418#0" expanded="true" />
-            <element signature="e#460#461#0" expanded="true" />
-            <element signature="e#493#494#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logging/LogRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logging/Logger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
-          <folding>
-            <element signature="e#248#249#0" expanded="true" />
-            <element signature="e#281#282#0" expanded="true" />
-            <element signature="e#1023#1024#0" expanded="true" />
-            <element signature="e#1049#1050#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/Group.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="89" column="39" lean-forward="true" selection-start-line="89" selection-start-column="39" selection-end-line="89" selection-end-column="39" />
-          <folding>
-            <element signature="e#2185#2186#0" expanded="true" />
-            <element signature="e#2231#2232#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/event/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="197" selection-start-line="197" selection-end-line="197" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/control/cell/CellUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="242" column="22" selection-start-line="242" selection-start-column="22" selection-end-line="242" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/beans/property/ReadOnlyIntegerPropertyBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-          <folding>
-            <element signature="e#1665#1666#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/beans/property/ReadOnlyIntegerWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/beans/property/IntegerPropertyBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="148" selection-start-line="148" selection-end-line="148" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/control/SelectionModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="67" column="54" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/control/MultipleSelectionModelBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="687" selection-start-line="687" selection-end-line="687" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/control/ListView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="1248" selection-start-line="1248" selection-end-line="1248" />
-          <folding>
-            <element signature="e#35578#35579#0" expanded="true" />
-            <element signature="e#35633#35634#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/collections/WeakListChangeListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/collections/ObservableListBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="233" selection-start-line="233" selection-end-line="233" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/collections/ListChangeBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
@@ -734,13 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/builder/RubberBandSelectionBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://F:/Programme/Java/jdk1.8.0_144/src.zip!/java/util/HashMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -748,51 +824,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/kordamp/ikonli/ikonli-fontawesome-pack/2.4.0/ikonli-fontawesome-pack-2.4.0.jar!/org/kordamp/ikonli/fontawesome/FontAwesome.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="268" column="4" selection-start-line="268" selection-start-column="4" selection-end-line="268" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/tesseract.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log-view.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/stylesheet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/tesseract.properties" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-configuration2/2.0/commons-configuration2-2.0.jar!/org/apache/commons/configuration2/AbstractHierarchicalConfiguration.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="116" column="22" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/main/RecognitionFX.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -803,101 +839,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logging/LogView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="163" column="34" selection-start-line="163" selection-start-column="34" selection-end-line="163" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://F:/Programme/Java/jdk1.8.0_144/src.zip!/java/beans/PropertyDescriptor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
           <caret line="656" column="26" selection-start-line="656" selection-start-column="26" selection-end-line="656" selection-end-column="26" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/PropertiesService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="60" column="32" lean-forward="true" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2113#2137#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/options.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="34" column="68" lean-forward="true" selection-start-line="34" selection-start-column="68" selection-end-line="34" selection-end-column="68" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/IniProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="86" column="13" lean-forward="true" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
-          <folding>
-            <element signature="method#getProfile#0;class#IniProperties#0" />
-            <element signature="method#getIni#0;class#IniProperties#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/options/TesseractConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-          <folding>
-            <element signature="docComment;class#TesseractConstants#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/Profile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/options/OptionsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/options/OptionsDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="25" column="85" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/window.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="182" column="37" selection-start-line="182" selection-start-column="37" selection-end-line="182" selection-end-column="37" />
-          <folding>
-            <element signature="n#bottom#0;n#BorderPane#0;n#!!top" />
-            <element signature="n#right#0;n#BorderPane#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/input/MouseEvent.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -906,107 +853,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/main/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="81" column="27" lean-forward="true" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
-          <folding>
-            <element signature="e#1643#1789#0" />
-            <element signature="e#1795#1839#0" />
-            <element signature="initializer##0;class#Controller#0" />
-            <element signature="e#2448#2506#0" />
-            <element signature="e#2553#2606#0" />
-            <element signature="e#2671#2830#0" />
-            <element signature="e#2914#2953#0" />
-            <element signature="e#3010#3055#0" />
-            <element signature="e#3086#3187#0" />
-            <element signature="e#3233#3323#0" />
-            <element signature="e#3729#3838#0" />
-            <element signature="e#3849#4036#0" />
-            <element signature="e#4083#4143#0" />
-            <element signature="e#4456#4669#0" />
-            <element signature="e#4731#4785#0" />
-            <element signature="e#4959#5776#1" />
-            <element signature="e#6069#6604#0" />
-            <element signature="e#6137#6410#1" />
-            <element signature="e#6155#6247#0" />
-            <element signature="e#6432#6594#1" />
-            <element signature="e#6825#6868#0" />
-            <element signature="e#7323#7454#0" />
-            <element signature="e#7299#7486#0" />
-            <element signature="e#7492#7741#0" />
-            <element signature="e#7746#7847#0" />
-            <element signature="e#8902#8977#0" />
-            <element signature="e#8902#10297#0" />
-            <element signature="e#9393#9447#1" />
-            <element signature="e#9453#9517#1" />
-            <element signature="e#9552#9635#0" />
-            <element signature="e#9672#9892#0" />
-            <element signature="e#9974#10289#0" />
-            <element signature="e#10051#10122#1" />
-            <element signature="e#10135#10165#0" />
-            <element signature="e#10303#10363#0" />
-            <element signature="e#10303#11143#0" />
-            <element signature="e#10560#11126#0" />
-            <element signature="e#10667#10903#0" />
-            <element signature="e#10718#10881#1" />
-            <element signature="e#11149#11206#0" />
-            <element signature="e#11149#11977#0" />
-            <element signature="e#11604#11848#1" />
-            <element signature="e#11983#13179#0" />
-            <element signature="e#12113#12920#1" />
-            <element signature="e#12313#12336#0" />
-            <element signature="e#12722#12780#1" />
-            <element signature="e#12934#13173#1" />
-            <element signature="e#13185#13307#0" />
-            <element signature="e#13185#14260#0" />
-            <element signature="e#13612#13710#1" />
-            <element signature="e#13719#13767#0" />
-            <element signature="e#13886#14130#0" />
-            <element signature="e#14167#14253#0" />
-            <element signature="e#14266#15076#0" />
-            <element signature="e#14439#14906#0" />
-            <element signature="e#14934#15045#0" />
-            <element signature="e#15082#15136#0" />
-            <element signature="e#15082#15292#0" />
-            <element signature="e#15297#15367#0" />
-            <element signature="e#15388#16079#0" />
-            <element signature="e#15496#15560#0" />
-            <element signature="e#15756#16073#1" />
-            <element signature="e#15834#15910#0" />
-            <element signature="e#16011#16071#1" />
-            <element signature="e#15922#15963#0" />
-            <element signature="e#16022#16100#0" />
-            <element signature="e#16022#16543#0" />
-            <element signature="e#16193#16282#1" />
-            <element signature="e#16372#16449#0" />
-            <element signature="e#16548#17295#0" />
-            <element signature="e#16625#16712#1" />
-            <element signature="e#17157#17245#1" />
-            <element signature="e#17251#17288#1" />
-            <element signature="e#17300#17507#0" />
-            <element signature="e#17513#17571#0" />
-            <element signature="e#17513#19134#0" />
-            <element signature="e#17715#19128#1" />
-            <element signature="e#17948#18856#0" />
-            <element signature="e#17985#18842#0" />
-            <element signature="e#18900#18996#0" />
-            <element signature="e#19225#19256#1" />
-            <element signature="e#19229#19381#0" />
-            <element signature="e#19475#19514#1" />
-            <element signature="e#19571#19629#1" />
-            <element signature="e#19649#19694#0" />
-            <element signature="e#19700#19899#0" />
-            <element signature="e#19979#20014#1" />
-            <element signature="e#20018#20048#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/util/ZoomableScrollPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="30" column="45" lean-forward="true" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+        <state relative-caret-position="374">
+          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
           <folding>
             <element signature="method#outerNode#0;class#ZoomableScrollPane#0" />
             <element signature="method#centeredNode#0;class#ZoomableScrollPane#0" />
@@ -1016,10 +866,288 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/RubberBandSelection.java">
+    <entry file="file://$PROJECT_DIR$/codemr/RecognitionFX/RecognitionFX.mdl" />
+    <entry file="file://$PROJECT_DIR$/codemr/RecognitionFX 1/RecognitionFX 1.mdl" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/kordamp/ikonli/ikonli-fontawesome-pack/2.4.0/ikonli-fontawesome-pack-2.4.0.jar!/org/kordamp/ikonli/fontawesome/FontAwesome.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="434" column="4" selection-start-line="434" selection-start-column="4" selection-end-line="434" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/style/log-view_dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/style/log-view_default.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/src.zip!/java/util/concurrent/BlockingQueue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
-          <caret line="178" column="71" lean-forward="true" selection-start-line="178" selection-start-column="71" selection-end-line="178" selection-end-column="71" />
+          <caret line="349" column="8" selection-start-line="349" selection-start-column="8" selection-end-line="349" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/main/Test.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/main/Box.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/logging/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logging/LogView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="docComment;class#LogView#0" />
+            <element signature="docComment;field#debug#0;class#LogView#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/options.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="114" selection-start-line="40" selection-start-column="114" selection-end-line="40" selection-end-column="114" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/Profile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#584#585#0" expanded="true" />
+            <element signature="e#635#636#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/options/OptionsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2030#2031#0" expanded="true" />
+            <element signature="e#2473#2474#0" expanded="true" />
+            <element signature="e#2543#2544#0" expanded="true" />
+            <element signature="e#2796#2797#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/PropertiesService.java" />
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/src.zip!/java/util/Properties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="147" column="30" lean-forward="true" selection-start-line="147" selection-start-column="30" selection-end-line="147" selection-end-column="30" />
+          <folding>
+            <element signature="e#4990#4991#0" expanded="true" />
+            <element signature="e#5030#5031#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/ini4j/ini4j/0.5.1/ini4j-0.5.1.jar!/org/ini4j/MultiMap.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/main/RecognitionFX.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/concurrent/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="1450" selection-start-line="1450" selection-end-line="1450" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/options/OptionsDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/options/TesseractConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+          <folding>
+            <element signature="docComment;class#TesseractConstants#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/main.Controller">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>main.Controller</OriginalElement>
+          <nodes>
+            <node x="" y="">main.Controller</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="58.0" y="14.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="" y="">com</node>
+            <node x="" y="">fxml</node>
+            <node x="" y="">configs</node>
+            <node x="" y="">netscape</node>
+            <node x="" y="">main</node>
+            <node x="" y="">sun</node>
+            <node x="" y="">win32-x86</node>
+            <node x="" y="">groovyjarjarasm</node>
+            <node x="" y="">java</node>
+            <node x="" y="">javax</node>
+            <node x="" y="">builder</node>
+            <node x="" y="">options</node>
+            <node x="" y="">javafx</node>
+            <node x="" y="">net</node>
+            <node x="" y="">oracle</node>
+            <node x="" y="">tessdata</node>
+            <node x="" y="">org</node>
+            <node x="" y="">ch</node>
+            <node x="" y="">script</node>
+            <node x="" y="">gnu</node>
+            <node x="" y="">META-INF</node>
+            <node x="" y="">jdk</node>
+            <node x="" y="">groovy</node>
+            <node x="" y="">util</node>
+            <node x="" y="">logging</node>
+            <node x="" y="">style</node>
+            <node x="" y="">groovyjarjarcommonscli</node>
+            <node x="" y="">groovyjarjarantlr</node>
+            <node x="" y="">tessdata_old</node>
+            <node x="" y="">win32-x86-64</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.7755395683453238" x="916.0" y="333.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/logging">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>logging</OriginalElement>
+          <nodes>
+            <node x="" y="">logging.LogRecord</node>
+            <node x="" y="">logging.LogView</node>
+            <node x="" y="">logging.Level</node>
+            <node x="" y="">logging.Logger</node>
+            <node x="" y="">logging.Log</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="107.0" y="377.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/icon.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="jar://F:/Programme/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/shape/Rectangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="71" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project1.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/configs/project.dtd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/JUnitTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/configs/project.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/builder/RubberBandSelectionBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="66" column="34" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/RubberBandSelection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="327" column="35" selection-start-line="327" selection-start-column="35" selection-end-line="327" selection-end-column="35" />
           <folding>
             <element signature="docComment;class#RubberBandSelection#0" />
             <element signature="docComment;field#rootGroup#0;class#RubberBandSelection#0" />
@@ -1027,35 +1155,259 @@
             <element signature="docComment;field#rect#0;class#RubberBandSelection#0" />
             <element signature="docComment;field#corners#0;class#RubberBandSelection#0" />
             <element signature="docComment;field#active#0;class#RubberBandSelection#0" />
+            <element signature="method#RubberBandSelection#0;class#RubberBandSelection#0" />
             <element signature="docComment;method#bindCorners#0;class#RubberBandSelection#0" />
             <element signature="method#bindCorners#0;class#RubberBandSelection#0" />
             <element signature="docComment;method#dragRectangleSelection#0;class#RubberBandSelection#0" />
             <element signature="method#dragRectangleSelection#0;class#RubberBandSelection#0" />
             <element signature="docComment;method#onMousePressed#0;class#RubberBandSelection#0" />
+            <element signature="method#onMousePressed#0;class#RubberBandSelection#0" />
             <element signature="docComment;method#onMouseDragged#0;class#RubberBandSelection#0" />
+            <element signature="method#onMouseDragged#0;class#RubberBandSelection#0" />
             <element signature="docComment;method#onMouseReleased#0;class#RubberBandSelection#0" />
             <element signature="method#onMouseReleased#0;class#RubberBandSelection#0" />
             <element signature="docComment;method#checkBounds#0;class#RubberBandSelection#0" />
-            <element signature="method#checkBounds#0;class#RubberBandSelection#0" />
-            <element signature="e#11109#11110#0" expanded="true" />
-            <element signature="e#11141#11142#0" expanded="true" />
             <element signature="n#!!block;n#getRect#0;n#RubberBandSelection#0" />
-            <element signature="e#11168#11169#0" expanded="true" />
             <element signature="docComment;method#reset#0;class#RubberBandSelection#0" />
             <element signature="method#reset#0;class#RubberBandSelection#0" />
             <element signature="method#setX#0;class#RubberBandSelection#0" />
             <element signature="method#setY#0;class#RubberBandSelection#0" />
-            <element signature="method#setWidth#0;class#RubberBandSelection#0" />
-            <element signature="method#setHeight#0;class#RubberBandSelection#0" />
-            <element signature="e#12206#12207#0" expanded="true" />
-            <element signature="e#12303#12304#0" expanded="true" />
             <element signature="docComment;method#setIdx#0;class#RubberBandSelection#0" />
             <element signature="method#setIdx#0;class#RubberBandSelection#0" />
-            <element signature="e#12624#12625#0" expanded="true" />
-            <element signature="e#12693#12694#0" expanded="true" />
-            <element signature="method#toString#0;class#RubberBandSelection#0" />
             <element signature="docComment;class#DragContext#0;class#RubberBandSelection#0" />
             <element signature="class#DragContext#0;class#RubberBandSelection#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/RectangleXML.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="83" selection-start-line="13" selection-start-column="83" selection-end-line="13" selection-end-column="83" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1085#1086#0" expanded="true" />
+            <element signature="e#1112#1113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/IniProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="113" column="52" selection-start-line="113" selection-start-column="52" selection-end-line="113" selection-end-column="52" />
+          <folding>
+            <element signature="class#Tesseract#0;class#IniProperties#0" />
+            <element signature="method#getDefaultSettings#0;class#Tesseract#0;class#IniProperties#0" />
+            <element signature="e#682#903#1" />
+            <element signature="method#getProfile#0;class#Tesseract#0;class#IniProperties#0" />
+            <element signature="e#1247#1478#1" />
+            <element signature="method#getProfiles#0;class#Tesseract#0;class#IniProperties#0" />
+            <element signature="method#saveProfile#0;class#Tesseract#0;class#IniProperties#0" />
+            <element signature="e#1938#1999#1" />
+            <element signature="e#2097#2141#0" />
+            <element signature="e#2175#2338#0" />
+            <element signature="method#renameProfile#0;class#Tesseract#0;class#IniProperties#0" />
+            <element signature="e#2766#2810#0" />
+            <element signature="e#2844#3003#0" />
+            <element signature="method#getRecentlyOpenedImages#0;class#Program#0;class#IniProperties#0" />
+            <element signature="method#removeInvalidRecentlyOpened#0;class#Program#0;class#IniProperties#0" />
+            <element signature="method#saveTheme#0;class#Program#0;class#IniProperties#0" />
+            <element signature="method#getTheme#0;class#Program#0;class#IniProperties#0" />
+            <element signature="method#getAllProperties#0;class#Program#0;class#IniProperties#0" />
+            <element signature="method#getIni#0;class#IniProperties#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/style/stylesheet_default.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/style/stylesheet_dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="65" selection-start-line="65" selection-end-line="67" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/window.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="208" column="150" selection-start-line="208" selection-start-column="150" selection-end-line="208" selection-end-column="150" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="19" column="19" lean-forward="true" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2045#2046#0" expanded="true" />
+            <element signature="e#2072#2073#0" expanded="true" />
+            <element signature="e#2112#2113#0" expanded="true" />
+            <element signature="e#2142#2143#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/XMLService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="26" column="57" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/main/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="109" column="64" selection-start-line="109" selection-start-column="64" selection-end-line="109" selection-end-column="64" />
+          <folding>
+            <element signature="e#1564#1608#0" />
+            <element signature="initializer##0;class#Controller#0" />
+            <element signature="e#2428#2486#0" />
+            <element signature="e#2533#2586#0" />
+            <element signature="e#2651#2810#0" />
+            <element signature="e#2894#2933#0" />
+            <element signature="e#2990#3035#0" />
+            <element signature="e#3143#3230#0" />
+            <element signature="e#3338#3439#0" />
+            <element signature="e#3445#7918#0" />
+            <element signature="e#3586#3676#0" />
+            <element signature="e#4076#4185#0" />
+            <element signature="e#4196#4383#0" />
+            <element signature="e#4430#4490#0" />
+            <element signature="e#4764#4971#0" />
+            <element signature="e#5033#5109#0" />
+            <element signature="e#5304#5358#0" />
+            <element signature="e#5393#6682#0" />
+            <element signature="e#5494#6429#1" />
+            <element signature="e#5560#6379#1" />
+            <element signature="e#6500#6605#1" />
+            <element signature="e#6739#7274#0" />
+            <element signature="e#6807#7080#1" />
+            <element signature="e#6825#6917#0" />
+            <element signature="e#7102#7264#1" />
+            <element signature="e#7473#7516#0" />
+            <element signature="e#7684#7821#0" />
+            <element signature="e#7924#7970#0" />
+            <element signature="e#7924#8658#0" />
+            <element signature="e#8138#8389#1" />
+            <element signature="e#8402#8651#1" />
+            <element signature="e#8664#8878#0" />
+            <element signature="e#8884#9068#0" />
+            <element signature="e#9074#9316#0" />
+            <element signature="e#9321#9422#0" />
+            <element signature="e#9321#10113#0" />
+            <element signature="e#10119#10471#0" />
+            <element signature="e#10477#10552#0" />
+            <element signature="e#10477#11872#0" />
+            <element signature="e#10968#11022#1" />
+            <element signature="e#11028#11092#1" />
+            <element signature="e#11127#11210#0" />
+            <element signature="e#11247#11467#0" />
+            <element signature="e#11549#11864#0" />
+            <element signature="e#11626#11697#1" />
+            <element signature="e#11710#11740#0" />
+            <element signature="e#11878#11938#0" />
+            <element signature="e#11878#13780#0" />
+            <element signature="e#12229#12858#0" />
+            <element signature="e#12336#12576#0" />
+            <element signature="e#12387#12554#1" />
+            <element signature="e#13114#13763#0" />
+            <element signature="e#13221#13472#0" />
+            <element signature="e#13284#13450#1" />
+            <element signature="e#13786#13843#0" />
+            <element signature="e#13786#14956#0" />
+            <element signature="e#14245#14490#1" />
+            <element signature="e#14567#14950#1" />
+            <element signature="e#14618#14940#1" />
+            <element signature="e#14961#16100#0" />
+            <element signature="e#15340#15540#1" />
+            <element signature="e#15834#16094#1" />
+            <element signature="e#15869#16084#1" />
+            <element signature="e#16105#18109#0" />
+            <element signature="e#16251#17952#1" />
+            <element signature="e#16390#16446#0" />
+            <element signature="e#16536#16587#1" />
+            <element signature="e#16600#16642#0" />
+            <element signature="e#16659#16790#1" />
+            <element signature="e#16803#16869#0" />
+            <element signature="e#16919#17758#1" />
+            <element signature="e#16985#17744#1" />
+            <element signature="e#17771#17801#0" />
+            <element signature="e#17818#17942#1" />
+            <element signature="e#17966#18081#1" />
+            <element signature="e#18114#19285#0" />
+            <element signature="e#18244#19026#1" />
+            <element signature="e#18383#18439#0" />
+            <element signature="e#18452#18475#0" />
+            <element signature="e#18709#18775#0" />
+            <element signature="e#18828#18886#1" />
+            <element signature="e#19040#19279#1" />
+            <element signature="e#19291#19431#0" />
+            <element signature="e#19291#21668#0" />
+            <element signature="e#19782#21036#1" />
+            <element signature="e#20127#20272#1" />
+            <element signature="e#20338#20712#0" />
+            <element signature="e#20752#20959#0" />
+            <element signature="e#21102#21153#0" />
+            <element signature="e#21185#21508#0" />
+            <element signature="e#21207#21369#0" />
+            <element signature="e#21674#22492#0" />
+            <element signature="e#21855#22322#0" />
+            <element signature="e#22350#22461#0" />
+            <element signature="e#22549#22603#0" />
+            <element signature="e#22549#22995#0" />
+            <element signature="e#22676#22765#1" />
+            <element signature="e#22798#22891#1" />
+            <element signature="e#23000#23070#0" />
+            <element signature="e#23000#24032#0" />
+            <element signature="e#23194#23258#0" />
+            <element signature="e#23368#24026#1" />
+            <element signature="e#23446#23522#0" />
+            <element signature="e#23624#23770#1" />
+            <element signature="e#23783#23824#0" />
+            <element signature="e#24038#24116#0" />
+            <element signature="e#24038#24559#0" />
+            <element signature="e#24209#24298#1" />
+            <element signature="e#24388#24465#0" />
+            <element signature="e#24564#25311#0" />
+            <element signature="e#24641#24728#1" />
+            <element signature="e#25173#25261#1" />
+            <element signature="e#25267#25304#1" />
+            <element signature="e#25316#25523#0" />
+            <element signature="e#25529#25587#0" />
+            <element signature="e#25529#27151#0" />
+            <element signature="e#25731#27145#1" />
+            <element signature="e#25964#26872#0" />
+            <element signature="e#26001#26858#0" />
+            <element signature="e#26916#27012#0" />
+            <element signature="e#27245#27397#0" />
+            <element signature="e#27403#27451#0" />
+            <element signature="e#27403#27587#0" />
+            <element signature="e#27855#27900#0" />
+            <element signature="e#27906#28113#0" />
+            <element signature="e#28232#28262#0" />
+            <element signature="e#28441#29202#0" />
+            <element signature="e#28542#28573#1" />
+            <element signature="e#28722#28904#1" />
+            <element signature="e#28943#29003#1" />
+            <element signature="e#29008#29196#1" />
+            <element signature="e#29095#29186#1" />
+            <element signature="e#29207#30584#0" />
+            <element signature="e#29310#29341#1" />
+            <element signature="e#29490#29672#1" />
+            <element signature="e#30004#30203#1" />
+            <element signature="e#30496#30578#1" />
           </folding>
         </state>
       </provider>
@@ -1069,15 +1421,16 @@
             <show-content>
               <type id="jpa-descriptors" />
               <type id="javaee-facet-resources" />
-              <type id="artifact" />
               <type id="library" />
+              <type id="artifact" />
             </show-content>
           </artifact-editor>
           <last-edited>RecognitionFX</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.14198287" />
+                <option value="0.17992656" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1089,7 +1442,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.14198287" />
+                <option value="0.17992656" />
               </list>
             </option>
           </splitter-proportions>
@@ -1125,7 +1478,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.14198287" />
+                <option value="0.17992656" />
               </list>
             </option>
           </splitter-proportions>
@@ -1149,7 +1502,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.14198287" />
+                <option value="0.17992656" />
               </list>
             </option>
           </splitter-proportions>

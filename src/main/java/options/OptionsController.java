@@ -44,8 +44,10 @@ public class OptionsController {
 
     public void setOptions(HashMap<String, String> options) {
         //this.options=new HashMap<>(options);
-        if(options.isEmpty())
+        if(options.isEmpty()) {
             options=TesseractConstants.DEFAULTS.getAll();
+            profile.setOptions(options);
+        }
         fieldWhitelist.setText(options.get(TesseractConstants.WHITELIST));
         choiceLanguage.getSelectionModel().select(options.get(TesseractConstants.LANGUAGE));
     }
@@ -77,5 +79,9 @@ public class OptionsController {
         newProfile=true;
         setProfile(new Profile("Profile"));
         btnAdd.setDisable(true);
+    }
+
+    public void onSetDefault(ActionEvent event) {
+        setOptions(new HashMap<>());
     }
 }

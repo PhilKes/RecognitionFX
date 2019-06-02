@@ -37,16 +37,17 @@
             <artifactId>ikonli-fontawesome-pack</artifactId>
             <version>2.4.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-configuration2</artifactId>
-            <version>2.0</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/org.ini4j/ini4j -->
         <dependency>
             <groupId>org.ini4j</groupId>
             <artifactId>ini4j</artifactId>
             <version>0.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>compile</scope>
         </dependency>
 
     </dependencies>

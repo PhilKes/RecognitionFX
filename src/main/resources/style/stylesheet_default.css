@@ -2,8 +2,13 @@
     -greyLight: rgb(227, 227, 225);
     -greyDark: rgb(164, 164, 162);
     -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }
-
+.button:focused {
+    -fx-background-color: -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 5, 4, 3;
+}
 .menu{
     -fx-font-size: 11pt;
 }
@@ -39,12 +44,12 @@
 .rubber-corner:hover{
     -fx-fill: darkblue;
 }
-#run-button{
-    -fx-font-size: 12pt;
-}
 /*transparent for Menu with ChoiceBox*/
 #transparent:hover,
 #transparent:focused,
 #transparent:showing{
     -fx-background: transparent;
 }
+.font-icon{
+     -fx-fill: black;
+ }

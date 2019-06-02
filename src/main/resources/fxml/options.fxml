@@ -15,6 +15,7 @@
       <RowConstraints minHeight="60.0" percentHeight="50.0" prefHeight="30.0" />
     <RowConstraints minHeight="60.0" percentHeight="50" />
     <RowConstraints minHeight="60.0" percentHeight="50" />
+      <RowConstraints minHeight="60.0" percentHeight="50.0" prefHeight="30.0" />
   </rowConstraints>
    <children>
       <Label alignment="CENTER" prefWidth="2000.0" text="Language:" GridPane.columnSpan="2" GridPane.rowIndex="1" />
@@ -31,5 +32,6 @@
             <FontIcon iconColor="#28c900" iconLiteral="fa-plus" iconSize="17" strokeType="OUTSIDE" strokeWidth="0.0" />
          </graphic>
       </Button>
+      <Button fx:id="btnDefaults" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSetDefault" text="Defaults" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
    </children>
 </GridPane>

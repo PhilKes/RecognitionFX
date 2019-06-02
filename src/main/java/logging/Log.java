@@ -9,8 +9,8 @@ public class Log {
 
     private final BlockingDeque<LogRecord> log = new LinkedBlockingDeque<>(MAX_LOG_ENTRIES);
 
-    public void drainTo(Collection<? super LogRecord> collection) {
-        log.drainTo(collection);
+    public int drainTo(Collection<? super LogRecord> collection) {
+        return log.drainTo(collection);
     }
 
     public void offer(LogRecord record) {

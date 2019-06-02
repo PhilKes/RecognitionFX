@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 public class RecognitionFX extends Application {
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/window.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/window.fxml"));
         Parent root = loader.load();
         Controller controller = (Controller) loader.getController();
         controller.setStage(primaryStage);
@@ -18,10 +18,9 @@ public class RecognitionFX extends Application {
                 new Image(getClass().getResourceAsStream("/icon.png"))
         );
         Scene scene=new Scene(root);
-
-        scene.getStylesheets().add(
-                this.getClass().getClassLoader().getResource("log-view.css").toExternalForm()
-        );
+        /*scene.getStylesheets().add(
+                this.getClass().getClassLoader().getResource("log-view_dark.css").toExternalForm()
+        );*/
         primaryStage.setScene(scene);
         primaryStage.setOnCloseRequest((ev)->{
             System.exit(0);

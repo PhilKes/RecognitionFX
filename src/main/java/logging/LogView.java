@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat;
 public class LogView extends ListView<LogRecord> {
     private static final int MAX_ENTRIES = 10_000;
 
-    /** PseudoClasses for CSS stylesheet (log-view.css) **/
+    /** PseudoClasses for CSS stylesheet (log-view_dark.css) **/
     private final static PseudoClass debug = PseudoClass.getPseudoClass("debug");
     private final static PseudoClass info  = PseudoClass.getPseudoClass("info");
     private final static PseudoClass warn  = PseudoClass.getPseudoClass("warn");
@@ -60,8 +60,9 @@ public class LogView extends ListView<LogRecord> {
             new KeyFrame(
                 Duration.seconds(1),
                 event -> {
-                    logger.getLog().drainTo(logItems);
-
+                    if(logger.getLog().drainTo(logItems)>0) {
+                        scrollTo(logItems.size());
+                    }
                     if (logItems.size() > MAX_ENTRIES) {
                         logItems.remove(0, logItems.size() - MAX_ENTRIES);
                     }
@@ -157,8 +158,7 @@ public class LogView extends ListView<LogRecord> {
                         pseudoClassStateChanged(error, true);
                         break;
                 }
-                //TODO FIX
-                scrollTo(logItems.size());
+                //scrollTo(logItems.size());
             }
         });
         scrollTo(logItems.size());

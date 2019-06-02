@@ -8,7 +8,7 @@ public class TesseractConstants {
     public static final String WHITELIST="tessedit_char_whitelist",
                             LANGUAGE="lang",
                             TESSDATA="tessdata";
-    public static final String[] LANGUAGES={"deu","eng"};
+    public static final String[] LANGUAGES={"deu","eng","osd"};
     public static class DEFAULTS {
         private static HashMap<String,String> tesseractOptions;
         static {

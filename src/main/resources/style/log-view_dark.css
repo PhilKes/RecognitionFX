@@ -1,0 +1,26 @@
+.root {
+
+}
+
+.log-view{
+    -fx-padding: 10px;
+}
+.log-view .list-cell {
+    -fx-background-color: null; // removes alternating list gray cells.
+}
+
+.log-view .list-cell:debug {
+    -fx-text-fill: gray;
+}
+
+.log-view .list-cell:info {
+    -fx-text-fill: greenyellow;
+}
+
+.log-view .list-cell:warn {
+    -fx-text-fill: mediumpurple;
+}
+
+.log-view .list-cell:error {
+    -fx-text-fill: red;
+}

@@ -1,0 +1,7 @@
+<!DOCTYPE project SYSTEM "project.dtd">
+<project name="project1" profile="default" img="C:\\Users\\Phil\\Pictures\\20170907_170145_small.JPG">
+    <selections>
+        <rectangle name="rec1" x="10" y="10" width="100" height="100"/>
+        <rectangle name="rec3" x="100" y="10" width="100" height="20"/>
+    </selections>
+</project>

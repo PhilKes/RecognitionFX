@@ -13,6 +13,8 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import main.Controller;
 
+import java.math.BigDecimal;
+
 /**
  * Rectangle Selection with Mouse Dragging
  */
@@ -99,6 +101,7 @@ public class RubberBandSelection {
             this.onMouseReleased(event);
         };
         this.rootGroup.addEventHandler(MouseEvent.MOUSE_RELEASED, releaseEvent);
+        checkBounds();
     }
 
     /**
@@ -246,6 +249,13 @@ public class RubberBandSelection {
                 || (rect.getY()+rect.getHeight())>imageHeight
                 || rect.getWidth()<=0
                 || rect.getHeight()<=0);*/
+        /**
+         * Round Rectangle Bounds to 2 decimal places*/
+        double roundX=new BigDecimal(rect.getX()).setScale(2,BigDecimal.ROUND_HALF_EVEN).doubleValue();
+        double roundY=new BigDecimal(rect.getY()).setScale(2,BigDecimal.ROUND_HALF_EVEN).doubleValue();
+        double roundW=new BigDecimal(rect.getWidth()).setScale(2,BigDecimal.ROUND_HALF_EVEN).doubleValue();
+        double roundH=new BigDecimal(rect.getHeight()).setScale(2,BigDecimal.ROUND_HALF_EVEN).doubleValue();
+        rect.setX(roundX);rect.setY(roundY);rect.setWidth(roundW);rect.setHeight(roundH);
         /** Correct Position and Size of Rectangle if necessary,
          *  draggedItem=5 -> Entire Rectangle is being dragged
          */
@@ -265,7 +275,6 @@ public class RubberBandSelection {
             rect.setY(imageHeight-1);
         if(rect.getWidth()<=0)
             rect.setWidth(1);
-
         else if((rect.getX()+rect.getWidth())>imageWidth) {
             if(draggedItem!=5)
                 rect.setWidth(imageWidth - rect.getX());
