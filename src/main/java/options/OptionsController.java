@@ -1,5 +1,6 @@
 package options;
 
+import config.Profile;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
-import util.Profile;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -32,6 +32,7 @@ public class OptionsController {
         choiceLanguage.setItems(FXCollections.observableArrayList(Arrays.asList(TesseractConstants.LANGUAGES)));
         choiceLanguage.getSelectionModel().selectedIndexProperty().addListener(((observable, oldValue, newValue) ->
                 profile.getOptions().put(TesseractConstants.LANGUAGE,TesseractConstants.LANGUAGES[newValue.intValue()])));
+        //TODO PREFERENCES (A-Z) (a-z) (0-9),...
         fieldWhitelist.setTextFormatter(new TextFormatter<>(this::whiteListFormatter));
         fieldWhitelist.textProperty().addListener(((observable, oldValue, newValue) -> {
             profile.getOptions().put(TesseractConstants.WHITELIST,newValue);

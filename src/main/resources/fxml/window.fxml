@@ -80,6 +80,14 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
+                    <MenuItem fx:id="menu_Open" mnemonicParsing="false" onAction="#onImageOpen" text="Open Image">
+                           <graphic>
+                              <FontIcon iconLiteral="fa-image" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
                         <MenuItem mnemonicParsing="false" onAction="#onOpenProject" text="Open Project">
                            <graphic>
                               <FontIcon iconLiteral="fa-folder-open-o" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
@@ -87,16 +95,12 @@
                            <accelerator>
                               <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                            </accelerator></MenuItem>
-                    <MenuItem fx:id="menu_Open" mnemonicParsing="false" onAction="#onImageOpen" text="New Project">
-                           <graphic>
-                              <FontIcon iconLiteral="fa-file-text-o" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
-                           </graphic>
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                           </accelerator>
-                        </MenuItem>
-                        <Menu fx:id="recentProjectsMenu" mnemonicParsing="false" text="Recent Projects" />
+                        <Menu fx:id="recentProjectsMenu" disable="true" mnemonicParsing="false" text="Recent Projects" visible="false" />
                         <Menu fx:id="recentlyMenu" mnemonicParsing="false" text="Recent Images" />
+                        <MenuItem mnemonicParsing="false" onAction="#onConvertToPDF" text="Convert to PDF...">
+                           <graphic>
+                              <FontIcon iconLiteral="fa-file-pdf-o" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                           </graphic></MenuItem>
                         <MenuItem fx:id="menuSaveAs" mnemonicParsing="false" onAction="#onSaveAs" text="Save as...">
                            <graphic>
                               <FontIcon iconLiteral="fa-save" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />

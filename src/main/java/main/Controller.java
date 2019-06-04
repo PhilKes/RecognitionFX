@@ -1,6 +1,6 @@
 package main;
 
-import builder.RubberBandSelectionBuilder;
+import config.*;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -31,10 +31,13 @@ import logging.LogView;
 import logging.Logger;
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
 import options.OptionsDialog;
 import options.TesseractConstants;
 import org.kordamp.ikonli.javafx.FontIcon;
-import util.*;
+import util.RubberBandSelection;
+import util.RubberBandSelectionBuilder;
+import util.ZoomableScrollPane;
 
 import java.io.File;
 import java.nio.file.Paths;
@@ -48,7 +51,8 @@ public class Controller {
     private static int SELECTION_COUNT=1;
     //TODO Package all properties/.ini loadings onto another Thread(TASK)
     /**
-     * See window.fxml for definitions*/
+     * See window.fxml for definitions
+     */
     @FXML
     private BorderPane rootPane;
     @FXML
@@ -64,7 +68,7 @@ public class Controller {
     @FXML
     private ListView<RubberBandSelection> listSelections;
     @FXML
-    private TextField fieldName,fieldX,fieldY,fieldWidth,fieldHeight;
+    private TextField fieldName, fieldX, fieldY, fieldWidth, fieldHeight;
     @FXML
     private ChoiceBox<String> choiceProfile;
     @FXML
@@ -79,32 +83,40 @@ public class Controller {
     private Stage stage;
     private static Log log=new Log();
     private static Logger logger;
-    static{
+
+    static {
         logger=new Logger(log, "main");
     }
+
     private ImageView imgView;
     /**
-     * Extended ScrollPane for Image/Selection View */
+     * Extended ScrollPane for Image/Selection View
+     */
     private ZoomableScrollPane imgScroll;
     /**
-     * List of all created RubberbandSelections*/
+     * List of all created RubberbandSelections
+     */
     private ObservableList<RubberBandSelection> selections;
     /**
-     * Property for storing currently active selection index - bound to RubberBandSelection's corners visibility(show only if correct selection is active*/
+     * Property for storing currently active selection index - bound to RubberBandSelection's corners visibility(show only if correct selection is active
+     */
     private SimpleIntegerProperty activeSelection=new SimpleIntegerProperty();
     /**
-     * Currently opened Imagefile*/
+     * Currently opened Imagefile
+     */
     private File file;
     private Image currImage;
     /**
-     * Options for Tesseract OCR Object*/
+     * Options for Tesseract OCR Object
+     */
     private static Profile currProfile;
     private LogView logView;
 
     private Project curProject;
 
     /**
-     * Stores if Analysis is running - bound to analysis invokers (RunButton,...)*/
+     * Stores if Analysis is running - bound to analysis invokers (RunButton,...)
+     */
     private BooleanProperty running=new SimpleBooleanProperty(true);
     private Group selectionLayer;
     //TODO CHANGE STACK-> Bind to Save MenuItem disable property
@@ -112,7 +124,7 @@ public class Controller {
     private String currProfile="default";*/
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         CONTROLLER=this;
         initLog();
         loadTheme(IniProperties.Program.getTheme());
@@ -126,8 +138,9 @@ public class Controller {
         imgScroll=new ZoomableScrollPane(selectionLayer);
         imgStack.getChildren().add(imgScroll);
         imgStack.setOnMousePressed(event -> {
-            if(event.getButton() == MouseButton.MIDDLE)
+            if(event.getButton()==MouseButton.MIDDLE) {
                 event.consume();
+            }
         });
         /*    imgStack.setOnKeyPressed(event -> {
                 if(event.getCode()==KeyCode.ESCAPE)
@@ -136,17 +149,17 @@ public class Controller {
         );*/
         rootPane.setCenter(imgStack);
         /** Show Context menu when left clicked inside StackPane **/
-        final ContextMenu contextMenu = new ContextMenu();
-        MenuItem cropMenuItem = new MenuItem("Analyze");
+        final ContextMenu contextMenu=new ContextMenu();
+        MenuItem cropMenuItem=new MenuItem("Analyze");
         FontIcon cropIcon=new FontIcon(MAGIC);
         cropIcon.setIconSize(18);
         cropMenuItem.setGraphic(cropIcon);
         cropMenuItem.setOnAction(e -> {
-            RubberBandSelection selected = selections.get(activeSelection.get());
-            System.out.println( "Selected area: " + selected);
+            RubberBandSelection selected=selections.get(activeSelection.get());
+            System.out.println("Selected area: " + selected);
             analyze(Arrays.asList(selected));
         });
-        contextMenu.getItems().add( cropMenuItem);
+        contextMenu.getItems().add(cropMenuItem);
         /**
          * Bind execute Analysis invokers disabled to running property*/
         running.set(false);
@@ -173,26 +186,26 @@ public class Controller {
                 }
                 contextMenu.hide();
             }
-            else if (event.getButton().equals(MouseButton.SECONDARY)) {
+            else if(event.getButton().equals(MouseButton.SECONDARY)) {
                 contextMenu.show(selectionLayer, event.getScreenX(), event.getScreenY());
             }
-            else{
+            else {
                 //event.consume();
             }
         });
         propertiesMenu.expandedProperty().addListener((observable, oldValue, newValue) -> {
-                if(!newValue) {
+            if(!newValue) {
                 /*propertiesMenu.setMinHeight(100.0);
                 propertiesMenu.setPrefHeight(100.0);*/
-                    //TODO RESIZING PANE
-                    propertiesMenu.setManaged(false);
-                    propertiesMenu.setRotate(90);
-                }
-                else {
-                    //TODO RESIZING PANE
-                    propertiesMenu.setRotate(0);
-                    propertiesMenu.setManaged(true);
-                }
+                //TODO RESIZING PANE
+                propertiesMenu.setManaged(false);
+                propertiesMenu.setRotate(90);
+            }
+            else {
+                //TODO RESIZING PANE
+                propertiesMenu.setRotate(0);
+                propertiesMenu.setManaged(true);
+            }
         });
         initSelectionListView();
         initPropertiesWindow();
@@ -201,10 +214,11 @@ public class Controller {
         //IniProperties.saveTesseractProperties(TesseractConstants.DEFAULTS.getAll());
         /**
          * Load Properties from file */
-        currProfile=new Profile("default",IniProperties.Tesseract.getDefaultSettings());
+        currProfile=new Profile("default", IniProperties.Tesseract.getDefaultSettings());
         choiceProfile.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
-          if(oldValue!=newValue && newValue!=null)
-              changeProfile(newValue);
+            if(oldValue!=newValue && newValue!=null) {
+                changeProfile(newValue);
+            }
         }));
         loadProfiles();
 
@@ -212,7 +226,8 @@ public class Controller {
     }
 
     /**
-     * Loads .CSS Stylesheets for theme */
+     * Loads .CSS Stylesheets for theme
+     */
     private void loadTheme(int theme) {
         THEME=theme;
         logView.getStylesheets().clear();
@@ -220,10 +235,10 @@ public class Controller {
         if(THEME==0) {
             rootPane.getStylesheets().add("style/stylesheet_default.css");
             logView.getStylesheets().add(
-                this.getClass().getClassLoader().getResource("style/log-view_default.css").toExternalForm()
+                    this.getClass().getClassLoader().getResource("style/log-view_default.css").toExternalForm()
             );
         }
-        else{
+        else {
             rootPane.getStylesheets().add("style/stylesheet_dark.css");
             logView.getStylesheets().add(
                     this.getClass().getClassLoader().getResource("style/log-view_dark.css").toExternalForm()
@@ -238,19 +253,21 @@ public class Controller {
     }
 
     private void changeProfile(String profile) {
-        currProfile=new Profile(profile,IniProperties.Tesseract.getProfile(profile));
-        logger.info(profile+" profile loaded");
+        currProfile=new Profile(profile, IniProperties.Tesseract.getProfile(profile));
+        logger.info(profile + " profile loaded");
     }
 
     private void initLog() {
-        logView = new LogView(logger);
+        logView=new LogView(logger);
         logView.setPrefWidth(400);
-        vboxBottom.getChildren().add(0,logView);
+        vboxBottom.getChildren().add(0, logView);
         VBox.setVgrow(logView, Priority.ALWAYS);
         logger.info("Log initialized");
     }
+
     /**
-     * Set Handlers for Properties (on ENTER PRESSED) and set TextFormatter for Double validity*/
+     * Set Handlers for Properties (on ENTER PRESSED) and set TextFormatter for Double validity
+     */
     private void initPropertiesWindow() {
         fieldName.setOnKeyPressed(this::onPropertyFieldChanged);
         fieldX.setOnKeyPressed(this::onPropertyFieldChanged);
@@ -266,14 +283,15 @@ public class Controller {
     public void updatePropertiesWindow(RubberBandSelection newSelection) {
         fieldName.setText(newSelection.getName());
         Rectangle rect=newSelection.getRect();
-        fieldX.setText(""+rect.getX());
-        fieldY.setText(""+rect.getY());
-        fieldWidth.setText(""+rect.getWidth());
-        fieldHeight.setText(""+rect.getHeight());
+        fieldX.setText("" + rect.getX());
+        fieldY.setText("" + rect.getY());
+        fieldWidth.setText("" + rect.getWidth());
+        fieldHeight.setText("" + rect.getHeight());
     }
 
     /**
-     * Init ListView and listeners for selections in Properties Pane */
+     * Init ListView and listeners for selections in Properties Pane
+     */
     private void initSelectionListView() {
         listSelections.setItems(selections);
         listSelections.setEditable(false);
@@ -281,25 +299,28 @@ public class Controller {
             @Override
             public void updateItem(RubberBandSelection item, boolean empty) {
                 super.updateItem(item, empty);
-                if (empty || item == null) {
+                if(empty || item==null) {
                     setText(null);
-                } else {
+                }
+                else {
                     setText(item.getName());
                 }
             }
         });
         /** Bind List selection to activeSelection Property (bidirectional with Listeners*/
-        activeSelection.addListener((obs,old,newVal)->{
-            if(newVal.intValue()!=listSelections.getSelectionModel().getSelectedIndex() && newVal.intValue()>=0)
+        activeSelection.addListener((obs, old, newVal) -> {
+            if(newVal.intValue()!=listSelections.getSelectionModel().getSelectedIndex() && newVal.intValue() >= 0) {
                 listSelections.getSelectionModel().select(newVal.intValue());
+            }
         });
-        listSelections.getSelectionModel().selectedIndexProperty().addListener((obs,old,newVal)->{
+        listSelections.getSelectionModel().selectedIndexProperty().addListener((obs, old, newVal) -> {
             if(newVal.intValue()!=activeSelection.get()) {
                 activeSelection.set(newVal.intValue());
             }
             /** Update Properties Window*/
-            if(newVal.intValue()!=-1)
+            if(newVal.intValue()!=-1) {
                 updatePropertiesWindow(selections.get(newVal.intValue()));
+            }
 
         });
     }
@@ -313,9 +334,9 @@ public class Controller {
         List<String> files=IniProperties.Program.getRecentlyOpenedImages();
         recentlyMenu.setDisable(files.isEmpty());
         files.forEach(
-                file->{
+                file -> {
                     MenuItem fileItem=new MenuItem(file);
-                    fileItem.setOnAction(ev->{
+                    fileItem.setOnAction(ev -> {
                         if(!openImage(file)) {
                             IniProperties.Program.removeInvalidRecentlyOpened(file);
                             loadRecentlyOpenedFiles();
@@ -333,9 +354,9 @@ public class Controller {
         files=IniProperties.Program.getRecentProjects();
         recentProjectsMenu.setDisable(files.isEmpty());
         files.forEach(
-                file->{
+                file -> {
                     MenuItem fileItem=new MenuItem(file);
-                    fileItem.setOnAction(ev->{
+                    fileItem.setOnAction(ev -> {
                         if(!openProject(new File(file))) {
                             IniProperties.Program.removeInvalidRecentProject(file);
                             loadRecentlyOpenedFiles();
@@ -356,18 +377,20 @@ public class Controller {
     public void onImageOpen(ActionEvent event) {
         FileChooser fileChooser=new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image files (.jpg,.png,.jpeg)", "*.jpg", "*.png", "*.jpeg"));
-        fileChooser .setTitle("Open Image File");
+        fileChooser.setTitle("Open Image File");
         String lastDirectory=IniProperties.Program.getLastOpenedDirectory();
-        if(lastDirectory!=null ) {
+        if(lastDirectory!=null) {
             File folder=new File(lastDirectory);
-            if(folder.exists())
+            if(folder.exists()) {
                 fileChooser.setInitialDirectory(folder);
-            else
+            }
+            else {
                 logger.error("onImageOpen: LastDirectory set but not found!");
+            }
         }
         File file=fileChooser.showOpenDialog(stage);
         if(file!=null) {
-            if(openImage(file.getAbsolutePath())){
+            if(openImage(file.getAbsolutePath())) {
                 curProject=new Project("Unnamed");
                 curProject.setImagePath(file.getAbsolutePath());
                 IniProperties.Program.saveLastOpenedDirectory(file);
@@ -376,50 +399,58 @@ public class Controller {
             }
         }
     }
+
     public void onOpenProject(ActionEvent event) {
         FileChooser fileChooser=new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Project files (.rfx)", "*.rfx"));
-        fileChooser .setTitle("Open Project File");
+        fileChooser.setTitle("Open Project File");
         String lastDirectory=IniProperties.Program.getLastOpenedProjectDirectory();
-        if(lastDirectory==null ){
-            String currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
-             lastDirectory=currentPath+"\\projects";
+        if(lastDirectory==null) {
+            String currentPath=Paths.get(".").toAbsolutePath().normalize().toString();
+            lastDirectory=currentPath + "\\projects";
             System.out.println(lastDirectory);
         }
         File folder=new File(lastDirectory);
-        if(folder.exists())
+        if(folder.exists()) {
             fileChooser.setInitialDirectory(folder);
-        else
+        }
+        else {
             logger.error("onProjectOpen: LastDirectory set but not found!");
+        }
 
         File file=fileChooser.showOpenDialog(stage);
         if(file!=null) {
-            if(openProject(file)){
+            if(openProject(file)) {
                 IniProperties.Program.saveLastOpenedProjectDirectory(file);
                 IniProperties.Program.saveRecentProject(file.getAbsolutePath());
                 loadRecentlyOpenedFiles();
             }
         }
     }
-    //TODO Recently Opened+lastdirectory
-    public boolean openProject(File file){
+
+    /**
+     * Parses Selections+Image from .rfx file if possible
+     *
+     * @return returns if Project was successfully loaded
+     */
+    public boolean openProject(File file) {
         Project oldProject=curProject;
-        if (file.exists()) {
-            System.out.println(file.getAbsolutePath()+" opened");
-            logger.info(file.getAbsolutePath()+" opened");
+        if(file.exists()) {
+            System.out.println(file.getAbsolutePath() + " opened");
+            logger.info(file.getAbsolutePath() + " opened");
             /*IniProperties.Program.saveLastOpenedDirectory(file);*/
-            Project project= XMLService.parseProject(file);
-            if(project!=null){
+            Project project=XMLService.parseProject(file);
+            if(project!=null) {
                 curProject=project;
             }
             /** Project could not be parsed from XML*/
-            else{
-                logger.error("Could not open project file: "+file.getAbsolutePath());
+            else {
+                logger.error("Could not open project file: " + file.getAbsolutePath());
                 return false;
             }
             /*IniProperties.Program.saveRecentImage(file.getAbsolutePath());*/
-            if(openImage(project.getImagePath())){
-                for(RectangleXML rect : project.getSelections()){
+            if(openImage(project.getImagePath())) {
+                for(RectangleXML rect : project.getSelections()) {
                     RubberBandSelection selection=new RubberBandSelectionBuilder()
                             .setRootGroup(selectionLayer)
                             .setX(rect.getX()).setY(rect.getY())
@@ -436,8 +467,9 @@ public class Controller {
                 }
             }
             /** Image file was not found*/
-            else{
-                logger.error("Could not open image: "+project.getImagePath());
+            else {
+                logger.error("Could not open image: " + project.getImagePath());
+                curProject=oldProject;
                 return false;
             }
         }
@@ -448,12 +480,18 @@ public class Controller {
         return true;
 
     }
-    public boolean openImage(String filePath){
+
+    /**
+     * Open Image from path if possible
+     *
+     * @return Returns if Image could be loaded or not
+     */
+    public boolean openImage(String filePath) {
         File oldFile=file;
         file=new File(filePath);
-        if (file.exists()) {
-            System.out.println(file.getAbsolutePath()+" opened");
-            logger.info(file.getAbsolutePath()+" opened");
+        if(file.exists()) {
+            System.out.println(file.getAbsolutePath() + " opened");
+            logger.info(file.getAbsolutePath() + " opened");
             /*IniProperties.Program.saveLastOpenedDirectory(file);*/
             /** Open Image File **/
             Image img=new Image(file.toURI().toString());
@@ -482,13 +520,14 @@ public class Controller {
 
     /**
      * Uses Tesseract to recognize text in selected Rectangle
+     *
      * @param selections RubberbandSelections inside the ImageView
      */
     private void analyze(List<RubberBandSelection> selections) {
         running.set(true);
         Task<ArrayList<String>> ocrTask=new Task<ArrayList<String>>() {
             @Override
-            protected ArrayList<String> call(){
+            protected ArrayList<String> call() {
                 ArrayList<String> results=new ArrayList<>();
                 for(int i=0; i<selections.size(); i++) {
 
@@ -503,16 +542,19 @@ public class Controller {
                     }
                     final String result;
                     try {
+                        /*BufferedImage imgSelection=SwingFXUtils.fromFXImage(currImage, null).getSubimage(
+                                (int) rec.getX(), (int) rec.getY(), (int) rec.getWidth(), (int) rec.getHeight());*/
+                        //TODO Save BufferedImage as temporary file to use for createDocuments()
                         result=instance.doOCR(imageFile, new java.awt.Rectangle((int) rec.getX(), (int) rec.getY(), (int) rec.getWidth(), (int) rec.getHeight()));
                         logger.info("RESULT for \""+selection.getName()+"\" :\n-----------------------\n"+result+"\n-----------------------");
                         results.add(result);
                     }
                     catch(Exception e) {
                         e.printStackTrace();
-                        logger.error("Analyzing \""+selection.getName()+"\": "+e.getMessage());
+                        logger.error("Analyzing \"" + selection.getName() + "\": " + e.getMessage());
                         results.add(null);
                     }
-                    updateProgress(i,selections.size()-1);
+                    updateProgress(i, selections.size() - 1);
                 }
                 return results;
             }
@@ -532,16 +574,62 @@ public class Controller {
         new Thread(ocrTask).start();
 
     }
+    private void convertToPDF(File file){
+        ITesseract instance=getTesseract();
+        List<ITesseract.RenderedFormat> list=new ArrayList<ITesseract.RenderedFormat>();
+        list.add(ITesseract.RenderedFormat.PDF);
+        FileChooser fileChooser=new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF files (.pdf)", "*.pdf"));
+        fileChooser.setTitle("Save Image as searchable PDF");
 
+        String lastDirectory=IniProperties.Program.getLastOpenedProjectDirectory();
+        if(lastDirectory==null) {
+            String currentPath=Paths.get(".").toAbsolutePath().normalize().toString();
+            lastDirectory=currentPath + "\\output";
+            System.out.println(lastDirectory);
+        }
+        File folder=new File(lastDirectory);
+        if(folder.exists()) {
+            fileChooser.setInitialDirectory(folder);
+        }
+        else {
+            logger.error("onProjectOpen: LastDirectory set but not found!");
+        }
+        File outFile=fileChooser.showSaveDialog(stage);
+
+        String outPath=outFile.getAbsolutePath();
+        while(outPath.endsWith(".pdf"))
+            outPath=outPath.substring(0,outFile.getAbsolutePath().length()-4);
+        String finalOutPath=outPath;
+        Task convertTask=new Task() {
+            @Override
+            protected Void call() {
+                try {
+                    instance.createDocuments(file.getAbsolutePath(), finalOutPath, list);
+                    logger.info("Saved PDF as "+ finalOutPath +".pdf");
+                }
+                catch(TesseractException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        };
+        new Thread(convertTask).start();
+        //String outputPath=file.getAbsolutePath().replaceFirst("\\..?.?.?","");
+
+    }
+    /**
+     * Returns an instace of ITesseract with options set from currProfile
+     */
     private ITesseract getTesseract() {
-        final ITesseract instance = new Tesseract();
-        HashMap<String,String> options=new HashMap<>(currProfile.getOptions());
+        final ITesseract instance=new Tesseract();
+        HashMap<String, String> options=new HashMap<>(currProfile.getOptions());
         try {
             //File tessdata =new File(getClass().getClassLoader().getResource("tessdata").toURI());
             instance.setDatapath(options.get(TesseractConstants.TESSDATA));
             options.remove(TesseractConstants.TESSDATA);
             instance.setLanguage(options.get(TesseractConstants.LANGUAGE));
-            for(Map.Entry<String,String> option: options.entrySet())
+            for(Map.Entry<String, String> option : options.entrySet())
                 instance.setTessVariable(option.getKey(), option.getValue());
         }
         catch(Exception e) {
@@ -553,22 +641,26 @@ public class Controller {
     }
 
     //TODO ANALYZE ENTIRE IMAGE WITHOUT SELECTIONS
+
     /**
-     * Commit text recognition of all selections*/
+     * Commit text recognition of all selections
+     */
     public void onAnalyzeAll(ActionEvent event) {
-        if(file==null){
+        if(file==null) {
             logger.warn("ANALYZING: No Image opened...");
             return;
         }
-        if(selections.isEmpty()){
+        if(selections.isEmpty()) {
             logger.warn("ANALYZING: No selections found...");
             return;
         }
-        logger.info("ANALYZING \""+file.getAbsolutePath()+"\" ...");
+        logger.info("ANALYZING \"" + file.getAbsolutePath() + "\" ...");
         analyze(selections);
     }
+
     /**
-     * Show Options Dialog and update global settings if closed */
+     * Show Options Dialog and update global settings if closed
+     */
     public void onAnalyzeOptions(ActionEvent event) {
         OptionsDialog dialog=new OptionsDialog(currProfile);
         /** Show OptionsDialog and save changed settings afterr close */
@@ -577,22 +669,29 @@ public class Controller {
             Profile updatedProfile=newOptions.get().getValue();
             /**
              * Has old Profile been renamed? (not new but other name) */
-            if(!newOptions.get().getKey() && !currProfile.getName().equals(updatedProfile.getName())){
-                IniProperties.Tesseract.renameProfile(currProfile.getName(),updatedProfile.getName(),updatedProfile.getOptions());
+            if(!newOptions.get().getKey() && !currProfile.getName().equals(updatedProfile.getName())) {
+                IniProperties.Tesseract.renameProfile(currProfile.getName(), updatedProfile.getName(), updatedProfile.getOptions());
             }
             /**
              * Save Profile/add new*/
-            else
-                IniProperties.Tesseract.saveProfile(updatedProfile.getName(),updatedProfile.getOptions());
+            else {
+                IniProperties.Tesseract.saveProfile(updatedProfile.getName(), updatedProfile.getOptions());
+            }
             currProfile=updatedProfile;
             loadProfiles();
         }
     }
 
+    public void onRunButton(ActionEvent event) {
+        onAnalyzeAll(event);
+    }
+
     /**
-     * Delete active selection if Edit - Delete selection or DEL pressed*/
+     * Delete active selection from list
+     * Invoked by "Delete" MenuItem
+     */
     public void onDeleteSelection(ActionEvent event) {
-        if(activeSelection.get()==-1){
+        if(activeSelection.get()==-1) {
             logger.warn("Delete: No selection selected");
             return;
         }
@@ -602,38 +701,43 @@ public class Controller {
         for(int i=0; i<selections.size(); i++)
             selections.get(i).setIdx(i);
     }
+
     public void onDeleteAll(ActionEvent event) {
-        if(selections.isEmpty()){
+        if(selections.isEmpty()) {
             logger.warn("No selections to be deleted");
             return;
         }
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation ");
         alert.initStyle(StageStyle.UTILITY);
         alert.setHeaderText("Delete All");
         alert.setContentText("Are you sure you want to delete all selections?");
-        alert.getButtonTypes().setAll(ButtonType.YES,ButtonType.NO);
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.YES){
-            while(!selections.isEmpty())
+        alert.getButtonTypes().setAll(ButtonType.YES, ButtonType.NO);
+        Optional<ButtonType> result=alert.showAndWait();
+        if(result.get()==ButtonType.YES) {
+            while(!selections.isEmpty()) {
                 removeSelection(0);
-        } else {
-           alert.close();
+            }
+        }
+        else {
+            alert.close();
         }
 
     }
-    private void removeSelection(int idx){
+
+    private void removeSelection(int idx) {
         RubberBandSelection sel=selections.get(idx);
         sel.reset();
         selections.remove(sel);
-        logger.info("Deleted selection "+sel.getName());
+        logger.info("Deleted selection " + sel.getName());
     }
 
     /**
-     * Update selection when Properties are changed */
+     * Update selection when Properties are changed
+     */
     private void onPropertyFieldChanged(KeyEvent keyEvent) {
         if(keyEvent.getCode().equals(KeyCode.ENTER) && activeSelection.get()!=-1) {
-            TextField field=(TextField)keyEvent.getSource();
+            TextField field=(TextField) keyEvent.getSource();
             String propertyID=field.getId().substring(5);
             RubberBandSelection selection=listSelections.getSelectionModel().getSelectedItem();
             try {
@@ -658,110 +762,126 @@ public class Controller {
                         return;
                 }
             }
-            catch(NumberFormatException ex){
-                logger.error("onChangeProperty: Invalid value for "+propertyID);
+            catch(NumberFormatException ex) {
+                logger.error("onChangeProperty: Invalid value for " + propertyID);
             }
             refreshSelectedIteminList();
-            logger.info("Property "+propertyID+" changed to: "+field.getText());
+            logger.info("Property " + propertyID + " changed to: " + field.getText());
 
         }
     }
+
     public void onMenuFileClose(ActionEvent actionEvent) {
         System.exit(0);
     }
+
     public void refreshSelectedIteminList() {
         listSelections.refresh();
         updatePropertiesWindow(selections.get(activeSelection.get()));
     }
 
     /**
-     * Triggered by Options - Switch Theme*/
+     * Quick saves .rfx project if a project is opened
+     * Invoked by "Save" MenuItem
+     */
+    public void onSave(ActionEvent event) {
+        if(curProject==null) {
+            return;
+        }
+        curProject.setImagePath(file.getAbsolutePath());
+        curProject.getSelections().clear();
+        for(RubberBandSelection sel : selections) {
+            Rectangle rec=sel.getRect();
+            curProject.getSelections().add(new RectangleXML(sel.getName(), rec.getX(), rec.getY(), rec.getWidth(), rec.getHeight()));
+        }
+        if(curProject.getPath()==null) {
+            onSaveAs(event);
+            return;
+        }
+        else {
+            File file=new File(curProject.getPath());
+            if(file.exists()) {
+                XMLService.saveProject(curProject, file.getAbsolutePath());
+            }
+        }
+    }
+
+    /**
+     * Saves project as .rfx with FileChooser
+     * Invoked by "Save as.." MenuItem
+     */
+    public void onSaveAs(ActionEvent event) {
+        if(curProject==null) {
+            return;
+        }
+        curProject.setImagePath(file.getAbsolutePath());
+        curProject.getSelections().clear();
+        for(RubberBandSelection sel : selections) {
+            Rectangle rec=sel.getRect();
+            curProject.getSelections().add(new RectangleXML(sel.getName(), rec.getX(), rec.getY(), rec.getWidth(), rec.getHeight()));
+        }
+        FileChooser fileChooser=new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Project files (.rfx)", "*.rfx"));
+        fileChooser.setTitle("Save Project File");
+        String lastDirectory=IniProperties.Program.getLastOpenedProjectDirectory();
+        if(lastDirectory==null) {
+            String currentPath=Paths.get(".").toAbsolutePath().normalize().toString();
+            lastDirectory=currentPath + "\\projects";
+            System.out.println(lastDirectory);
+        }
+        File folder=new File(lastDirectory);
+        if(folder.exists()) {
+            fileChooser.setInitialDirectory(folder);
+        }
+        else {
+            logger.error("onProjectOpen: LastDirectory set but not found!");
+        }
+        File file=fileChooser.showSaveDialog(stage);
+        if(file!=null) {
+            XMLService.saveProject(curProject, file.getAbsolutePath());
+            curProject.setPath(file.getAbsolutePath());
+        }
+    }
+
+    /**
+     * Triggered by Options - Switch Theme
+     */
     public void switchTheme(ActionEvent event) {
-        loadTheme(THEME==0?1:0);
+        loadTheme(THEME==0 ? 1 : 0);
         IniProperties.Program.saveTheme(THEME);
     }
 
     public SimpleIntegerProperty activeSelectionProperty() {
         return activeSelection;
     }
+
     public void setActiveSelection(int activeSelection) {
         this.activeSelection.set(activeSelection);
     }
-    public void setScrollPanePannable(boolean value){
+
+    public void setScrollPanePannable(boolean value) {
         imgScroll.setPannable(value);
     }
 
     private TextFormatter.Change textDoubleFormat(TextFormatter.Change change) {
-        if(!change.getControlNewText().matches("[\\d]+\\.?\\d?\\d?"))
+        if(!change.getControlNewText().matches("[\\d]+\\.?\\d?\\d?")) {
             change.setText("");
+        }
         return change;
     }
 
     public void setStage(Stage primaryStage) {
         stage=primaryStage;
     }
-    public static Logger getLogger(){
+
+    public static Logger getLogger() {
         return logger;
     }
 
-    public void onRunButton(ActionEvent event) {
-        onAnalyzeAll(event);
-    }
-
-    public void setRunning(boolean running) {
-        this.running.set(running);
-    }
-
-    //TODO Save as... +QuickSave
-    public void onSave(ActionEvent event) {
-        if(curProject==null){
-            return;
-        }
-        curProject.setImagePath(file.getAbsolutePath());
-        curProject.getSelections().clear();
-        for(RubberBandSelection sel:selections){
-            Rectangle rec=sel.getRect();
-            curProject.getSelections().add(new RectangleXML(sel.getName(),rec.getX(),rec.getY(),rec.getWidth(),rec.getHeight()));
-        }
-        if(curProject.getPath()==null){
-            onSaveAs(event);
-            return;
-        }else {
-            File file= new File(curProject.getPath());
-            if(file.exists()) {
-                XMLService.saveProject(curProject, file.getAbsolutePath());
-            }
-        }
-    }
-    //TODO Save as... +QuickSave
-    public void onSaveAs(ActionEvent event) {
-        if(curProject==null){
-            return;
-        }
-        curProject.setImagePath(file.getAbsolutePath());
-        curProject.getSelections().clear();
-        for(RubberBandSelection sel:selections){
-            Rectangle rec=sel.getRect();
-            curProject.getSelections().add(new RectangleXML(sel.getName(),rec.getX(),rec.getY(),rec.getWidth(),rec.getHeight()));
-        }
-        FileChooser fileChooser=new FileChooser();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Project files (.rfx)", "*.rfx"));
-        fileChooser.setTitle("Save Project File");
-        String lastDirectory=IniProperties.Program.getLastOpenedProjectDirectory();
-        if(lastDirectory==null ){
-            String currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
-            lastDirectory=currentPath+"\\projects";
-            System.out.println(lastDirectory);
-        }
-        File folder=new File(lastDirectory);
-        if(folder.exists())
-            fileChooser.setInitialDirectory(folder);
+    public void onConvertToPDF(ActionEvent event) {
+        if(file!=null)
+            convertToPDF(file);
         else
-            logger.error("onProjectOpen: LastDirectory set but not found!");
-        File file=fileChooser.showSaveDialog(stage);
-        if(file!=null) {
-            XMLService.saveProject(curProject,file.getAbsolutePath());
-            curProject.setPath(file.getAbsolutePath());
-        }
+            logger.warn("Convert to PDF: no Image file opened!");
     }
 }

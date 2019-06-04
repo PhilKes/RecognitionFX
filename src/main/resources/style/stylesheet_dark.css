@@ -3,6 +3,7 @@
     -greyDark: rgb(164, 164, 162);
     -fx-focus-color: transparent;
 }
+
 /*
  * This is an adjustment of the original modena.css for a consistent dark theme.
  * Original modena.css here: https://gist.github.com/maxd/63691840fc372f22f470.
@@ -23,12 +24,12 @@
 
     /* text colors depending on background's brightness */
     -fx-light-text-color: rgb(220, 220, 220);
-    -fx-mid-text-color: rgb(100, 100, 100);
-    -fx-dark-text-color: rgb(20, 20, 20);
+    -fx-mid-text-color: white;
+    -fx-dark-text-color: white;
 
     /* A bright blue for highlighting/accenting objects.  For example: selected
      * text; selected items in menus, lists, trees, and tables; progress bars */
-    -fx-accent: rgb(0, 80, 100);
+    -fx-accent: rgb(230, 149, 4);
 
     /* color of non-focused yet selected elements */
     -fx-selection-bar-non-focused: rgb(50, 50, 50);

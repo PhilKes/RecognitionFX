@@ -1,5 +1,6 @@
 package options;
 
+import config.Profile;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ButtonBar;
@@ -9,7 +10,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 import main.Controller;
-import util.Profile;
 
 import java.io.IOException;
 
