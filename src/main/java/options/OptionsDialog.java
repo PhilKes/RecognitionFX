@@ -24,6 +24,7 @@ public class OptionsDialog extends Dialog<Pair<Boolean,Profile>>{
             Node root = loader.load();
             controller=loader.getController();
             controller.setProfile(new Profile(profile.getName(),profile.getOptions()));
+            controller.setDialog(this);
          /*   LoginDialogController controller = loader.<LoginDialogController>getController();
             controller.setModel(new LoginModel(data));*/
             setTitle("Profile Settings");
@@ -42,7 +43,7 @@ public class OptionsDialog extends Dialog<Pair<Boolean,Profile>>{
             /**
              * Returns commited Options as HashMap */
             setResultConverter(btn->{
-                if(btn.getButtonData().equals(ButtonBar.ButtonData.FINISH)){
+                if(btn.getButtonData().equals(ButtonBar.ButtonData.FINISH) ||controller.getProfile().isRemove()){
                     return new Pair<>(controller.isNewProfile(),controller.getProfile());
                 }else{
                     return null;

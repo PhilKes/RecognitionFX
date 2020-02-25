@@ -3,6 +3,16 @@
     -greyDark: rgb(164, 164, 162);
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
+    -fx-bgrnd-darker: #252726;
+    -fx-bgrnd-dark: #2c2e2d;
+    -fx-bgrnd: #363837;
+    -fx-bgrnd-light: #626463;
+    -fx-fgrnd: #c7cbc9;
+    -fx-green: #67d11a;
+    -fx-orange: #e68400;
+    -fx-red: #f81a00;
+    -fx-txt-light: #fffbee;
+    -fx-txt-dark: #000000;
 }
 .button:focused {
     -fx-background-color: -fx-outer-border, -fx-inner-border, -fx-body-color;
@@ -17,9 +27,15 @@
 }
 .menu-bar{
     #-fx-background-color: linear-gradient(-greyLight,-greyDark);
-    -fx-border-color: dimgrey;
-    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+   /* -fx-border-color: dimgrey;
+    -fx-border-width: 0 0 1 0;*/
 
+}
+#hBoxTop{
+    -fx-background-color: -greyLight;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: -greyDark;
 }
 #logPane{
     -fx-padding: 0;
@@ -53,3 +69,44 @@
 .font-icon{
      -fx-fill: black;
  }
+#btnMinimize {
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+}
+
+#btnMinimize > * {
+    -fx-icon-color: -fx-txt-dark;
+}
+
+#btnMinimize:hover {
+    -fx-background-color: -fx-orange;
+}
+
+#btnMinimize:hover > * {
+    -fx-icon-color: -fx-txt-light;
+}
+
+#btnClose {
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+}
+
+#btnClose > * {
+    -fx-icon-color: -fx-txt-dark;
+}
+
+#btnClose:hover {
+    -fx-background-color: -fx-red;
+}
+
+#btnClose:hover > * {
+    -fx-icon-color: -fx-txt-light;
+}
+#rootPane{
+   /* -fx-border-color: -fx-txt-dark;
+    -fx-border-width: 1px;*/
+}

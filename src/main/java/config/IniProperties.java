@@ -70,6 +70,10 @@ public class IniProperties {
         }
 
         public static void renameProfile(String profile, String profileNew, HashMap<String, String> options) {
+            removeProfile(profile);
+            saveProfile(profileNew, options);
+        }
+        public static void removeProfile(String profile){
             Ini ini=getIni(TESSERACT_FILE);
             ini.remove(profile);
             try {
@@ -79,7 +83,6 @@ public class IniProperties {
                 e.printStackTrace();
                 Controller.getLogger().error("Could not remove \"" + profile + "\" in " + TESSERACT_FILE);
             }
-            saveProfile(profileNew, options);
         }
     }
     public static class Program{

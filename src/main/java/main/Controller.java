@@ -1,6 +1,7 @@
 package main;
 
 import config.*;
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -44,7 +45,6 @@ import java.nio.file.Paths;
 import java.util.*;
 
 import static org.kordamp.ikonli.fontawesome.FontAwesome.*;
-
 public class Controller {
 
     public static Controller CONTROLLER;
@@ -74,11 +74,16 @@ public class Controller {
     @FXML
     private ProgressBar progressTask;
     @FXML
-    private Button btnRun;
+    private Button btnRun;//,btnClose,btnMinimize;
     @FXML
     private MenuItem menuAnalyzeAll;
+    /*@FXML
+    private HBox hBoxToolbar;*/
+
+    private double xOffset, yOffset = 0;
 
     public static int THEME=0;
+    private DBService dbService;
 
     private Stage stage;
     private static Log log=new Log();
@@ -222,7 +227,19 @@ public class Controller {
         }));
         loadProfiles();
 
+       /* btnClose.setOnMouseClicked(ev->onCloseClicked());
+        btnMinimize.setOnMouseClicked(ev->onMinimizeClicked());*/
+
+        /*hBoxToolbar.setOnMousePressed(event -> {
+            xOffset = stage.getX() - event.getScreenX();
+            yOffset = stage.getY() - event.getScreenY();
+        });
+        hBoxToolbar.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() + xOffset);
+            stage.setY(event.getScreenY() + yOffset);
+        });*/
         //choiceProfile.getSelectionModel().select("default");
+        dbService=new DBService();
     }
 
     /**
@@ -525,6 +542,7 @@ public class Controller {
      */
     private void analyze(List<RubberBandSelection> selections) {
         running.set(true);
+        HashMap<String,String> resultMap=new HashMap<>();
         Task<ArrayList<String>> ocrTask=new Task<ArrayList<String>>() {
             @Override
             protected ArrayList<String> call() {
@@ -548,6 +566,7 @@ public class Controller {
                         result=instance.doOCR(imageFile, new java.awt.Rectangle((int) rec.getX(), (int) rec.getY(), (int) rec.getWidth(), (int) rec.getHeight()));
                         logger.info("RESULT for \""+selection.getName()+"\" :\n-----------------------\n"+result+"\n-----------------------");
                         results.add(result);
+                        resultMap.put(selection.getName(),result);
                     }
                     catch(Exception e) {
                         e.printStackTrace();
@@ -565,15 +584,33 @@ public class Controller {
            /* for(int i=0; i<selections.size(); i++) {
                 logger.info("RESULT \""+selections.get(i).getName()+"\": "+ocrTask.getValue().get(i));
             }*/
+            logger.info("RESULTING OBJECT:");
+            logger.info("\n"+printMap(resultMap));
             progressTask.setDisable(true);
             progressTask.progressProperty().unbind();
             running.set(false);
+            String title=resultMap.get("title");
+            resultMap.remove("title");
+            dbService.storeResultMap(title,resultMap);
+
         });
         progressTask.progressProperty().bind(ocrTask.progressProperty());
         progressTask.setDisable(false);
         new Thread(ocrTask).start();
 
     }
+
+    private String printMap(HashMap<String, String> resultMap) {
+        StringBuilder stringBuilder=new StringBuilder("{\n");
+        resultMap.entrySet().forEach(entry->{
+            stringBuilder.append("\t\""+entry.getKey()+"\""+": "+"\""+entry.getValue().substring(0,entry.getValue().length()-1)+"\",\n");
+        });
+        stringBuilder.deleteCharAt(stringBuilder.length()-1);
+        stringBuilder.deleteCharAt(stringBuilder.length()-1);
+        stringBuilder.append("\n}");
+        return stringBuilder.toString();
+    }
+
     private void convertToPDF(File file){
         ITesseract instance=getTesseract();
         List<ITesseract.RenderedFormat> list=new ArrayList<ITesseract.RenderedFormat>();
@@ -618,6 +655,7 @@ public class Controller {
         //String outputPath=file.getAbsolutePath().replaceFirst("\\..?.?.?","");
 
     }
+
     /**
      * Returns an instace of ITesseract with options set from currProfile
      */
@@ -667,9 +705,15 @@ public class Controller {
         Optional<Pair<Boolean, Profile>> newOptions=dialog.showAndWait();
         if(newOptions.isPresent()) {
             Profile updatedProfile=newOptions.get().getValue();
+            if(updatedProfile.isRemove()){
+                IniProperties.Tesseract.removeProfile(updatedProfile.getName());
+                currProfile=new Profile("default",IniProperties.Tesseract.getProfile("default"));
+                loadProfiles();
+                return;
+            }
             /**
              * Has old Profile been renamed? (not new but other name) */
-            if(!newOptions.get().getKey() && !currProfile.getName().equals(updatedProfile.getName())) {
+            else if(!newOptions.get().getKey() && !currProfile.getName().equals(updatedProfile.getName())) {
                 IniProperties.Tesseract.renameProfile(currProfile.getName(), updatedProfile.getName(), updatedProfile.getOptions());
             }
             /**
@@ -883,5 +927,13 @@ public class Controller {
             convertToPDF(file);
         else
             logger.warn("Convert to PDF: no Image file opened!");
+    }
+
+    public void onCloseClicked() {
+        Platform.exit();
+    }
+
+    public void onMinimizeClicked() {
+        stage.setIconified(true);
     }
 }

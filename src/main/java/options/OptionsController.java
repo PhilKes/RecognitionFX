@@ -20,9 +20,10 @@ public class OptionsController {
     @FXML
     private TextField fieldWhitelist;
     @FXML
-    private Button btnAdd;
+    private Button btnAdd,btnRemove;
     @FXML
     private TextField fieldName;
+    private OptionsDialog dialog;
 
     private Profile profile;
     private boolean newProfile=false;
@@ -82,7 +83,17 @@ public class OptionsController {
         btnAdd.setDisable(true);
     }
 
+    public void onRemoveProfile(ActionEvent event) {
+      //TODO Remove Profile from settings and close Dialog
+        profile.setRemove(true);
+        dialog.close();
+    }
+
     public void onSetDefault(ActionEvent event) {
         setOptions(new HashMap<>());
+    }
+
+    public void setDialog(OptionsDialog optionsDialog) {
+        dialog=optionsDialog;
     }
 }

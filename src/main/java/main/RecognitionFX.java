@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import util.ResizeHelper;
 
 public class RecognitionFX extends Application {
     public void start(Stage primaryStage) throws Exception {
@@ -13,6 +15,7 @@ public class RecognitionFX extends Application {
         Parent root = loader.load();
         Controller controller = (Controller) loader.getController();
         controller.setStage(primaryStage);
+        primaryStage.initStyle(StageStyle.DECORATED);
         primaryStage.setTitle("Recognition FX");
         primaryStage.getIcons().addAll(
                 new Image(getClass().getResourceAsStream("/icon.png"))
@@ -26,6 +29,7 @@ public class RecognitionFX extends Application {
             System.exit(0);
         });
         primaryStage.show();
+        ResizeHelper.addResizeListener(primaryStage);
     }
     public static void main(String[] args) {
         launch(args);

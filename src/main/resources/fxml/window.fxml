@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.*?>
-<BorderPane fx:id="rootPane" maxHeight="Infinity" maxWidth="Infinity" minHeight="500.0" minWidth="500.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
+<BorderPane fx:id="rootPane" maxHeight="Infinity" maxWidth="Infinity" minHeight="500.0" minWidth="500.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
    <center>
       <StackPane fx:id="imgStack" styleClass="stack-pane" BorderPane.alignment="CENTER" />
    </center>
@@ -76,120 +76,140 @@
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <MenuBar>
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem fx:id="menu_Open" mnemonicParsing="false" onAction="#onImageOpen" text="Open Image">
+            <HBox fx:id="hBoxTop">
+               <children>
+                  <MenuBar>
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                          <MenuItem fx:id="menu_Open" mnemonicParsing="false" onAction="#onImageOpen" text="Open Image">
+                                 <graphic>
+                                    <FontIcon iconLiteral="fa-image" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                                 </graphic>
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem mnemonicParsing="false" onAction="#onOpenProject" text="Open Project">
+                                 <graphic>
+                                    <FontIcon iconLiteral="fa-folder-open-o" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                                 </graphic>
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <Menu fx:id="recentProjectsMenu" disable="true" mnemonicParsing="false" text="Recent Projects" visible="false" />
+                              <Menu fx:id="recentlyMenu" mnemonicParsing="false" text="Recent Images" />
+                              <MenuItem mnemonicParsing="false" onAction="#onConvertToPDF" text="Convert to PDF...">
+                                 <graphic>
+                                    <FontIcon iconLiteral="fa-file-pdf-o" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                                 </graphic>
+                              </MenuItem>
+                              <MenuItem fx:id="menuSaveAs" mnemonicParsing="false" onAction="#onSaveAs" text="Save as...">
+                                 <graphic>
+                                    <FontIcon iconLiteral="fa-save" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                                 </graphic>
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem fx:id="menuSave" mnemonicParsing="false" onAction="#onSave" text="Save">
+                                 <graphic>
+                                    <FontIcon iconLiteral="fa-save" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                                 </graphic>
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem mnemonicParsing="false" onAction="#onMenuFileClose" text="Close">
+                                 <graphic>
+                                    <FontIcon iconLiteral="fa-close" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                                 </graphic>
+                              </MenuItem>
+                        </items>
                            <graphic>
-                              <FontIcon iconLiteral="fa-image" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                              <FontIcon iconLiteral="fa-bars" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
                            </graphic>
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                           </accelerator>
-                        </MenuItem>
-                        <MenuItem mnemonicParsing="false" onAction="#onOpenProject" text="Open Project">
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Edit">
+                        <items>
+                              <MenuItem mnemonicParsing="false" text="Revert">
+                                 <graphic>
+                                    <FontIcon iconLiteral="fa-undo" iconSize="15" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                                 </graphic>
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                          <MenuItem mnemonicParsing="false" onAction="#onDeleteSelection" text="Delete Selection">
+                                 <graphic>
+                                    <FontIcon iconLiteral="fa-trash-o" iconSize="15" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                                 </graphic>
+                                 <accelerator>
+                                    <KeyCodeCombination alt="ANY" code="DELETE" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem mnemonicParsing="false" onAction="#onDeleteAll" text="Delete All">
+                                 <graphic>
+                                    <FontIcon iconLiteral="fa-times" iconSize="15" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                                 </graphic>
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="DELETE" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                        </items>
                            <graphic>
-                              <FontIcon iconLiteral="fa-folder-open-o" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                              <FontIcon iconLiteral="fa-edit" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
                            </graphic>
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                           </accelerator></MenuItem>
-                        <Menu fx:id="recentProjectsMenu" disable="true" mnemonicParsing="false" text="Recent Projects" visible="false" />
-                        <Menu fx:id="recentlyMenu" mnemonicParsing="false" text="Recent Images" />
-                        <MenuItem mnemonicParsing="false" onAction="#onConvertToPDF" text="Convert to PDF...">
+                      </Menu>
+                        <Menu mnemonicParsing="false" text="Analyze">
+                          <items>
+                            <MenuItem fx:id="menuAnalyzeAll" mnemonicParsing="false" onAction="#onAnalyzeAll" text="Analyze All">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                          </items>
                            <graphic>
-                              <FontIcon iconLiteral="fa-file-pdf-o" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
-                           </graphic></MenuItem>
-                        <MenuItem fx:id="menuSaveAs" mnemonicParsing="false" onAction="#onSaveAs" text="Save as...">
-                           <graphic>
-                              <FontIcon iconLiteral="fa-save" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                              <FontIcon iconLiteral="fa-magic" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
                            </graphic>
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
-                           </accelerator>
-                        </MenuItem>
-                        <MenuItem fx:id="menuSave" mnemonicParsing="false" onAction="#onSave" text="Save">
+                        </Menu>
+                      <Menu mnemonicParsing="false" text="Options">
+                        <items>
+                          <MenuItem mnemonicParsing="false" onAction="#onAnalyzeOptions" text="Analyze Options">
+                                 <graphic>
+                                    <FontIcon iconLiteral="fa-gear" iconSize="15" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                                 </graphic>
+                              </MenuItem>
+                        </items>
+                          <MenuItem mnemonicParsing="false" onAction="#switchTheme" text="Switch Theme">
+                              <graphic>
+                                  <FontIcon iconLiteral="fa-adjust" iconSize="15" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                              </graphic>
+                          </MenuItem>
+                          <graphic>
+                              <FontIcon iconLiteral="fa-gears" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                          </graphic>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                 <!-- <HBox fx:id="hBoxToolbar" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="btnMinimize" mnemonicParsing="false">
                            <graphic>
-                              <FontIcon iconLiteral="fa-save" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                              <FontIcon iconLiteral="fa-minus" iconSize="24" strokeType="OUTSIDE" strokeWidth="0.0" />
                            </graphic>
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                           </accelerator>
-                        </MenuItem>
-                        <MenuItem mnemonicParsing="false" onAction="#onMenuFileClose" text="Close">
+                        </Button>
+                        <Button fx:id="btnClose" layoutX="880.0" layoutY="10.0" mnemonicParsing="false">
                            <graphic>
-                              <FontIcon iconLiteral="fa-close" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
+                              <FontIcon iconLiteral="fa-close" iconSize="24" strokeType="OUTSIDE" strokeWidth="0.0" />
                            </graphic>
-                        </MenuItem>
-                  </items>
-                     <graphic>
-                        <FontIcon iconLiteral="fa-bars" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
-                     </graphic>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                        <MenuItem mnemonicParsing="false" text="Revert">
-                           <graphic>
-                              <FontIcon iconLiteral="fa-undo" iconSize="15" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
-                           </graphic>
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                           </accelerator>
-                        </MenuItem>
-                    <MenuItem mnemonicParsing="false" onAction="#onDeleteSelection" text="Delete Selection">
-                           <graphic>
-                              <FontIcon iconLiteral="fa-trash-o" iconSize="15" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
-                           </graphic>
-                           <accelerator>
-                              <KeyCodeCombination alt="ANY" code="DELETE" control="UP" meta="UP" shift="UP" shortcut="UP" />
-                           </accelerator>
-                        </MenuItem>
-                        <MenuItem mnemonicParsing="false" onAction="#onDeleteAll" text="Delete All">
-                           <graphic>
-                              <FontIcon iconLiteral="fa-times" iconSize="15" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
-                           </graphic>
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="DELETE" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
-                           </accelerator>
-                        </MenuItem>
-                  </items>
-                     <graphic>
-                        <FontIcon iconLiteral="fa-edit" iconSize="17" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
-                     </graphic>
-                </Menu>
-                  <Menu mnemonicParsing="false" text="Analyze">
-                    <items>
-                      <MenuItem fx:id="menuAnalyzeAll" mnemonicParsing="false" onAction="#onAnalyzeAll" text="Analyze All">
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                           </accelerator>
-                        </MenuItem>
-                    </items>
-                     <graphic>
-                        <FontIcon iconLiteral="fa-magic" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
-                     </graphic>
-                  </Menu>
-                <Menu mnemonicParsing="false" text="Options">
-                  <items>
-                    <MenuItem mnemonicParsing="false" onAction="#onAnalyzeOptions" text="Analyze Options">
-                           <graphic>
-                              <FontIcon iconLiteral="fa-gear" iconSize="15" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
-                           </graphic>
-                        </MenuItem>
-                  </items>
-                    <MenuItem mnemonicParsing="false" onAction="#switchTheme" text="Switch Theme">
-                        <graphic>
-                            <FontIcon iconLiteral="fa-adjust" iconSize="15" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
-                        </graphic>
-                    </MenuItem>
-                    <graphic>
-                        <FontIcon iconLiteral="fa-gears" iconSize="18" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font-icon" />
-                    </graphic>
-                </Menu>
-              </menus>
-            </MenuBar>
-            <MenuBar layoutX="10.0" layoutY="10.0">
+                        </Button>
+                     </children>
+                  </HBox>-->
+               </children>
+            </HBox>
+            <MenuBar fx:id="runMenuBar" layoutX="10.0" layoutY="10.0">
                <menus>
                   <Menu id="transparent" mnemonicParsing="false">
                      <graphic>

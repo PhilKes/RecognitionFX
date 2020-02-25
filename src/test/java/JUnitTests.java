@@ -1,5 +1,5 @@
-package config;
-
+import config.Project;
+import config.RectangleXML;
 import org.junit.Before;
 import org.junit.Test;
 
